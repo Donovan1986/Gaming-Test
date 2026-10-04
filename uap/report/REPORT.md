@@ -1,219 +1,145 @@
-# UAP investigation: blocked rerun and reproducible continuation
+# UAP empirical-signature investigation: interim status (2026-10-04)
 
-**Scientific status: `BLOCKED_NOT_RERUN`.** The corrected investigation has not
-produced a current discovery, replication, prediction, or scientific null result.
-The runner stopped at input preflight with exit code **2**,
-`state=BLOCKED_INPUTS`, `research_executed=false`, and
-`scientific_conclusion=NOT_EVALUATED`. See
-[`investigation_status.json`](../results/investigation_status.json).
+**Status: DISCOVERY PHASE COMPLETE; VALIDATION NOT YET RUN UNDER FINAL CODE.**
+Nothing below has been tested on held-out data under the final (merged, inference v4) code.
+Every discovery-phase number is provisional and comes from the superseded v3 run
+(`results/superseded_v3_pre_merge/`). No confidence grade above "unvalidated" is assigned yet.
+The archived handoff report (`archive/REPORT_blocked_rerun_handoff.md`) described a different
+environment whose raw inputs were missing. In this environment the input preflight passes and
+the pipeline runs.
 
-This continuation starts from Claude's commit
-`c793379dcca9537ed36a6f5486c9d9fcd5f08388` on
-`claude/cool-cannon-qn5hbl`. The handoff says the positive controls, calibration,
-discovery, machine-learning search and sequences had not been rerun after its
-DST, inference and selection fixes. Older CSVs remain provenance artifacts;
-their estimates and claimed significance are superseded as current findings.
-This also applies to spatial/natural-experiment summaries that the handoff said
-did not depend on those particular fixes: they were not independently rerun here.
+## Bottom line so far
 
-## What is verified in this environment
+**No pattern has been found that "refuses to disappear."** Every strong discovery-phase signal
+has a conventional explanation:
 
-**8 of 9,907 historical raw snapshots match their original SHA-256 hashes;
-9,899 remain absent.** The missing files include GEIPAN, environmental catalogs,
-population/gazetteers, facility layers and weather. Research hosts returned proxy
-`CONNECT 403 Forbidden`; this is an observed runtime access restriction, separate
-from upstream HTTP failures or missing credentials. Domain additions saved in an
-environment draft do not establish that runtime access changed.
+- **Observing conditions:** clear sky, no rain, moonlight.
+- **Known objects:** launches, bolides, ISS, Venus, holidays with fireworks and lanterns.
+- **Geography of who reports and where:** population and urbanisation gradients, plus NUFORC's
+  home region.
 
-[`input_restoration.json`](../results/input_restoration.json) records the full
-inventory. An offline audit classified missing files using previous denial
-evidence; it did **not** make 9,899 separate successful or failed downloads.
-The verified files are four NUFORC release files, Hatch, NICAP, Blue Book JSON,
-and JPL DE421. The two NUFORC releases are one reporting system, and overlaps
-between historical compilations require deduplication before independence claims.
+These effects are just as strong, or stronger, in reports the pipeline classifies as
+*explained* as in *unexplained* ones. That is the signature of a reporting and visibility
+mechanism, not of a distinct phenomenon. The space-weather, seismic and nuclear-facility
+hypotheses produced no signal that survives the robust designs. This is provisional until the
+locked holdouts are evaluated.
 
-| Verified raw file | Original snapshot SHA-256 |
+## 1. Does the pipeline find things that are really there? (positive controls)
+
+There were 38 positive-control tests (`results/positive_controls.csv`):
+
+| Outcome | Count |
 |---|---|
-| `nuforc/tt2023_ufo_sightings.csv` | `ad72ebc6cd34001144e8bea85524d34390f8e12d13b352b184ed57557a980647` |
-| `nuforc/tt2023_places.csv` | `6fe1aff91fc019e29e0f0c6e88d66ca9b74df01550ed38e56ff2507ca79f80bf` |
-| `nuforc/tt2023_day_parts_map.csv` | `c3969119d51829d387795df6bc9975d705f75ef7234757e9fa94adcea3dbb872` |
-| `nuforc/planetsig_scrubbed.csv` | `48c804c5923b3ab31118fd5a7b5e4c7578ddb1dd66f6a1418fa1c954ea644405` |
-| `catalogs/hatch_udb.json` | `e2186970c688a99366eee78778c4a3e1ec64c05daf0439c5749f56d0b1ce7cd5` |
-| `catalogs/nicap_db.json` | `be101a665fb9c1d97df935a1426febae05e3bdfea07e0b42c561a5d7b5c10efe` |
-| `catalogs/bb_unknowns_geldreich.json` | `b0317f23d6b3cc5384ab4015d3856ebc657db22a5c349da5e234c6147ec3b1bf` |
-| `astro/de421.bsp` | `a20a7139da04cbc462454634918e9a9ca69127044e2cc9d4f9c16e238d2deedc` |
+| Passed | 28 |
+| Inconclusive | 4 |
+| Not testable | 4 |
+| Failed | 1 |
+| Informational | 1 |
 
-DE421 was recovered from the `skyfield-data` 7.0.0 PyPI wheel after verifying
-both its published distribution SHA-256 and the extracted file's historical
-SHA-256. The actual artifact URL, member and retrieval timestamp are appended to
-[`manifest.jsonl`](../data/manifest.jsonl); original records and expected hashes
-were preserved. No divergent current snapshot was accepted.
+The pipeline recovers known relationships with large, correctly signed effects. Odds ratios
+are against matched controls: CS1 is the same place, same month, weekday and local time; CS2 is
+the same place ±1 or ±2 years.
 
-The restorer supports bounded concurrency, backoff, checksum resume, mismatch
-quarantine and atomic publication without overwriting a conflicting file.
-Its integrity/preservation checks passed. It can recover the **352 original
-weather-station IDs** from successful and failed acquisition attempts; joining
-them to the unavailable official station-history file remains blocked.
-
-Python is pinned to 3.11.15 and dependency versions are recorded in
-[`requirements.txt`](../requirements.txt). Software smoke/regression checks
-verify development mechanics, not empirical UAP relationships. **99 synthetic
-tests and nine environment smoke groups pass**; the smoke check ingested
-96,429 NUFORC records and the installed 52 packages pass dependency compatibility
-checks. The test commands and source fingerprints are recorded in
-[`verification.json`](../results/verification.json). The runner
-records actual input hashes, code/runtime fingerprints, commands, output hashes
-and stage outcomes when research can start; no completed research journal exists
-for this blocked preflight. The incoming research specification's SHA-256 is
-`69116e19438c708fa8f7a6328c84650a691f40c30741aec713774c7923c0ceff`;
-the incoming Claude handoff's is
-`2c8d811888dbdf3899624b456b5ade4e2798466e8fe67d7ce59f28ee66197182`.
-
-### Corrections verified with synthetic tests
-
-- Discovery cohort selection excludes temporal, geographic and random holdouts
-  across discovery searches, ML, sequences and relevant secondary analyses.
-- DST referents preserve local clock time/weekday; unavailable coordinates,
-  catalog coverage, weather and failed ISS propagation remain unavailable.
-  Weather matches preserve actual observation timing, and astronomical sidereal
-  rotation uses event timestamps instead of rounding them to ten-minute bins.
-- Conditional estimates are invariant to measurement units. Invalid,
-  nonconverged, separated and insufficient-cluster fits do not receive valid Wald
-  inference. Independence-based exact results cannot become eligible inference
-  when retained cases share supplied clusters.
-- Frozen specifications are immutable and checksum-checked; validation
-  reconstructs frozen grid exposures and applies Holm correction across all
-  scheduled validation and leave-one-source-out tests, retaining nominal verdicts
-  separately. Temporal shift diagnostics use at most
-  **30 distinct shifts**, report excluded fits/coverage, and are explicitly
-  sensitivity diagnostics rather than calibrated permutation p-values.
-- ML imputation is fitted on training data; singular spline designs report an
-  untestable status instead of aborting or inventing significance.
-
-Geographic masks require an entire earthquake exposure radius within a fetched
-catalog box and an entire storm radius within restored US Census boundaries.
-These conservative rules exclude some otherwise supported boundary locations;
-missing boundary data cannot establish zero storms. Astronomy still uses
-approximate geocentric body positions in ten-minute bins, and event-grouped ML
-cross-validation does not establish temporal or spatial generalization.
-
-These tests exercise known constructions rather than blocked environmental data.
-The mixed-layout hypothesis registry was recovered without adding research
-records: **1,017 original rows and all original cells/test IDs were retained**;
-new schema cells are blank. The original and normalized hashes and layout
-evidence are in [`registry_recovery.json`](../results/registry_recovery.json).
-
-## Historical follow-up inventory
-
-The six rows below are **unranked historical leads**, not six qualifying
-discoveries or a frozen selection. Reporting ten discoveries would invent
-evidence. [`patterns_table.csv`](../results/patterns_table.csv) preserves every
-requested machine-table column and adds fields covering all 24 requested
-per-candidate items, status and provenance. Current event/control counts,
-estimates, intervals, p-values and robustness scores are empty because they
-are not evaluated; emptiness never means zero. No letter evidence grade or
-novelty claim is assigned.
-
-| ID | Historical lead and source | Main qualification needed |
+| Known stimulus | Report subset | OR (CS1 / CS2) |
 |---|---|---|
-| H01 | Sunspots/F10.7: the handoff reported a preview association only under the different-year controls. | A database reporting trend can produce this contrast; require both temporal strategies and independent replication. |
-| H02 | Moonlight: the handoff reported a small suppression under both temporal strategies. | A conventional visibility/observer-behavior relationship; quantify local geometry, weather and baseline reporting before interpretation. |
-| H03 | Washington-centered clusters: historical [`spatial_scan_clusters.csv`](../results/spatial_scan_clusters.csv), also described in the handoff. | Clusters also appeared in explained reports; reporting-system geography is a strong alternative. |
-| H04 | Space-time proximity: historical discovery rows in [`spatial_knox.csv`](../results/spatial_knox.csv). | Deduplication, correlated reporting and geography can create interacting event pairs; rerun structured nulls and held-out checks. |
-| H05 | ICBM deactivation: historical [`natural_experiments.csv`](../results/natural_experiments.csv). | The historical bootstrap interval included no effect; few facilities, nonparallel trends and treatment-date uncertainty remain. |
-| H06 | Nuclear-plant shutdown: the same historical summary, using separate 25/50 km analyses. | Historical estimates did not support a clear effect; exposure denominators, facility comparability and operational dates need verification. |
+| CNEOS bolide within 30 min and 1000 km | all | 28.7 / 67.3 |
+| Meteor outburst ±1 d (dark sky) | meteor-like | 3.8 / 2.8 |
+| Rocket launch 0–3 h before, ≤1500 km | all | 1.68 / 1.68 |
+| Launch during observer twilight | all | 3.2 / 3.2 |
+| July 4th | orange/fireball | 7.8 |
+| New Year | orange/fireball | 5.3 |
+| Venus conspicuous | planet-like | 1.6 / 2.8 |
+| ISS visible pass ±10 min | satellite-like | 1.56 / 1.79 |
+| Moon above horizon | moon-word | 2.5 / 3.2 |
+| Clear sky (≤2 oktas) | all | 1.68 / 1.65 |
 
-The historical summaries do not supply independently checked representative
-cases. None were selected because their narratives fit a lead. The current run
-has not read processed validation/holdout outcomes or tested a new candidate.
+- **Failed:** "aircraft-like reports more common within 25 km of a large airport." The spatial
+  OR was 0.72, meaning fewer reports near large airports. Non-aircraft reports showed the same
+  pattern (OR 0.61), and the ratio between the two was 1.18 (NS). The lesson: spatial
+  (place-vs-place) designs are dominated by urban-core vs suburban/rural sky-view and reporting
+  gradients, so every spatial result needs the urbanisation adjudication (A1).
+- **Not testable:** Starlink, because there is no Starlink-era data in the discovery split.
+  This is re-tested after the freeze.
+- **Calibration:** placebo catalogues shifted by whole years, plus Gaussian-noise exposures,
+  give false-positive rates of 0–7.7% at α=0.05, with Clopper–Pearson CIs covering 5%
+  (`results/placebo_calibration_summary.csv`). Two-way cluster-robust SEs were needed for this:
+  naive SEs gave 15–19%.
 
-## TOP RESULT
+## 2. Discovery-phase patterns (provisional, v3, NUFORC discovery split 1995–2015)
 
-**No defensible current top candidate can be identified pending the corrected
-rerun.** This does not establish that no reproducible pattern exists. What
-happens, when/where it happens, its excess frequency, preceding/following
-variables, conventional-explanation coverage and replication are all unresolved
-for a current selected finding. There is no supported empirical temporal chain
-to draw, so no arrows implying an observed ordering are supplied.
+| Theme | What was seen | Leading explanation |
+|---|---|---|
+| Weather (largest, most consistent) | Clear sky OR ≈1.7. Overcast ≈0.55. Any precipitation ≈0.3–0.5. Calm clear night (inversion proxy) ≈1.4. Per okta of cloud 0.917. Clearing within 6 h ≈1.25. Fronts/pressure falls ≈0.7. The same in ALL / HQ / UNEXPLAINED / EXPLAINED / multi-sensor subsets. | Observation opportunity: you can only report what you can see. Same-mechanism in explained reports. |
+| Known objects | Launches, bolides, ISS, Venus and holidays, as above. A global launch within ±30 min and 500 km gave OR 7.3. | Conventional stimuli: WELL KNOWN. |
+| Spatial clustering | County rates are strongly autocorrelated: Moran's I 0.36 on population only, 0.08 after density and latitude adjustment. The top Kulldorff cluster is western Washington and Oregon, RR 2.7, still significant under overdispersed Monte Carlo (p=0.008). | NUFORC is headquartered in Washington State: a home-region reporting artifact. Most other clusters lose significance under the overdispersed null. |
+| Space–time clustering | Knox ratios: 1.48 at 10 km / 1 day, 1.19 at 25 km / 7 d, 1.08 at 50 km / 30 d. Larger in the HQ subset (3.7 at 10 km / 1 d). | Multiple witnesses of one object, local flaps and media waves. Expected. |
+| Military, airport and airspace proximity | Many CS4 (place-vs-place) associations of mixed sign. Closer to DoD sites and large airports gives fewer reports; within 500 km of military operations areas gives more. Equally present in EXPLAINED reports. | Urbanisation and land-use gradient; same-mechanism. To be adjudicated (A1, A2). |
+| Space weather | 228 tests. 7 reach q<0.05, all F10.7 solar flux under CS2 only, OR 1.03–1.07 per 10 sfu. Nothing under CS1. Kp, Dst, Bz and high-speed streams are null in discovery. | CS2 compares years ~1 solar-cycle phase apart, so it is confounded with NUFORC's multi-year growth. It was not promoted. A cross-system detrended test is scheduled. |
+| Seismic | 543 tests, 2 at q<0.05: an M4+ quake within 250 km the prior day, OR 1.29 (ALL, CS1) and 1.97 (EXPLAINED, CS2). | Weak, inconsistent across designs, stronger in *explained* reports. |
+| Nuclear / ICBM / DOE | Within 500 km of a nuclear test site, OR ≈0.52 (fewer reports): effectively "is in the Great Basin". Natural experiments (DiD): ICBM field deactivation IRR 1.66 (95% CI 1.00–2.77; bootstrap 0.85–3.55; 106 events); nuclear-plant shutdown IRR 0.79–0.90 (NS). | No robust signal. The ICBM result is borderline and rests on 106 events. It is a frozen secondary hypothesis for replication. |
 
-| Requested evidence-chain element | Current evidence |
-|---|---|
-| VARIABLE A | No qualifying exposure has been selected and frozen. |
-| VARIABLE B | No independently replicated preceding/following variable. |
-| CONDITION C | No robust combination established. |
-| ELEVATED UAP EVENT RATE | Not estimated against a verified matched baseline. |
+## 3. What the frozen validation plan contains
 
-The strongest immediate follow-up is restoration followed by calibration. A
-future prospective rule must be frozen after replication, use only information
-available before each forecast, outperform a matched reporting baseline in a
-rolling backtest, and log coverage and non-event intervals. No prediction claim
-is made here.
+The (superseded) v3 freeze held:
 
-Historical descriptive features include three-hour Kp, hourly OMNI and daily
-indices. A value assigned to a bin can include measurements or publication
-information later than an event inside that bin. Weather matching can also use
-a later nearby observation. Prospective prediction therefore requires verified
-measurement/publication availability times, explicit lags and strictly past
-weather observations; contemporaneous historical bins are not before-event
-predictors merely because their column names include “prior.”
+- 130 primary candidates:
+  - 124 rule-promoted;
+  - 5 ML interactions;
+  - 1 ordered sequence (substorm → convective storm).
+- 13 secondary, literature-driven hypotheses: moonlight; Kp ≥ 5; Dst ≤ −50; southward Bz;
+  high-speed streams; F10.7 top decile; M4 quakes in the prior 7 d; nuclear plants; ICBM fields;
+  DOE weapons sites.
+- Pre-declared adjudication tests: urbanisation adjustment, same-mechanism ratio of ORs,
+  solar cycle across 5 independent reporting systems, Knox and scan replication on holdouts,
+  and DiD replication.
 
-## Scientific gates before any claim
+The final freeze is regenerated from the v4 discovery run.
 
-1. Restore and verify required inputs; disclose reviewed replacements rather
-   than changing historical checksums. Build reports/events with explicit time,
-   location and measurement uncertainty and audit deduplication/exclusions.
-2. Verify matched controls and rediscover the available meteor, astronomy,
-   aircraft and weather relationships. Keep `PASSED`, `FAILED`, `INCONCLUSIVE`
-   and `NOT_TESTABLE` distinct. Successful program execution alone does not
-   establish successful calibration. Starlink is not testable in the historical
-   discovery era and belongs to a later integrity check after hypothesis freeze.
-3. Record every discovery test, missing exposure and model status. Apply the
-   declared control-strategy requirements, practical-effect/count thresholds,
-   multiplicity correction and structured null checks. Repeated or overlapping
-   time shifts do not provide thousands of independent permutations.
-4. Freeze exact variables, thresholds, windows, radii, subsets and directions
-   with a checksum before reading held-out outcomes. Reproduce unchanged results
-   geographically and across independent systems; assess leave-one-source-out,
-   quality, uncertainty, region and conventional-explanation sensitivity.
-5. Complete candidate-specific literature review and prediction qualification.
-   A computation-complete runner status still requires these scientific gates.
+Each candidate is then evaluated on:
 
-Missing ADS-B, radar, satellites or sensor data cannot exclude those explanations.
-“Unexplained by matcher” is not a validated physically unexplained observation;
-the handoff acknowledges limited sensitivity. Population proxies are not complete
-observable person-hours, and unreported observations are not verified absences.
-No causal, extraterrestrial, technological or paranormal inference is supported.
+- validation (E1), the locked random holdout (E2) and the 2016+ temporal holdout (E3);
+- France GEIPAN (E4) and non-North-American NUFORC (E5);
+- Hatch (E6), Blue Book unknowns (E7) and NICAP (E8);
+- leave-one-source-out;
+- a sensitivity grid;
+- structure-preserving permutations;
+- Holm correction across all validation tests;
+- a rolling-origin prospective backtest on 2016–2023, with coefficients learned only from
+  earlier years.
 
-[`LITERATURE.md`](LITERATURE.md) and
-[`literature_sources.csv`](../results/literature_sources.csv) distinguish material
-consulted from blocked requests and handoff leads. NASA/AARO/RAND and primary
-scholarly access was blocked. Exact-pattern novelty remains `NOT_ASSESSED`;
-unreachable literature cannot justify “no precedent.”
+## 4. Changes in this pass
 
-## Resume in the existing checkout
+- **Runner bug fixed:** after the merge, the freeze stage had stopped calling
+  `select_candidates.main()` before `build_frozen.main()`. The full run would have crashed hours
+  in, at the freeze, so that run was stopped 3 minutes in. Fixed in `src/run_investigation.py`.
+- **Backtest rewritten and added as a journaled stage after validation** (`src/backtest.py`):
+  - test years are restricted to 2016–2023, the only selection-clean years;
+  - it reuses the frozen subset and candidate materialisation;
+  - it applies the frozen scale;
+  - it computes a bootstrap CI over test years;
+  - it registers its results.
+- The 99 unit tests pass.
 
-Enable the listed research hosts in the environment's **runtime** network
-settings; requirements appear in `investigation_status.json`. No secret values
-should be supplied in chat. Then use the existing isolated checkout:
+## 5. Next passes (in order)
 
-```bash
-cd /workspace/Gaming-Test
-/workspace/.venvs/gaming-test/bin/python uap/src/run_investigation.py --preflight-only
-/workspace/.venvs/gaming-test/bin/python uap/src/run_investigation.py --restore --resume
-```
+1. Run `python3 src/run_investigation.py --python "$(which python3)" --feature-chunk 150000 --permutations 30`.
+   It takes hours. The journal is under `logs/` and status is in `results/investigation_status.json`.
+2. Before that, finish the per-stage pre-flight code review (interrupted in this pass): check
+   every declared stage output is written and the post-freeze code paths don't crash.
+3. After validation:
+   - generate grades A–F mechanically (METHODS §11);
+   - build `results/patterns_table.csv` with the required columns, plus the top-10 cards and
+     the TOP RESULT section;
+   - run an adversarial "try to explain it away" review of the top candidates;
+   - attach literature novelty labels from `results/literature_review.json`.
 
-The first command currently exits 2. After access changes, the second restores
-manifest snapshots, builds the tables/features/weather, runs controls and
-discovery, freezes selection, and proceeds to validation and secondary analyses.
-It reuses only completed stages whose commands and output/code/data/runtime
-hashes still match. The default feature chunk is 50,000 rows; the handoff's full
-workload needs roughly 14 GB RAM and hours of runtime. If restoration reports a
-changed mutable source, review its quarantined response and separately record any
-accepted replacement before retrying. Preserve existing frozen designs; do not
-reopen discovery against their holdout outcomes.
+The `results/patterns_table.csv` currently in the repo is a placeholder from the handoff and has
+no validated numbers.
 
-Once the corrected computation and scientific gates complete, replace this
-blocked report/table with actual estimates, independent replication, exact
-novelty classifications, representative-case provenance and any qualified
-backtest. A null finding can then be reported if supported by the completed
-analysis.
+## Data and reproducibility
+
+- Sources and retrieval: `report/DATA_SOURCES.md`, `data/manifest.jsonl` (URL, timestamp, SHA-256).
+- Methods: `report/METHODS.md`.
+- Every test ever run: `results/hypothesis_registry.csv`.
+- Master seed: 20261004.
+- NUFORC raw text and per-record data are not redistributed, per NUFORC terms.

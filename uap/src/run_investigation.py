@@ -151,12 +151,13 @@ def plan(args, identity):
     freeze = ("import select_candidates as s,hashlib,json; from common import RESULTS; "
               f"metadata=json.loads({json.dumps(metadata)!r}); "
               "metadata['splits_manifest_sha256']=hashlib.sha256((RESULTS/'splits_manifest.json').read_bytes()).hexdigest(); "
-              "import build_frozen as b; b.main(metadata); import validate; validate.load_frozen()")
+              "s.main(); import build_frozen as b; b.main(metadata); import validate; validate.load_frozen()")
     stage("freeze", "select_candidates", "results/candidate_selection_audit.csv results/frozen_hypotheses.json results/frozen_hypotheses.sha256", freeze)
     stage("validate", "validate", "results/validation_results.csv results/validation_sensitivity.csv results/validation_permutation.csv",
           f"import validate; validate.main(n_perm={args.permutations})")
     stage("starlink_integrity", "positive_controls", "results/positive_controls_starlink_integrity.csv",
           "import positive_controls as p; p.post_freeze_starlink_integrity()")
+    stage("backtest", "backtest", "results/backtest_summary.csv")
     for name, outputs in [
         ("solar_cycle_systems", "results/solar_cycle_across_systems.csv"),
         ("convergence", "results/convergence_events.csv results/convergence_score_distribution.csv"),
