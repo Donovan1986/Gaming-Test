@@ -49,7 +49,7 @@ SPATIAL_FEATS = ["dist_large_airport_km", "dist_medium_airport_km", "dist_small_
 
 
 def fit_models(df, feats, label, tag, seed=MASTER_SEED + 31):
-    X = df[feats].astype(float)
+    X = df[feats].astype(float).replace([np.inf, -np.inf], np.nan)  # e.g. no active ICBM field that year
     y = df["is_case"].to_numpy()
     groups = df["EVENT_ID"].to_numpy()
     gkf = GroupKFold(n_splits=5)
@@ -104,10 +104,13 @@ def test_interaction(pts, ids, a, b, strategy, subset, phase="discovery", split=
     za = (xa - np.nanmean(xa)) / (np.nanstd(xa) + 1e-9)
     zb = (xb - np.nanmean(xb)) / (np.nanstd(xb) + 1e-9)
     X = np.c_[za, zb, za * zb]
-    r = S.clogit(X, d.EVENT_ID.to_numpy(), d.is_case.to_numpy())
-    if r is None:
+    clu = np.c_[d["clu_night_i"].to_numpy(), d["clu_i"].to_numpy()]
+    r = S.clogit(X, d.EVENT_ID.to_numpy(), d.is_case.to_numpy(), clusters=clu)
+    if r.get("status") != "OK":
         return None
     r0 = S.clogit(X[:, :2], d.EVENT_ID.to_numpy(), d.is_case.to_numpy())
+    if r0.get("status") != "OK":
+        r0 = None
     b3, se3 = r["beta"][2], r["se"][2]
     from scipy import stats as sps
     p = 2 * sps.norm.sf(abs(b3 / se3))
@@ -117,6 +120,7 @@ def test_interaction(pts, ids, a, b, strategy, subset, phase="discovery", split=
                control_strategy=strategy, n_cases=r["n_case"], n_controls=r["n_ctrl"], n_strata=r["n_strata"],
                effect_measure="OR_per_SD_product", effect=np.exp(b3), ci_low=np.exp(b3 - 1.96 * se3),
                ci_high=np.exp(b3 + 1.96 * se3), p_value=p, direction="+" if b3 > 0 else "-",
+               status="OK", inference_method="wald_twoway_cluster_robust",
                notes=f"main OR/SD a={np.exp(r['beta'][0]):.3f} b={np.exp(r['beta'][1]):.3f}; BF10(BIC)={bf:.3g}")
     if register:
         S.register(**row)
@@ -135,17 +139,17 @@ def spline_clogit(pts, ids, var, strategy, knots=4):
     if len(qs) < 3:
         return None
     B = np.asarray(dmatrix(f"cr(x, knots={list(qs[1:-1])}, lower_bound={x.min()}, upper_bound={x.max()}) - 1",
-                           {"x": x.to_numpy()}))
+                           {"x": x.to_numpy()}))[:, 1:]  # drop one column: cr basis sums to 1 (collinear with set intercept)
     r = S.clogit(B, d.EVENT_ID.to_numpy(), d.is_case.to_numpy())
     r_lin = S.clogit(x.to_numpy(), d.EVENT_ID.to_numpy(), d.is_case.to_numpy())
-    if r is None or r_lin is None:
+    if r.get("status") != "OK" or r_lin.get("status") != "OK":
         return None
     lr = 2 * (r["ll"] - r_lin["ll"])
     from scipy import stats as sps
     p_nonlin = sps.chi2.sf(lr, B.shape[1] - 1)
     grid = np.quantile(x, [0.01, 0.1, 0.25, 0.5, 0.75, 0.9, 0.99])
     Bg = np.asarray(dmatrix(f"cr(x, knots={list(qs[1:-1])}, lower_bound={x.min()}, upper_bound={x.max()}) - 1",
-                            {"x": grid}))
+                            {"x": grid}))[:, 1:]
     eta = Bg @ r["beta"]
     eta -= eta[3]
     return dict(var=var, strategy=strategy, p_nonlinear=p_nonlin, grid=list(np.round(grid, 3)),
@@ -173,7 +177,7 @@ def main():
             imps.append(imp)
             print(subset, tag, {k: round(v["conditional_auc"], 3) for k, v in res.items()}, flush=True)
             print(imp.head(8).to_string(index=False))
-            it = shap_interactions(model, d[feats], feats)
+            it = shap_interactions(model, d[feats].astype(float).replace([np.inf, -np.inf], np.nan), feats)
             it["subset"], it["tag"] = subset, tag
             inter_rows.append(it.head(40))
             for _, row in it.head(10).iterrows():

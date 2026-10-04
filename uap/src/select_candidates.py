@@ -15,6 +15,8 @@ Rules (written before the discovery results were inspected):
      overlapping subsets). Changes made 2026-10-04 in response to an external
      audit; at that time only the family-A discovery output had been viewed.
  Only results with status OK / OK_EXACT (converged, non-separated or exact) are eligible.
+ R0  (added before families C/G were inspected) exposures that are inputs to the known-object
+     matcher are ineligible within matcher-defined subsets (selection on a function of the exposure).
  R5  one representative per (variable family x subset) is promoted - the
      smallest p - but ALL its parameters are frozen as found.
  Known-stimulus exposures (fireballs, launches, ISS, Venus, showers,
@@ -51,6 +53,12 @@ REQUIRED = {  # predeclared design: strategies each family was run with, and how
     "G_quake_grid": (["CS1", "CS4"], 2), "G_storm_grid": (["CS1", "CS4"], 2), "G_launch_grid": (["CS1", "CS4"], 2),
 }
 VALID = {"OK", "OK_EXACT"}
+# Exposures that are INPUTS to the known-object matcher. Within matcher-defined subsets
+# (UNEXPLAINED, HQ_UNEXPLAINED, EXPLAINED) their association is biased by construction
+# (conditioning on a function of the exposure), e.g. launches get OR ~0.003 among 'unexplained'.
+MATCHER_INPUTS = re.compile(r"launch|fireball|n_fb|iss_|venus|jupiter|shower|outburst|starlink|storm|hol_|mmdd|"
+                            r"large_airport|reentry|moon_up|moon_full")
+MATCHER_SUBSETS = {"UNEXPLAINED", "HQ_UNEXPLAINED", "EXPLAINED"}
 
 
 def supports(rows, direction_sign):
@@ -63,7 +71,20 @@ def halves_check(variable, subset, strategy, direction_sign):
     discovery periods 1995-2005 and 2006-2015 (replaces the overlapping-subset rule; audit item 7)."""
     import cc
     from discovery_tests import derive, subsets
-    pts = _pts_cache.setdefault("p", derive(cc.points()))
+    import re as _re
+    m = _re.match(r"(?:within\d+_|log_dist_)(.+?)(?:_km)?$", variable)
+    src_cols = [f"dist_{m.group(1)}_km"] if m else [variable]
+    key = tuple(src_cols)
+    if key not in _pts_cache:
+        _pts_cache[key] = cc.points_light([c_ for c_ in src_cols])
+    pts = _pts_cache[key]
+    if variable not in pts:
+        mw = _re.match(r"within(\d+)_", variable)
+        dist = pts[src_cols[0]]
+        if mw:
+            pts[variable] = (dist <= float(mw.group(1))).astype("float32").where(dist.notna())
+        else:
+            pts[variable] = np.log10(dist.clip(lower=0.5)).astype("float32")
     ev = cc.events()
     disc = ev[(ev.SOURCE == "NUFORC") & (ev.SPLIT == "discovery")]
     res = []
@@ -92,6 +113,8 @@ def main():
             continue
         best = gv.sort_values("p_value").iloc[0]
         reasons = []
+        if subset in MATCHER_SUBSETS and MATCHER_INPUTS.search(str(best.variable_a)):
+            reasons.append("R0 subset-definition artifact (exposure is a matcher input)")
         if not (best.q_bh_all < 0.05):
             reasons.append("R1 q>=0.05")
         if not (best.effect >= 1.15 or best.effect <= 1 / 1.15):

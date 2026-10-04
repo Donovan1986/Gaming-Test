@@ -27,6 +27,19 @@ def points(weather=True) -> pd.DataFrame:
     return _cache[key]
 
 
+def points_light(columns) -> pd.DataFrame:
+    """Memory-light load of selected columns plus the matching/clustering keys."""
+    base = ["EVENT_ID", "strategy", "is_case", "utc_ts", "lat", "lon"]
+    f = PROCESSED / "points.parquet"
+    p = pd.read_parquet(f, columns=list(dict.fromkeys(base + list(columns))))
+    cl = p[p.strategy == "CASE"].set_index("EVENT_ID")
+    cell = (np.floor(cl.lat / 0.5).astype("Int64").astype(str) + "_" + np.floor(cl.lon / 0.5).astype("Int64").astype(str))
+    night = (cl.utc_ts - pd.Timedelta(hours=12)).dt.strftime("%Y-%m-%d")
+    p["clu_i"] = pd.factorize(p.EVENT_ID.map(cell))[0]
+    p["clu_night_i"] = pd.factorize(p.EVENT_ID.map(night))[0]
+    return p
+
+
 def events() -> pd.DataFrame:
     if "ev" not in _cache:
         _cache["ev"] = pd.read_parquet(PROCESSED / "events.parquet")

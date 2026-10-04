@@ -1,0 +1,605 @@
+family,fam,subset,variable,OR,p,q,n_exposed_cases,strategies_supporting,promoted,reasons
+A_global_temporal,Ap,ALL,Ap,1.014476401562205,0.1941740269708237,0.5014956613121275,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,Ap,EXPLAINED,Ap,1.032268622487862,0.1073331284530868,0.3499686013343358,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,Ap,HQ,Ap,1.0140033288319583,0.5073137476505226,0.7959934130179771,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,Ap,HQ_UNEXPLAINED,Ap,1.0263795840891123,0.1977295329704949,0.50548389380531,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,Ap,MULTI_SENSOR,Ap,0.9886627232617636,0.7832433196475846,0.961644118277906,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,Ap,UNEXPLAINED,Ap,1.01353857803158,0.2353395787603077,0.5598400686226677,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,F107,ALL,F107,1.0261630714591532,7.966296165976034e-15,2.300931875939411e-13,,CS2,False,"R2 effect<1.15x; R4 strategies supporting ['CS2'] < 2 of ['CS1', 'CS2']"
+A_global_temporal,F107,EXPLAINED,F107,1.0234205327943204,6.767458818220018e-06,7.376104485519051e-05,,CS2,False,"R2 effect<1.15x; R4 strategies supporting ['CS2'] < 2 of ['CS1', 'CS2']"
+A_global_temporal,F107,HQ,F107,1.0688219011053983,7.52274123485778e-21,3.141424231327358e-19,,CS2,False,"R2 effect<1.15x; R4 strategies supporting ['CS2'] < 2 of ['CS1', 'CS2']"
+A_global_temporal,F107,HQ_UNEXPLAINED,F107,1.0662046087483663,5.8520645995865445e-22,2.6004174233547384e-20,,CS2,False,"R2 effect<1.15x; R4 strategies supporting ['CS2'] < 2 of ['CS1', 'CS2']"
+A_global_temporal,F107,MULTI_SENSOR,F107,1.007942068052292,0.3079442376662248,0.6379765258524419,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,F107,UNEXPLAINED,F107,1.025120582037329,1.7427540545942047e-14,4.756209097026389e-13,,CS2,False,"R2 effect<1.15x; R4 strategies supporting ['CS2'] < 2 of ['CS1', 'CS2']"
+A_global_temporal,SN,ALL,SN,1.0180664974078348,2.6242016152588044e-15,7.909115476945233e-14,,CS2,False,"R2 effect<1.15x; R4 strategies supporting ['CS2'] < 2 of ['CS1', 'CS2']"
+A_global_temporal,SN,EXPLAINED,SN,1.0146906558372186,0.0003810622569478,0.0030154378597745,,CS2,False,"R2 effect<1.15x; R4 strategies supporting ['CS2'] < 2 of ['CS1', 'CS2']"
+A_global_temporal,SN,HQ,SN,1.045107799350691,6.3287870805899514e-21,2.675070246503021e-19,,CS2,False,"R2 effect<1.15x; R4 strategies supporting ['CS2'] < 2 of ['CS1', 'CS2']"
+A_global_temporal,SN,HQ_UNEXPLAINED,SN,1.045043693823977,9.993486981767289e-24,5.019916794029773e-22,,CS2,False,"R2 effect<1.15x; R4 strategies supporting ['CS2'] < 2 of ['CS1', 'CS2']"
+A_global_temporal,SN,MULTI_SENSOR,SN,1.0118600725444742,0.08104269761945,0.2894958099784905,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,SN,UNEXPLAINED,SN,1.0172009513140974,1.5462920844891423e-14,4.322135778096264e-13,,CS2,False,"R2 effect<1.15x; R4 strategies supporting ['CS2'] < 2 of ['CS1', 'CS2']"
+A_global_temporal,ae,ALL,ae,1.0068178146486464,0.3446471827134844,0.6760312027645369,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,ae,EXPLAINED,ae,1.0076769648245136,0.6013871810987895,0.8513269857954543,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,ae,HQ,ae,1.0114198010466349,0.4168761569440387,0.7281940672949958,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,ae,HQ_UNEXPLAINED,ae,1.0199930923016876,0.1185917679710272,0.3723743361036315,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,ae,MULTI_SENSOR,ae,0.9758604041372102,0.3577067683796838,0.6872570172971088,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,ae,UNEXPLAINED,ae,1.0074902575809237,0.285677877214201,0.6169218208251842,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,ae_max_prior6h,ALL,ae_max_prior6h,1.0066079186808758,0.2639618011948251,0.5894920122044226,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,ae_max_prior6h,EXPLAINED,ae_max_prior6h,1.0077387634722856,0.509149047999818,0.7963495489022424,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,ae_max_prior6h,HQ,ae_max_prior6h,1.0113638431201133,0.3177196455690665,0.6485372741710157,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,ae_max_prior6h,HQ_UNEXPLAINED,ae_max_prior6h,1.017862693769488,0.0898700706336038,0.3112232742202578,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,ae_max_prior6h,MULTI_SENSOR,ae_max_prior6h,0.9833585191619324,0.4300387631565618,0.7400766400698329,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,ae_max_prior6h,UNEXPLAINED,ae_max_prior6h,1.00642507397596,0.2661277878030691,0.5924206246149246,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,ae_substorm500_prior6h,ALL,ae_substorm500_prior6h,1.0585512797717145,0.1053316233813441,0.3463751486145531,7774.0,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,ae_substorm500_prior6h,EXPLAINED,ae_substorm500_prior6h,1.112064851691826,0.1390668242611295,0.4099251926863331,849.0,,False,"R0 subset-definition artifact (exposure is a matcher input); R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,ae_substorm500_prior6h,HQ,ae_substorm500_prior6h,1.054316365790564,0.4313877374627937,0.7409266095371868,1121.0,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,ae_substorm500_prior6h,HQ_UNEXPLAINED,ae_substorm500_prior6h,1.0577498594356172,0.372413133226479,0.699212806789293,775.0,,False,"R0 subset-definition artifact (exposure is a matcher input); R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,ae_substorm500_prior6h,MULTI_SENSOR,ae_substorm500_prior6h,0.9247191154321296,0.5620602904485775,0.8272190941379065,113.0,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,ae_substorm500_prior6h,UNEXPLAINED,ae_substorm500_prior6h,1.0460210647733477,0.1909816193345579,0.4973270417833041,4814.0,,False,"R0 subset-definition artifact (exposure is a matcher input); R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,bz_gsm,ALL,bz_gsm,0.9955483859118024,0.2952533502792899,0.6269102154289596,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,bz_gsm,EXPLAINED,bz_gsm,1.00321331433138,0.6925424418978465,0.9140716312330296,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,bz_gsm,HQ,bz_gsm,0.9932195669115972,0.3757165272607498,0.7028405928561109,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,bz_gsm,HQ_UNEXPLAINED,bz_gsm,0.9892733696663344,0.1408691290825339,0.4134228631668607,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,bz_gsm,MULTI_SENSOR,bz_gsm,0.9860415581912672,0.3901354395510242,0.7140373564823561,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,bz_gsm,UNEXPLAINED,bz_gsm,0.995030407485495,0.2444667046457378,0.5686722136255888,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,bz_min_prior3h,ALL,bz_min_prior3h,0.993638602921702,0.1832313329145186,0.4865615763373434,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,bz_min_prior3h,EXPLAINED,bz_min_prior3h,0.9912938096227026,0.3974311653486583,0.7142099637137025,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,bz_min_prior3h,HQ,bz_min_prior3h,0.9962898856311088,0.6674317768895586,0.8917958900151156,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,bz_min_prior3h,HQ_UNEXPLAINED,bz_min_prior3h,0.990663116435953,0.2435439315875085,0.5679591228360842,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,bz_min_prior3h,MULTI_SENSOR,bz_min_prior3h,1.006618515149727,0.6991712677801663,0.9179271265629,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,bz_min_prior3h,UNEXPLAINED,bz_min_prior3h,0.9933826704055024,0.1504363334410401,0.4304674990392325,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,bz_south10_prior3h,ALL,bz_south10_prior3h,1.234148474721073,0.0829270093141453,0.293890607651153,466.0,,False,"R1 q>=0.05; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,bz_south10_prior3h,EXPLAINED,bz_south10_prior3h,1.786400527571649,0.007588671863856,0.0451155003089623,76.0,CS1;CS2,True,
+A_global_temporal,bz_south10_prior3h,HQ,bz_south10_prior3h,1.090033001271456,0.7124146524375028,0.9279328017092764,64.0,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,bz_south10_prior3h,HQ_UNEXPLAINED,bz_south10_prior3h,1.1885988093894002,0.4681373579674339,0.7642788896444305,45.0,,False,"R1 q>=0.05; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,bz_south10_prior3h,MULTI_SENSOR,bz_south10_prior3h,1.105053385292607,1.0,1.0,6.0,,False,"R1 q>=0.05; R2 effect<1.15x; R3 exposed cases<30; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,bz_south10_prior3h,UNEXPLAINED,bz_south10_prior3h,1.2211737472113833,0.1024752536020474,0.34023049827103,273.0,,False,"R1 q>=0.05; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,dst,ALL,dst,0.9890931503855528,0.1441131647403514,0.4190404605621292,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,dst,EXPLAINED,dst,0.976028343366366,0.0667605763941888,0.2501536840889283,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,dst,HQ,dst,0.9808181469941644,0.15404610836959,0.4367009390626963,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,dst,HQ_UNEXPLAINED,dst,0.9808576458380314,0.1312608356032698,0.3954455093139383,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,dst,MULTI_SENSOR,dst,1.015716052703612,0.5924682111218547,0.8457556918238667,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,dst,UNEXPLAINED,dst,0.9886266062914212,0.1256286896522431,0.383637919237599,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,dst_change_prior6h,ALL,dst_change_prior6h,0.9854202509795,0.0901026654235104,0.3113617530985914,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,dst_change_prior6h,EXPLAINED,dst_change_prior6h,0.9696718891890186,0.1084222461449947,0.3531875048294658,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,dst_change_prior6h,HQ,dst_change_prior6h,0.971676739334446,0.1246110203280254,0.3819272154677362,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,dst_change_prior6h,HQ_UNEXPLAINED,dst_change_prior6h,0.9838831776762362,0.3521431239607598,0.6812997005923398,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,dst_change_prior6h,MULTI_SENSOR,dst_change_prior6h,0.947247546769612,0.0735213427938047,0.2697142301034415,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,dst_change_prior6h,UNEXPLAINED,dst_change_prior6h,0.9874605936250336,0.1350745938521987,0.4011727011925627,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,dst_min_prior24h,ALL,dst_min_prior24h,0.9936884494549608,0.2931887695287117,0.6249644988846955,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,dst_min_prior24h,EXPLAINED,dst_min_prior24h,0.9801514050804256,0.0698873733791876,0.2599030430603693,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,dst_min_prior24h,HQ,dst_min_prior24h,0.9877612652621788,0.2216539820814055,0.5410230295029236,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,dst_min_prior24h,HQ_UNEXPLAINED,dst_min_prior24h,0.9868058041649584,0.1530502364246345,0.4348132126621176,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,dst_min_prior24h,MULTI_SENSOR,dst_min_prior24h,1.015312258637013,0.4882693289978778,0.7849450344650484,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,dst_min_prior24h,UNEXPLAINED,dst_min_prior24h,0.9927467292072764,0.2252282907796556,0.5457695325812963,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,dst_storm100_prior72h,ALL,dst_storm100_prior72h,1.028994037247695,0.6850032602894827,0.9072301490880194,1763.0,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,dst_storm100_prior72h,EXPLAINED,dst_storm100_prior72h,1.252477929525293,0.1072062546584226,0.3499686013343358,215.0,,False,"R0 subset-definition artifact (exposure is a matcher input); R1 q>=0.05; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,dst_storm100_prior72h,HQ,dst_storm100_prior72h,1.0286371568534205,0.817924802155901,0.980099137038316,237.0,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,dst_storm100_prior72h,HQ_UNEXPLAINED,dst_storm100_prior72h,0.9350507085206224,0.6015290791151378,0.8513269857954543,150.0,,False,"R0 subset-definition artifact (exposure is a matcher input); R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,dst_storm100_prior72h,MULTI_SENSOR,dst_storm100_prior72h,1.3068035384127892,0.2712637880501598,0.6007206001707769,28.0,,False,"R1 q>=0.05; R3 exposed cases<30; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,dst_storm100_prior72h,UNEXPLAINED,dst_storm100_prior72h,1.0360570895571573,0.6272344877194109,0.8689027715569457,1082.0,,False,"R0 subset-definition artifact (exposure is a matcher input); R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,dst_storm50_prior24h,ALL,dst_storm50_prior24h,1.0888981424737811,0.0871537770395167,0.3045110798578278,4626.0,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,dst_storm50_prior24h,EXPLAINED,dst_storm50_prior24h,1.2716069944493773,0.0095895178390067,0.0552114100166069,549.0,CS2,False,"R0 subset-definition artifact (exposure is a matcher input); R1 q>=0.05; R4 strategies supporting ['CS2'] < 2 of ['CS1', 'CS2']"
+A_global_temporal,dst_storm50_prior24h,HQ,dst_storm50_prior24h,1.2577870702631768,0.011441134606915,0.0642041555895514,697.0,CS2,False,"R1 q>=0.05; R4 strategies supporting ['CS2'] < 2 of ['CS1', 'CS2']"
+A_global_temporal,dst_storm50_prior24h,HQ_UNEXPLAINED,dst_storm50_prior24h,1.185846095552955,0.0457247577103977,0.1907105859598764,458.0,CS2,False,"R0 subset-definition artifact (exposure is a matcher input); R1 q>=0.05; R4 strategies supporting ['CS2'] < 2 of ['CS1', 'CS2']"
+A_global_temporal,dst_storm50_prior24h,MULTI_SENSOR,dst_storm50_prior24h,0.8942750716202927,0.4780377650958778,0.7749667417316709,62.0,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,dst_storm50_prior24h,UNEXPLAINED,dst_storm50_prior24h,1.0810161649355587,0.1065140153099973,0.3486147397405929,2863.0,,False,"R0 subset-definition artifact (exposure is a matcher input); R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,efield,ALL,efield,1.0102332579050544,0.243931774476658,0.5679591228360842,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,efield,EXPLAINED,efield,0.9894734994687404,0.5470216543774298,0.8168200561692276,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,efield,HQ,efield,1.0136224274728394,0.4207399953961648,0.7308178196461056,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,efield,HQ_UNEXPLAINED,efield,1.0212634132175942,0.1477863325387489,0.4253466003316751,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,efield,MULTI_SENSOR,efield,1.027607144404234,0.4583763003092961,0.7576756487952623,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,efield,UNEXPLAINED,efield,1.0104532020475,0.2465032827403918,0.5711804706912097,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,flareMX_any_prior24h,ALL,flareMX_any_prior24h,1.1114214492627603,0.0160120560663214,0.0829563323256656,7188.0,CS2,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting ['CS2'] < 2 of ['CS1', 'CS2']"
+A_global_temporal,flareMX_any_prior24h,EXPLAINED,flareMX_any_prior24h,1.122141556206253,0.1090498281291637,0.354057335724391,758.0,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,flareMX_any_prior24h,HQ,flareMX_any_prior24h,1.2422704680475944,0.0052620641973851,0.0327438321510537,1168.0,CS2,False,"R4 strategies supporting ['CS2'] < 2 of ['CS1', 'CS2']"
+A_global_temporal,flareMX_any_prior24h,HQ_UNEXPLAINED,flareMX_any_prior24h,1.1940232476508392,0.013059558468516,0.0710587592651124,784.0,CS2,False,"R1 q>=0.05; R4 strategies supporting ['CS2'] < 2 of ['CS1', 'CS2']"
+A_global_temporal,flareMX_any_prior24h,MULTI_SENSOR,flareMX_any_prior24h,0.986643553495316,0.9194174144072602,1.0,105.0,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,flareMX_any_prior24h,UNEXPLAINED,flareMX_any_prior24h,1.1065281572097796,0.0152640928523876,0.080210955770067,4433.0,CS2,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting ['CS2'] < 2 of ['CS1', 'CS2']"
+A_global_temporal,hss600_prior24h,ALL,hss600_prior24h,0.9534026128721612,0.2731873799988696,0.6028153406042093,5512.0,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,hss600_prior24h,EXPLAINED,hss600_prior24h,0.9220386217743312,0.2756780471609511,0.6039823713399852,594.0,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,hss600_prior24h,HQ,hss600_prior24h,1.0672212377797543,0.4559438975260018,0.7574948789392363,784.0,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,hss600_prior24h,HQ_UNEXPLAINED,hss600_prior24h,1.0880070797511088,0.2929866034155004,0.6249644988846955,558.0,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,hss600_prior24h,MULTI_SENSOR,hss600_prior24h,0.8416447661538959,0.2048088691658245,0.5151433530687575,75.0,,False,"R1 q>=0.05; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,hss600_prior24h,UNEXPLAINED,hss600_prior24h,0.953033976901218,0.2667287820740762,0.5930127143952902,3404.0,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,jupiter_alt,ALL,jupiter_alt,1.0076400980743545,1.887962574428076e-05,0.0001880367322691,,CS2,False,"R2 effect<1.15x; R4 strategies supporting ['CS2'] < 2 of ['CS1', 'CS2']"
+A_global_temporal,jupiter_alt,EXPLAINED,jupiter_alt,1.0103821508652329,0.0084610368229071,0.0496618422457509,,CS2,False,"R0 subset-definition artifact (exposure is a matcher input); R2 effect<1.15x; R4 strategies supporting ['CS2'] < 2 of ['CS1', 'CS2']"
+A_global_temporal,jupiter_alt,HQ,jupiter_alt,1.008600473101081,0.0337164493114939,0.1519651668577868,,CS2,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting ['CS2'] < 2 of ['CS1', 'CS2']"
+A_global_temporal,jupiter_alt,HQ_UNEXPLAINED,jupiter_alt,1.0085968836000756,0.0220895930453583,0.1079866424474074,,CS2,False,"R0 subset-definition artifact (exposure is a matcher input); R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting ['CS2'] < 2 of ['CS1', 'CS2']"
+A_global_temporal,jupiter_alt,MULTI_SENSOR,jupiter_alt,1.128395460590993,0.1315489533291895,0.3954455093139383,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,jupiter_alt,UNEXPLAINED,jupiter_alt,1.0058796385414357,0.0004075984009885,0.003174687770396,,CS2,False,"R0 subset-definition artifact (exposure is a matcher input); R2 effect<1.15x; R4 strategies supporting ['CS2'] < 2 of ['CS1', 'CS2']"
+A_global_temporal,kp,ALL,kp,1.0107836281728524,0.3201493346631824,0.6526952824919056,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,kp,EXPLAINED,kp,1.0219960699552908,0.2958048921728775,0.6272358337408318,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,kp,HQ,kp,1.0211954173480209,0.309689408675459,0.6404436100651199,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,kp,HQ_UNEXPLAINED,kp,1.0382466830384955,0.0563157343870354,0.2223124548809395,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,kp,MULTI_SENSOR,kp,0.9664846618084422,0.3851994330609743,0.7094586920523418,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,kp,UNEXPLAINED,kp,1.0100440914752489,0.3482090164439319,0.6786982367970921,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,kp_change_prior24h,ALL,kp_change_prior24h,1.0088895364925945,0.3245135085927199,0.6555066496521338,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,kp_change_prior24h,EXPLAINED,kp_change_prior24h,1.0214500105567954,0.285873265215314,0.6169593631608209,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,kp_change_prior24h,HQ,kp_change_prior24h,1.017040660687556,0.3451827817370817,0.6762004410413713,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,kp_change_prior24h,HQ_UNEXPLAINED,kp_change_prior24h,1.016495765841735,0.330189501082287,0.6605336720373882,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,kp_change_prior24h,MULTI_SENSOR,kp_change_prior24h,1.0111581469707185,0.7346945094305326,0.9361952829728772,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,kp_change_prior24h,UNEXPLAINED,kp_change_prior24h,1.0052084895515203,0.546156343738856,0.8168200561692276,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,kp_max_prior24h,ALL,kp_max_prior24h,1.0123992293932629,0.2947850233548806,0.6264407669822296,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,kp_max_prior24h,EXPLAINED,kp_max_prior24h,1.0284430779336486,0.2072205038978304,0.5186532374100721,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,kp_max_prior24h,HQ,kp_max_prior24h,1.0223613723584202,0.2565611181676275,0.5819133108455653,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,kp_max_prior24h,HQ_UNEXPLAINED,kp_max_prior24h,1.036460908779385,0.0535344681285074,0.2145092098652102,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,kp_max_prior24h,MULTI_SENSOR,kp_max_prior24h,0.9343301030792204,0.0795664112064556,0.2869727599110219,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,kp_max_prior24h,UNEXPLAINED,kp_max_prior24h,1.0119267973307728,0.267954450660739,0.5949584407367849,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,kp_max_prior72h,ALL,kp_max_prior72h,1.0040609706060375,0.7405803772602532,0.9378699473134336,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,kp_max_prior72h,EXPLAINED,kp_max_prior72h,1.014663490853849,0.537727707342164,0.8117440042020647,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,kp_max_prior72h,HQ,kp_max_prior72h,0.9902618018761336,0.6647991296607622,0.8901529312374084,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,kp_max_prior72h,HQ_UNEXPLAINED,kp_max_prior72h,1.0229374676363412,0.2393090119121563,0.5641915390876887,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,kp_max_prior72h,MULTI_SENSOR,kp_max_prior72h,0.9786905098798216,0.5504154852289516,0.81982813571274,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,kp_max_prior72h,UNEXPLAINED,kp_max_prior72h,1.0043555025689144,0.7183050326163014,0.9287383699292896,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,kp_storm5_prior24h,ALL,kp_storm5_prior24h,1.034519653746054,0.4739803463848545,0.770913130253358,4212.0,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,kp_storm5_prior24h,EXPLAINED,kp_storm5_prior24h,1.2032324266880186,0.0938354385252793,0.3210598518545097,483.0,,False,"R0 subset-definition artifact (exposure is a matcher input); R1 q>=0.05; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,kp_storm5_prior24h,HQ,kp_storm5_prior24h,1.1826948607272925,0.073537203533685,0.2697142301034415,590.0,,False,"R1 q>=0.05; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,kp_storm5_prior24h,HQ_UNEXPLAINED,kp_storm5_prior24h,1.1236984678308322,0.1963523364543346,0.504864390319528,390.0,,False,"R0 subset-definition artifact (exposure is a matcher input); R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,kp_storm5_prior24h,MULTI_SENSOR,kp_storm5_prior24h,0.7433175008284939,0.0811728817411441,0.2894958099784905,51.0,,False,"R1 q>=0.05; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,kp_storm5_prior24h,UNEXPLAINED,kp_storm5_prior24h,1.023532781869001,0.6172458616031327,0.8603914678628998,2626.0,,False,"R0 subset-definition artifact (exposure is a matcher input); R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,kp_storm7_prior24h,ALL,kp_storm7_prior24h,1.102506041701215,0.3592844126335114,0.6887079733503804,573.0,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,kp_storm7_prior24h,EXPLAINED,kp_storm7_prior24h,1.2364351839898122,0.2201858943220968,0.5389578458477312,69.0,,False,"R0 subset-definition artifact (exposure is a matcher input); R1 q>=0.05; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,kp_storm7_prior24h,HQ,kp_storm7_prior24h,0.8294002331521354,0.4107476370754834,0.7228670255145591,56.0,,False,"R1 q>=0.05; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,kp_storm7_prior24h,HQ_UNEXPLAINED,kp_storm7_prior24h,0.8456506718789591,0.4928327571545212,0.7892404557039877,40.0,,False,"R0 subset-definition artifact (exposure is a matcher input); R1 q>=0.05; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,kp_storm7_prior24h,MULTI_SENSOR,kp_storm7_prior24h,0.8097865146965114,0.8058735617957176,0.9755143079814194,6.0,,False,"R1 q>=0.05; R3 exposed cases<30; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,kp_storm7_prior24h,UNEXPLAINED,kp_storm7_prior24h,1.1293944255524186,0.2750150011374215,0.6039823713399852,368.0,,False,"R0 subset-definition artifact (exposure is a matcher input); R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,log_wiki_views,ALL,log_wiki_views,49216.01477823615,0.0135486587452584,0.0729765940435399,,CS2,False,"R1 q>=0.05; R4 strategies supporting ['CS2'] < 2 of ['CS1', 'CS2']"
+A_global_temporal,log_wiki_views,EXPLAINED,log_wiki_views,69.22245498335161,0.0133724979446816,0.0724204341816663,,CS1,False,"R1 q>=0.05; R4 strategies supporting ['CS1'] < 2 of ['CS1', 'CS2']"
+A_global_temporal,log_wiki_views,HQ,log_wiki_views,24.34154487252321,0.0415892960998499,0.1766840292094816,,CS1,False,"R1 q>=0.05; R4 strategies supporting ['CS1'] < 2 of ['CS1', 'CS2']"
+A_global_temporal,log_wiki_views,HQ_UNEXPLAINED,log_wiki_views,6.990494156699858,0.181753465300837,0.4845827005636163,,,False,"R1 q>=0.05; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,log_wiki_views,MULTI_SENSOR,log_wiki_views,93148.47580619282,0.2052835123647931,0.5159627656681458,,,False,"R1 q>=0.05; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,log_wiki_views,UNEXPLAINED,log_wiki_views,31103.80084239213,0.0249063065890921,0.1190693222590251,,CS2,False,"R1 q>=0.05; R4 strategies supporting ['CS2'] < 2 of ['CS1', 'CS2']"
+A_global_temporal,media_event_within30d,ALL,media_event_within30d,1.172903975407721,0.1248588598120619,0.3822975336648469,675.0,,False,"R1 q>=0.05; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,media_event_within30d,EXPLAINED,media_event_within30d,0.8067119881550038,0.2302498464963667,0.5522809466826346,56.0,,False,"R1 q>=0.05; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,media_event_within30d,HQ,media_event_within30d,1.5130434782608695,0.0135786572037428,0.0729765940435399,87.0,CS2,False,"R1 q>=0.05; R4 strategies supporting ['CS2'] < 2 of ['CS1', 'CS2']"
+A_global_temporal,media_event_within30d,HQ_UNEXPLAINED,media_event_within30d,1.49112426035503,0.0292961729525973,0.1343128775842625,63.0,CS2,False,"R1 q>=0.05; R4 strategies supporting ['CS2'] < 2 of ['CS1', 'CS2']"
+A_global_temporal,media_event_within30d,MULTI_SENSOR,media_event_within30d,3.2700125446010784,0.0564442093771797,0.2225661316283334,13.0,,False,"R1 q>=0.05; R3 exposed cases<30; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,media_event_within30d,UNEXPLAINED,media_event_within30d,1.1799865398430185,0.1273774725838701,0.3872722105049946,425.0,,False,"R1 q>=0.05; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,media_event_within7d,ALL,media_event_within7d,1.1135614686435935,0.594233351753078,0.8465098091294789,158.0,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,media_event_within7d,EXPLAINED,media_event_within7d,0.3964299893071478,0.0121079921485833,0.0670097402695556,7.0,CS2,False,"R1 q>=0.05; R3 exposed cases<30; R4 strategies supporting ['CS2'] < 2 of ['CS1', 'CS2']"
+A_global_temporal,media_event_within7d,HQ,media_event_within7d,0.8627745302043188,0.7257656542103385,0.9309916040211343,15.0,,False,"R1 q>=0.05; R3 exposed cases<30; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,media_event_within7d,HQ_UNEXPLAINED,media_event_within7d,1.3043478260869563,0.5275701571067412,0.8068341240232595,15.0,,False,"R1 q>=0.05; R3 exposed cases<30; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,media_event_within7d,MULTI_SENSOR,media_event_within7d,2.262673992292203,0.4619520000000002,0.7599303373859223,3.0,,False,"R1 q>=0.05; R3 exposed cases<30; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,media_event_within7d,UNEXPLAINED,media_event_within7d,1.188888888888889,0.4239308407017859,0.7339382087274675,107.0,,False,"R1 q>=0.05; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,moon_full_up,ALL,moon_full_up,0.901750515512253,0.0345362689606711,0.1548547324937726,5429.0,CS2,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting ['CS2'] < 2 of ['CS1', 'CS2']"
+A_global_temporal,moon_full_up,EXPLAINED,moon_full_up,1.028786619574963,0.7225720338932367,0.9296342499903336,683.0,,False,"R0 subset-definition artifact (exposure is a matcher input); R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,moon_full_up,HQ,moon_full_up,0.8940843182070324,0.0939311998239857,0.3210705508776477,804.0,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,moon_full_up,HQ_UNEXPLAINED,moon_full_up,0.9134047888844844,0.1817363859242821,0.4845827005636163,559.0,,False,"R0 subset-definition artifact (exposure is a matcher input); R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,moon_full_up,MULTI_SENSOR,moon_full_up,1.1366209245110497,0.3494030204668272,0.6792096853269901,81.0,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,moon_full_up,UNEXPLAINED,moon_full_up,0.9007974192123314,0.0346179737388607,0.1548674950373637,3264.0,CS2,False,"R0 subset-definition artifact (exposure is a matcher input); R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting ['CS2'] < 2 of ['CS1', 'CS2']"
+A_global_temporal,moon_illum,ALL,moon_illum,0.9918230737269416,0.0482055533454247,0.1977283407044285,,CS1;CS2,False,R1 q>=0.05; R2 effect<1.15x
+A_global_temporal,moon_illum,EXPLAINED,moon_illum,0.9965826375773024,0.6317433424341281,0.8719612831506117,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,moon_illum,HQ,moon_illum,0.9843141059312268,0.0775932119559882,0.2816105472664452,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,moon_illum,HQ_UNEXPLAINED,moon_illum,0.9841591138089444,0.068254379938382,0.2546498179401852,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,moon_illum,MULTI_SENSOR,moon_illum,0.992328893689331,0.5380096793194171,0.8118160855555506,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,moon_illum,UNEXPLAINED,moon_illum,0.990320844805103,0.0630368331896172,0.240094136082652,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,moon_up_illum,ALL,moon_up_illum,0.987420076377618,0.0022857782796634,0.015473647494753,,CS1;CS2,False,R2 effect<1.15x
+A_global_temporal,moon_up_illum,EXPLAINED,moon_up_illum,0.9948483328624516,0.4747220455923783,0.7717573217744762,,,False,"R0 subset-definition artifact (exposure is a matcher input); R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,moon_up_illum,HQ,moon_up_illum,0.983021248936846,0.0239140648835819,0.1151196512312431,,CS1;CS2,False,R1 q>=0.05; R2 effect<1.15x
+A_global_temporal,moon_up_illum,HQ_UNEXPLAINED,moon_up_illum,0.987792803614926,0.0376951431879178,0.1645483202636312,,CS1;CS2,False,R0 subset-definition artifact (exposure is a matcher input); R1 q>=0.05; R2 effect<1.15x
+A_global_temporal,moon_up_illum,MULTI_SENSOR,moon_up_illum,1.0028440789883672,0.818051298391288,0.980099137038316,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,moon_up_illum,UNEXPLAINED,moon_up_illum,0.98658915821114,0.0011843845282521,0.0084815635845493,,CS1;CS2,False,R0 subset-definition artifact (exposure is a matcher input); R2 effect<1.15x
+A_global_temporal,n_flareMX_prior72h,ALL,n_flareMX_prior72h,1.0156087713740969,0.05725438375985,0.2252430477667565,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,n_flareMX_prior72h,EXPLAINED,n_flareMX_prior72h,1.0024932153807815,0.8238912992420196,0.9819832335532463,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,n_flareMX_prior72h,HQ,n_flareMX_prior72h,1.0261388114010044,0.0868042230895092,0.3038636823916026,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,n_flareMX_prior72h,HQ_UNEXPLAINED,n_flareMX_prior72h,1.0343429160417237,0.0106973636901912,0.0605834355395473,,CS2,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting ['CS2'] < 2 of ['CS1', 'CS2']"
+A_global_temporal,n_flareMX_prior72h,MULTI_SENSOR,n_flareMX_prior72h,0.99033306830668,0.7376000056045638,0.9374138346163868,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,n_flareMX_prior72h,UNEXPLAINED,n_flareMX_prior72h,1.0182735863843275,0.0124967472496019,0.0686429888543904,,CS2,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting ['CS2'] < 2 of ['CS1', 'CS2']"
+A_global_temporal,np,ALL,np,0.9986905499352188,0.6643258099264973,0.8901529312374084,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,np,EXPLAINED,np,0.9972120305545928,0.5840128649544498,0.8409591150528138,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,np,HQ,np,0.99211359837038,0.1293534243843347,0.3922475668557343,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,np,HQ_UNEXPLAINED,np,0.9943052338403966,0.3003939335845731,0.6287230518140885,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,np,MULTI_SENSOR,np,1.010020532831414,0.2971627888171294,0.6279959689462835,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,np,UNEXPLAINED,np,0.9994198932731572,0.8481661353402465,0.9935462838445775,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,pdyn,ALL,pdyn,0.9962487628914198,0.6420577159532774,0.8771667495049505,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,pdyn,EXPLAINED,pdyn,1.0031431838270122,0.8352379353741299,0.9872239483326164,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,pdyn,HQ,pdyn,0.982126821757726,0.2461588687708402,0.5711804706912097,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,pdyn,HQ_UNEXPLAINED,pdyn,0.9881424102607612,0.4441963222658504,0.7491895148289234,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,pdyn,MULTI_SENSOR,pdyn,1.008769429633915,0.7335224389244379,0.9351583636131424,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,pdyn,UNEXPLAINED,pdyn,0.9971877196122076,0.7300399542458684,0.9338693909233048,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,pflux10,ALL,pflux10,0.999934911385516,0.589650043298099,0.8435404720030729,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,pflux10,EXPLAINED,pflux10,1.000246636317133,0.0711197991186682,0.2630749452991507,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,pflux10,HQ,pflux10,0.9992804878436036,0.0650102675499484,0.2457203787656721,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,pflux10,HQ_UNEXPLAINED,pflux10,0.9990842990709864,0.0723392828225642,0.2667318662372423,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,pflux10,MULTI_SENSOR,pflux10,0.9909954579185816,0.0660204487770061,0.2481853313027151,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,pflux10,UNEXPLAINED,pflux10,0.999961064945954,0.6773193878913217,0.9008874839235984,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,proton_event_prior24h,ALL,proton_event_prior24h,1.0468515468535238,0.5581242689839885,0.8247618654232864,1551.0,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,proton_event_prior24h,EXPLAINED,proton_event_prior24h,1.0756783956619895,0.5441050181697125,0.815686848173107,168.0,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,proton_event_prior24h,HQ,proton_event_prior24h,1.1086671259185985,0.4317851220923667,0.7412418193026961,247.0,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,proton_event_prior24h,HQ_UNEXPLAINED,proton_event_prior24h,1.147923180183322,0.2999406141550756,0.6287230518140885,176.0,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,proton_event_prior24h,MULTI_SENSOR,proton_event_prior24h,0.7800113133039346,0.4116530227074823,0.7235240246978365,18.0,,False,"R1 q>=0.05; R3 exposed cases<30; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,proton_event_prior24h,UNEXPLAINED,proton_event_prior24h,1.0794866642462044,0.3353499538547689,0.6668519449573317,982.0,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,shower50,ALL,shower50,0.835183091190105,0.0867921833194588,0.3038636823916026,800.0,,False,"R1 q>=0.05; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,shower50,EXPLAINED,shower50,1.4988269462412434,0.0196771092779687,0.0985561571639301,114.0,CS1,False,"R0 subset-definition artifact (exposure is a matcher input); R1 q>=0.05; R4 strategies supporting ['CS1'] < 2 of ['CS1', 'CS2']"
+A_global_temporal,shower50,HQ,shower50,1.2373630553962711,0.2420795500511185,0.5677113371677773,133.0,,False,"R1 q>=0.05; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,shower50,HQ_UNEXPLAINED,shower50,1.2271173993055262,0.2783726972451776,0.6068174645608716,95.0,,False,"R0 subset-definition artifact (exposure is a matcher input); R1 q>=0.05; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,shower50,MULTI_SENSOR,shower50,0.6351633935554343,0.1839011331278744,0.486565898794819,10.0,,False,"R1 q>=0.05; R3 exposed cases<30; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,shower50,UNEXPLAINED,shower50,0.7929154920645995,0.027704786601398,0.1294134640976357,458.0,CS2,False,"R0 subset-definition artifact (exposure is a matcher input); R1 q>=0.05; R4 strategies supporting ['CS2'] < 2 of ['CS1', 'CS2']"
+A_global_temporal,v,ALL,v,0.98699608378983,0.4100979771314534,0.7228670255145591,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,v,EXPLAINED,v,1.0320013781514954,0.2510428975646154,0.575207525348905,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,v,HQ,v,0.9834993523329568,0.5254693113151994,0.8058746163798588,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,v,HQ_UNEXPLAINED,v,1.0088830933972273,0.7588525648448691,0.9491818800982736,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,v,MULTI_SENSOR,v,0.940895405898152,0.2341832369349319,0.5590076440884807,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,v,UNEXPLAINED,v,0.9850586990424792,0.3474430112838108,0.6776800659030323,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2']"
+A_global_temporal,venus_vis,ALL,venus_vis,1.2487734791509184,2.7685041078654373e-09,4.750314474188914e-08,4621.0,CS1;CS2,True,
+A_global_temporal,venus_vis,EXPLAINED,venus_vis,1.9560517162892817,2.6580407065039513e-18,1.0013879444285536e-16,804.0,CS1;CS2,False,R0 subset-definition artifact (exposure is a matcher input)
+A_global_temporal,venus_vis,HQ,venus_vis,1.3080897651322534,0.0001719475114095,0.0014679065875508,858.0,CS2,False,"R4 strategies supporting ['CS2'] < 2 of ['CS1', 'CS2']"
+A_global_temporal,venus_vis,HQ_UNEXPLAINED,venus_vis,1.1778852399765611,0.0191213557926123,0.0960501727205716,519.0,CS2,False,"R0 subset-definition artifact (exposure is a matcher input); R1 q>=0.05; R4 strategies supporting ['CS2'] < 2 of ['CS1', 'CS2']"
+A_global_temporal,venus_vis,MULTI_SENSOR,venus_vis,1.6380944709198315,0.004395988282361,0.0279568722691073,75.0,CS2,False,"R4 strategies supporting ['CS2'] < 2 of ['CS1', 'CS2']"
+A_global_temporal,venus_vis,UNEXPLAINED,venus_vis,1.1780406715497416,2.234710981390379e-05,0.0002206837466324,2623.0,CS2,False,"R0 subset-definition artifact (exposure is a matcher input); R4 strategies supporting ['CS2'] < 2 of ['CS1', 'CS2']"
+B_local_catalog,any_eq,ALL,any_eq_pre1d_500km,0.7955804116812789,0.0872707545434538,0.3046127243178357,7480.0,,False,"R1 q>=0.05; R4 strategies supporting [] < 2 of ['CS1', 'CS2', 'CS4']"
+B_local_catalog,any_eq,EXPLAINED,any_eq_post1d_50km,0.4643172326407429,0.0067978137140853,0.0408340075095666,20.0,CS4,False,"R3 exposed cases<30; R4 strategies supporting ['CS4'] < 2 of ['CS1', 'CS2', 'CS4']"
+B_local_catalog,any_eq,HQ,any_eq_pre1d_500km,0.6768541862362373,0.000686670197399,0.0051626874277331,995.0,CS4,False,"R4 strategies supporting ['CS4'] < 2 of ['CS1', 'CS2', 'CS4']"
+B_local_catalog,any_eq,HQ_UNEXPLAINED,any_eq_pre1d_500km,0.6870701867751753,0.0020263651046183,0.0138255540405655,687.0,CS4,False,"R4 strategies supporting ['CS4'] < 2 of ['CS1', 'CS2', 'CS4']"
+B_local_catalog,any_eq,MULTI_SENSOR,any_eq_post7d_25km,0.3404095998018362,0.028843277703787,0.1331169114797947,4.0,CS4,False,"R1 q>=0.05; R3 exposed cases<30; R4 strategies supporting ['CS4'] < 2 of ['CS1', 'CS2', 'CS4']"
+B_local_catalog,any_eq,UNEXPLAINED,any_eq_post1d_500km,1.0638860054884325,0.0451787437877527,0.1895756972982457,4771.0,CS1,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting ['CS1'] < 2 of ['CS1', 'CS2', 'CS4']"
+B_local_catalog,any_eq4,ALL,any_eq4_pre1d_250km,1.2923445633906097,0.0028248653676866,0.0186494921226705,194.0,CS1,False,"R4 strategies supporting ['CS1'] < 2 of ['CS1', 'CS2', 'CS4']"
+B_local_catalog,any_eq4,EXPLAINED,any_eq4_pre1d_250km,1.9710594341220404,0.0049554542889648,0.0311152256622318,30.0,CS1;CS2,True,
+B_local_catalog,any_eq4,HQ,any_eq4_post7d_500km,1.1738582009242695,0.0091814986559026,0.0533944200358365,452.0,CS2,False,"R1 q>=0.05; R4 strategies supporting ['CS2'] < 2 of ['CS1', 'CS2', 'CS4']"
+B_local_catalog,any_eq4,HQ_UNEXPLAINED,any_eq4_pre3h_500km,2.4287743436894487,0.0120846432143855,0.0670097402695556,12.0,CS1;CS2,False,R1 q>=0.05; R3 exposed cases<30
+B_local_catalog,any_eq4,MULTI_SENSOR,any_eq4_pre1d_500km,2.3953912496941907,0.0088558148793602,0.0516738289088594,16.0,CS1;CS4,False,R1 q>=0.05; R3 exposed cases<30
+B_local_catalog,any_eq4,UNEXPLAINED,any_eq4_pre3h_100km,7.126147678756584,0.0448,0.188214303030303,4.0,CS1,False,"R1 q>=0.05; R3 exposed cases<30; R4 strategies supporting ['CS1'] < 2 of ['CS1', 'CS2', 'CS4']"
+B_local_catalog,any_storm,ALL,any_storm_pm12h_100km,0.7595054399844023,1.655301305588077e-14,4.589819460134622e-13,1772.0,CS1;CS2;CS4,True,
+B_local_catalog,any_storm,EXPLAINED,any_storm_pm12h_100km,0.6431114990208663,3.93698919434446e-06,4.56638374024353e-05,179.0,CS1;CS2;CS4,False,R0 subset-definition artifact (exposure is a matcher input)
+B_local_catalog,any_storm,HQ,any_storm_pm12h_100km,0.6688045826818353,4.468678340811384e-08,6.734103969240112e-07,297.0,CS1;CS2;CS4,True,
+B_local_catalog,any_storm,HQ_UNEXPLAINED,any_storm_pm12h_100km,0.6835868108408107,1.0458962889192376e-05,0.0001098508041634,194.0,CS1;CS2;CS4,False,R0 subset-definition artifact (exposure is a matcher input)
+B_local_catalog,any_storm,MULTI_SENSOR,any_storm_pm1h_25km,4.308855348047836,0.115625,0.3679160729836372,4.0,,False,"R1 q>=0.05; R3 exposed cases<30; R4 strategies supporting [] < 2 of ['CS1', 'CS2', 'CS4']"
+B_local_catalog,any_storm,UNEXPLAINED,any_storm_pm12h_100km,0.7770710256450557,4.2986046648332535e-10,8.053493928817328e-09,1091.0,CS1;CS2;CS4,False,R0 subset-definition artifact (exposure is a matcher input)
+B_local_other,fireball_30m_1000,ALL,fireball_30m_1000,67.3197097955892,8.074035200000009e-12,1.7711775951392422e-10,18.0,CS1;CS2;CS4,False,R3 exposed cases<30
+B_local_other,fireball_30m_1000,EXPLAINED,fireball_30m_1000,101.88687868567722,5.242880000000005e-13,1.27075678881119e-11,18.0,CS1;CS2;CS4,False,R0 subset-definition artifact (exposure is a matcher input); R3 exposed cases<30
+B_local_other,fireball_30m_1000,HQ,fireball_30m_1000,15.389288407452302,0.016,0.0829563323256656,3.0,CS1;CS2,False,R1 q>=0.05; R3 exposed cases<30
+B_local_other,fireball_30m_1000,UNEXPLAINED,fireball_30m_1000,0.6666666666666666,0.8,0.9722300140252456,0.0,,False,"R0 subset-definition artifact (exposure is a matcher input); R1 q>=0.05; R3 exposed cases<30; R4 strategies supporting [] < 2 of ['CS1', 'CS2', 'CS4']"
+B_local_other,iss_visible_win,ALL,iss_visible_win,1.4171138296265071,4.8331935083313184e-05,0.000453979639563,281.0,CS1;CS2;CS4,True,
+B_local_other,iss_visible_win,EXPLAINED,iss_visible_win,3.391829517686748,3.4728674119574176e-12,8.078495603922423e-11,89.0,CS1;CS2;CS4,False,R0 subset-definition artifact (exposure is a matcher input)
+B_local_other,iss_visible_win,HQ,iss_visible_win,2.374460184355137,0.0046866750176064,0.0295883708761823,53.0,CS1;CS2;CS4,True,
+B_local_other,iss_visible_win,HQ_UNEXPLAINED,iss_visible_win,0.2532787680263046,0.000182630422581,0.0015514633447691,6.0,CS1;CS2,False,R0 subset-definition artifact (exposure is a matcher input); R3 exposed cases<30
+B_local_other,iss_visible_win,MULTI_SENSOR,iss_visible_win,2.319063075607786,0.4756250000000002,0.7721387587822017,3.0,,False,"R1 q>=0.05; R3 exposed cases<30; R4 strategies supporting [] < 2 of ['CS1', 'CS2', 'CS4']"
+B_local_other,iss_visible_win,UNEXPLAINED,iss_visible_win,0.3663270158130832,6.492025957518055e-11,1.2931817223423895e-09,49.0,CS1;CS2;CS4,False,R0 subset-definition artifact (exposure is a matcher input)
+B_local_other,launch_3h_1500,ALL,launch_3h_1500,1.6852176493101794,2.8999318658205254e-07,4.020465538773576e-06,502.0,CS1;CS2;CS4,True,
+B_local_other,launch_3h_1500,EXPLAINED,launch_3h_1500,13.055845195376232,3.088540432415398e-50,4.4603671411465706e-48,309.0,CS1;CS2;CS4,False,R0 subset-definition artifact (exposure is a matcher input)
+B_local_other,launch_3h_1500,HQ,launch_3h_1500,3.9331615066058023,4.1506119897428837e-10,7.818489758939585e-09,113.0,CS1;CS2;CS4,True,
+B_local_other,launch_3h_1500,HQ_UNEXPLAINED,launch_3h_1500,0.0331435667814961,1.4474011154664594e-08,2.2907270621948627e-07,0.0,CS1;CS2;CS4,False,R0 subset-definition artifact (exposure is a matcher input); R3 exposed cases<30
+B_local_other,launch_3h_1500,MULTI_SENSOR,launch_3h_1500,1.8824876929527468,0.4439333486592003,0.7491740855741015,5.0,,False,"R1 q>=0.05; R3 exposed cases<30; R4 strategies supporting [] < 2 of ['CS1', 'CS2', 'CS4']"
+B_local_other,launch_3h_1500,UNEXPLAINED,launch_3h_1500,0.0032893303112346,1.1987919144599136e-76,2.5968829846987882e-74,0.0,CS1;CS2;CS4,False,R0 subset-definition artifact (exposure is a matcher input); R3 exposed cases<30
+B_weather,wx_clear,ALL,wx_clear,1.6660296935039511,2.236765469987715e-141,1.107518445568203e-138,13987.0,CS1;CS2;CS4,True,
+B_weather,wx_clear,EXPLAINED,wx_clear,1.9106236447161389,7.712017214712456e-48,9.217190229721853e-46,1712.0,CS1;CS2;CS4,True,
+B_weather,wx_clear,HQ,wx_clear,1.7320702379677897,4.506025894776234e-40,3.5495194889305517e-38,2332.0,CS1;CS2;CS4,True,
+B_weather,wx_clear,HQ_UNEXPLAINED,wx_clear,1.7186792600865095,2.9725824593055297e-24,1.5610561824171161e-22,1571.0,CS1;CS2;CS4,True,
+B_weather,wx_clear,MULTI_SENSOR,wx_clear,1.6535957771744043,0.0001893962017746,0.0015856213414276,202.0,CS1;CS2,True,
+B_weather,wx_clear,UNEXPLAINED,wx_clear,1.6152754435160408,1.734619432309457e-82,4.008127301589719e-80,8324.0,CS1;CS2;CS4,True,
+B_weather,wx_clearing_6h,ALL,wx_clearing_6h,1.227592584448909,5.1049281907558175e-20,2.0574047801348447e-18,4063.0,CS1;CS2;CS4,True,
+B_weather,wx_clearing_6h,EXPLAINED,wx_clearing_6h,1.3164149546070631,3.5134154626018543e-06,4.184707214219253e-05,495.0,CS1;CS2;CS4,True,
+B_weather,wx_clearing_6h,HQ,wx_clearing_6h,1.2624117244766877,3.5316588020305595e-06,4.192030619122575e-05,730.0,CS1;CS2;CS4,True,
+B_weather,wx_clearing_6h,HQ_UNEXPLAINED,wx_clearing_6h,1.266148511875951,7.107899717570128e-05,0.0006415619901327,500.0,CS1;CS2;CS4,True,
+B_weather,wx_clearing_6h,MULTI_SENSOR,wx_clearing_6h,1.4542244441968717,0.0180114042754433,0.0915248249544984,70.0,CS1;CS2,False,R1 q>=0.05
+B_weather,wx_clearing_6h,UNEXPLAINED,wx_clearing_6h,1.1997586534376137,1.3136293613866509e-11,2.793275685009897e-10,2415.0,CS1;CS2;CS4,True,
+B_weather,wx_cold_front_proxy,ALL,wx_cold_front_proxy,0.9588244007802672,0.5295404752167756,0.8081846266408386,621.0,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2', 'CS4']"
+B_weather,wx_cold_front_proxy,EXPLAINED,wx_cold_front_proxy,1.0870020451946871,0.5155613131189769,0.8020356872847281,76.0,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2', 'CS4']"
+B_weather,wx_cold_front_proxy,HQ,wx_cold_front_proxy,1.1226816621079234,0.3471694838691052,0.6775278328211254,107.0,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2', 'CS4']"
+B_weather,wx_cold_front_proxy,HQ_UNEXPLAINED,wx_cold_front_proxy,1.199004458436571,0.1899372552968421,0.4953517884566252,79.0,,False,"R1 q>=0.05; R4 strategies supporting [] < 2 of ['CS1', 'CS2', 'CS4']"
+B_weather,wx_cold_front_proxy,MULTI_SENSOR,wx_cold_front_proxy,0.4537684831210933,0.1165209710953854,0.3688234573667633,6.0,,False,"R1 q>=0.05; R3 exposed cases<30; R4 strategies supporting [] < 2 of ['CS1', 'CS2', 'CS4']"
+B_weather,wx_cold_front_proxy,UNEXPLAINED,wx_cold_front_proxy,1.0676157536323203,0.2860639086400021,0.6169866256043853,398.0,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2', 'CS4']"
+B_weather,wx_dewpt_spread_c,ALL,wx_dewpt_spread_c,1.207747545449578,1.686106657818858e-50,2.5408894243478962e-48,,CS1;CS2,True,
+B_weather,wx_dewpt_spread_c,EXPLAINED,wx_dewpt_spread_c,1.2934124894646355,5.353079620873751e-18,1.995029458704131e-16,,CS1;CS2,True,
+B_weather,wx_dewpt_spread_c,HQ,wx_dewpt_spread_c,1.2744105793497658,6.630061227714518e-20,2.641355427041209e-18,,CS1;CS2,True,
+B_weather,wx_dewpt_spread_c,HQ_UNEXPLAINED,wx_dewpt_spread_c,1.2600861058752728,2.392432329593458e-16,7.822802315444269e-15,,CS1;CS2,True,
+B_weather,wx_dewpt_spread_c,MULTI_SENSOR,wx_dewpt_spread_c,1.2099143173381084,0.0029613200265758,0.0194515035542684,,CS1;CS2,True,
+B_weather,wx_dewpt_spread_c,UNEXPLAINED,wx_dewpt_spread_c,1.2064218347555429,3.405316230647219e-40,2.744843268703084e-38,,CS1;CS2,True,
+B_weather,wx_dslp_24h,ALL,wx_dslp_24h,1.0797270286505036,3.252679001302517e-15,9.554055439419088e-14,,CS1;CS2;CS4,False,R2 effect<1.15x
+B_weather,wx_dslp_24h,EXPLAINED,wx_dslp_24h,1.0953335854990638,0.0001279534154138,0.001113007179293,,CS1;CS2;CS4,False,R2 effect<1.15x
+B_weather,wx_dslp_24h,HQ,wx_dslp_24h,1.0961864161783854,6.430736438280571e-07,8.605765442116007e-06,,CS1;CS2;CS4,False,R2 effect<1.15x
+B_weather,wx_dslp_24h,HQ_UNEXPLAINED,wx_dslp_24h,1.0983665714795765,5.541465730774298e-06,6.116789879892903e-05,,CS1;CS2;CS4,False,R2 effect<1.15x
+B_weather,wx_dslp_24h,MULTI_SENSOR,wx_dslp_24h,1.08811340774334,0.326455624578603,0.6574637970885753,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2', 'CS4']"
+B_weather,wx_dslp_24h,UNEXPLAINED,wx_dslp_24h,1.0902123857742572,2.9801758973345307e-16,9.653541738468676e-15,,CS1;CS2;CS4,False,R2 effect<1.15x
+B_weather,wx_dslp_3h,ALL,wx_dslp_3h,1.0376220539929486,1.6602354176879927e-05,0.0001672783708635,,CS1;CS2;CS4,False,R2 effect<1.15x
+B_weather,wx_dslp_3h,EXPLAINED,wx_dslp_3h,1.0545801513839257,0.0134217342302126,0.0725736830607127,,CS1;CS2,False,R1 q>=0.05; R2 effect<1.15x
+B_weather,wx_dslp_3h,HQ,wx_dslp_3h,1.053826363382804,0.0018193458030101,0.0124868367390753,,CS1;CS2;CS4,False,R2 effect<1.15x
+B_weather,wx_dslp_3h,HQ_UNEXPLAINED,wx_dslp_3h,1.055891181810234,0.0075287570093829,0.0448362058325109,,CS1;CS2,False,R2 effect<1.15x
+B_weather,wx_dslp_3h,MULTI_SENSOR,wx_dslp_3h,1.0750469458460743,0.2772639827520429,0.6063068909779691,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2', 'CS4']"
+B_weather,wx_dslp_3h,UNEXPLAINED,wx_dslp_3h,1.0361147845151484,0.0004124919298895,0.0032055987197245,,CS1;CS2;CS4,False,R2 effect<1.15x
+B_weather,wx_dtemp_24h,ALL,wx_dtemp_24h,1.022382556733504,0.0817357837475939,0.2905602322760621,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2', 'CS4']"
+B_weather,wx_dtemp_24h,EXPLAINED,wx_dtemp_24h,1.025283075631856,0.534534985180174,0.8113332771757593,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2', 'CS4']"
+B_weather,wx_dtemp_24h,HQ,wx_dtemp_24h,0.968637119717806,0.344526909179624,0.6760312027645369,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2', 'CS4']"
+B_weather,wx_dtemp_24h,HQ_UNEXPLAINED,wx_dtemp_24h,0.928517442134452,0.0795515013480678,0.2869727599110219,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2', 'CS4']"
+B_weather,wx_dtemp_24h,MULTI_SENSOR,wx_dtemp_24h,1.0684222589557284,0.5364508408611057,0.8114917025674026,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2', 'CS4']"
+B_weather,wx_dtemp_24h,UNEXPLAINED,wx_dtemp_24h,1.0178316269664398,0.2374660882054861,0.5618139670445151,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2', 'CS4']"
+B_weather,wx_front_pressure_fall,ALL,wx_front_pressure_fall,0.7112045615830179,2.4500891912145978e-15,7.5150523334069e-14,1106.0,CS1;CS2;CS4,True,
+B_weather,wx_front_pressure_fall,EXPLAINED,wx_front_pressure_fall,0.7687552353549543,0.0139197142002011,0.0745683607695472,139.0,CS1;CS2,False,R1 q>=0.05
+B_weather,wx_front_pressure_fall,HQ,wx_front_pressure_fall,0.6632154361997245,3.922793354814013e-05,0.0003745565225285,159.0,CS1;CS2,True,
+B_weather,wx_front_pressure_fall,HQ_UNEXPLAINED,wx_front_pressure_fall,0.6647983676455693,0.0002955188966541,0.0023764930297056,114.0,CS1;CS2,True,
+B_weather,wx_front_pressure_fall,MULTI_SENSOR,wx_front_pressure_fall,1.4454093964300463,0.2361848789262073,0.5606964317522154,19.0,,False,"R1 q>=0.05; R3 exposed cases<30; R4 strategies supporting [] < 2 of ['CS1', 'CS2', 'CS4']"
+B_weather,wx_front_pressure_fall,UNEXPLAINED,wx_front_pressure_fall,0.684421855695616,4.6987474484910303e-14,1.2269534533338657e-12,646.0,CS1;CS2;CS4,True,
+B_weather,wx_inversion_night,ALL,wx_inversion_night,1.4192468473504238,1.6183365015775515e-46,1.809404617570256e-44,4200.0,CS1;CS2;CS4,True,
+B_weather,wx_inversion_night,EXPLAINED,wx_inversion_night,1.5604561689840737,8.024079383615463e-12,1.7711775951392422e-10,577.0,CS1;CS2;CS4,True,
+B_weather,wx_inversion_night,HQ,wx_inversion_night,1.394824968870596,1.208893205011733e-09,2.137767269678912e-08,733.0,CS1;CS2;CS4,True,
+B_weather,wx_inversion_night,HQ_UNEXPLAINED,wx_inversion_night,1.4565950336898823,9.919976505364056e-09,1.614208383455015e-07,498.0,CS1;CS2;CS4,True,
+B_weather,wx_inversion_night,MULTI_SENSOR,wx_inversion_night,1.491941187969429,0.0747707223350421,0.2733705945287512,44.0,,False,"R1 q>=0.05; R4 strategies supporting [] < 2 of ['CS1', 'CS2', 'CS4']"
+B_weather,wx_inversion_night,UNEXPLAINED,wx_inversion_night,1.382772728812789,4.128948941563783e-24,2.1359607509641897e-22,2384.0,CS1;CS2;CS4,True,
+B_weather,wx_inversion_proxy,ALL,wx_inversion_proxy,1.404953069800616,1.4955212727358374e-54,2.468322253001149e-52,4912.0,CS1;CS2;CS4,True,
+B_weather,wx_inversion_proxy,EXPLAINED,wx_inversion_proxy,1.562859895425713,3.5093243100939893e-13,8.750588531500551e-12,640.0,CS1;CS2;CS4,True,
+B_weather,wx_inversion_proxy,HQ,wx_inversion_proxy,1.3894591964598575,2.356896278047716e-10,4.53833472206299e-09,838.0,CS1;CS2;CS4,True,
+B_weather,wx_inversion_proxy,HQ_UNEXPLAINED,wx_inversion_proxy,1.4494274224460917,3.4519745379260758e-09,5.8080309458503776e-08,577.0,CS1;CS2;CS4,True,
+B_weather,wx_inversion_proxy,MULTI_SENSOR,wx_inversion_proxy,1.6707102958238145,0.00426081994688,0.0271470623821441,71.0,CS1;CS2;CS4,True,
+B_weather,wx_inversion_proxy,UNEXPLAINED,wx_inversion_proxy,1.3835426570897082,1.578948310160111e-28,9.121058071691574e-27,2863.0,CS1;CS2;CS4,True,
+B_weather,wx_overcast,ALL,wx_overcast,0.5593901182615777,2.703651267406141e-168,4.685427646414842e-165,7283.0,CS1;CS2;CS4,True,
+B_weather,wx_overcast,EXPLAINED,wx_overcast,0.4559998429351089,5.8329982445484844e-46,6.126415732001529e-44,776.0,CS1;CS2;CS4,True,
+B_weather,wx_overcast,HQ,wx_overcast,0.5343227228286401,1.1279314079862787e-44,1.0565973675893088e-42,1201.0,CS1;CS2;CS4,True,
+B_weather,wx_overcast,HQ_UNEXPLAINED,wx_overcast,0.5325753032215187,1.3467665348403518e-29,8.189285631152035e-28,822.0,CS1;CS2;CS4,True,
+B_weather,wx_overcast,MULTI_SENSOR,wx_overcast,0.5481999859592162,4.882680088756427e-06,5.4682530085824725e-05,120.0,CS1;CS2,True,
+B_weather,wx_overcast,UNEXPLAINED,wx_overcast,0.5779169838463669,1.0328920689135829e-108,3.9777821231716408e-106,4511.0,CS1;CS2;CS4,True,
+B_weather,wx_precip_any,ALL,wx_precip_any,0.4554133583350212,5.0010583512612496e-57,9.122983287090257e-55,534.0,CS1;CS2;CS4,True,
+B_weather,wx_precip_any,EXPLAINED,wx_precip_any,0.3047992925980691,3.1518315198647285e-13,7.91612177380518e-12,45.0,CS1;CS2;CS4,True,
+B_weather,wx_precip_any,HQ,wx_precip_any,0.3476073667079993,2.4152786302308e-17,8.630263641628816e-16,71.0,CS1;CS2;CS4,True,
+B_weather,wx_precip_any,HQ_UNEXPLAINED,wx_precip_any,0.3756799836713911,1.5648838005591076e-11,3.307248324840163e-10,53.0,CS1;CS2;CS4,True,
+B_weather,wx_precip_any,MULTI_SENSOR,wx_precip_any,0.461508870681902,0.0632754781334529,0.2404745693098111,7.0,,False,"R1 q>=0.05; R3 exposed cases<30; R4 strategies supporting [] < 2 of ['CS1', 'CS2', 'CS4']"
+B_weather,wx_precip_any,UNEXPLAINED,wx_precip_any,0.4751578567375092,6.985683480591246e-32,4.568373385609295e-30,332.0,CS1;CS2;CS4,True,
+B_weather,wx_sky_mean_prior6h,ALL,wx_sky_mean_prior6h,0.9031008657490488,2.3454203447848457e-146,1.6258453830048553e-143,,CS1;CS2;CS4,False,R2 effect<1.15x
+B_weather,wx_sky_mean_prior6h,EXPLAINED,wx_sky_mean_prior6h,0.8818254562661513,2.0337260295240366e-46,2.202779505728222e-44,,CS1;CS2;CS4,False,R2 effect<1.15x
+B_weather,wx_sky_mean_prior6h,HQ,wx_sky_mean_prior6h,0.8883867674324715,1.2334532739939739e-48,1.5268389455939691e-46,,CS1;CS2;CS4,False,R2 effect<1.15x
+B_weather,wx_sky_mean_prior6h,HQ_UNEXPLAINED,wx_sky_mean_prior6h,0.892458814700941,1.0193693859733935e-32,7.066268583567564e-31,,CS1;CS2;CS4,False,R2 effect<1.15x
+B_weather,wx_sky_mean_prior6h,MULTI_SENSOR,wx_sky_mean_prior6h,0.9207723919998704,0.0001855532993405,0.0015609896493068,,CS1;CS2,False,R2 effect<1.15x
+B_weather,wx_sky_mean_prior6h,UNEXPLAINED,wx_sky_mean_prior6h,0.905440372205178,7.493750488223047e-95,2.164444932681756e-92,,CS1;CS2;CS4,False,R2 effect<1.15x
+B_weather,wx_sky_oktas,ALL,wx_sky_oktas,0.9164048383806556,5.8188034620324805e-173,2.0167972799404572e-169,,CS1;CS2;CS4,False,R2 effect<1.15x
+B_weather,wx_sky_oktas,EXPLAINED,wx_sky_oktas,0.8953684524521732,3.936655104305612e-53,6.202021177965114e-51,,CS1;CS2;CS4,False,R2 effect<1.15x
+B_weather,wx_sky_oktas,HQ,wx_sky_oktas,0.9137248575239284,1.5334983456106836e-45,1.5186015045390368e-43,,CS1;CS2;CS4,False,R2 effect<1.15x
+B_weather,wx_sky_oktas,HQ_UNEXPLAINED,wx_sky_oktas,0.9155887591334446,2.6771489210969614e-29,1.599827269055529e-27,,CS1;CS2;CS4,False,R2 effect<1.15x
+B_weather,wx_sky_oktas,MULTI_SENSOR,wx_sky_oktas,0.9008706548659704,1.606689528293355e-06,2.0324036149871417e-05,,CS1;CS2,False,R2 effect<1.15x
+B_weather,wx_sky_oktas,UNEXPLAINED,wx_sky_oktas,0.9220944795654124,1.2048882348629843e-101,4.176142622035104e-99,,CS1;CS2;CS4,False,R2 effect<1.15x
+B_weather,wx_slp_hpa,ALL,wx_slp_hpa,1.1204483066939208,2.8738188423246226e-29,1.688246797880872e-27,,CS1;CS2;CS4,False,R2 effect<1.15x
+B_weather,wx_slp_hpa,EXPLAINED,wx_slp_hpa,1.1503815036466172,5.139526024937144e-11,1.041730830551587e-09,,CS1;CS2;CS4,True,
+B_weather,wx_slp_hpa,HQ,wx_slp_hpa,1.169659876149018,2.5635521306414694e-15,7.79409796912573e-14,,CS1;CS2;CS4,True,
+B_weather,wx_slp_hpa,HQ_UNEXPLAINED,wx_slp_hpa,1.1579111063656191,5.3873113777005405e-11,1.079330707231796e-09,,CS1;CS2;CS4,True,
+B_weather,wx_slp_hpa,MULTI_SENSOR,wx_slp_hpa,1.232082761961791,0.0364004443865357,0.1603099621902577,,CS4,False,"R1 q>=0.05; R4 strategies supporting ['CS4'] < 2 of ['CS1', 'CS2', 'CS4']"
+B_weather,wx_slp_hpa,UNEXPLAINED,wx_slp_hpa,1.1139746677166564,3.718712557428165e-22,1.6739036005254573e-20,,CS1;CS2;CS4,False,R2 effect<1.15x
+B_weather,wx_temp_c,ALL,wx_temp_c,0.924633571782086,0.1623610591135634,0.4509162106471241,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2', 'CS4']"
+B_weather,wx_temp_c,EXPLAINED,wx_temp_c,0.8820285341537711,0.0211266953916008,0.1046073231818406,,CS4,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting ['CS4'] < 2 of ['CS1', 'CS2', 'CS4']"
+B_weather,wx_temp_c,HQ,wx_temp_c,0.8429163267514949,0.0011406146135524,0.0081995327139894,,CS4,False,"R4 strategies supporting ['CS4'] < 2 of ['CS1', 'CS2', 'CS4']"
+B_weather,wx_temp_c,HQ_UNEXPLAINED,wx_temp_c,0.8425722643379742,0.0017269565919831,0.0119235688203461,,CS4,False,"R4 strategies supporting ['CS4'] < 2 of ['CS1', 'CS2', 'CS4']"
+B_weather,wx_temp_c,MULTI_SENSOR,wx_temp_c,1.0384195884049174,0.6153114280612701,0.8591969797626585,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2', 'CS4']"
+B_weather,wx_temp_c,UNEXPLAINED,wx_temp_c,0.9327771184296488,0.2268540662610044,0.5475460958639564,,,False,"R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS2', 'CS4']"
+B_weather,wx_wind_ms,ALL,wx_wind_ms,0.9478485611974968,4.238025249404932e-39,3.1932598944429333e-37,,CS1;CS2;CS4,False,R2 effect<1.15x
+B_weather,wx_wind_ms,EXPLAINED,wx_wind_ms,0.917255984634753,6.786522036414306e-14,1.742376694682369e-12,,CS1;CS2;CS4,False,R2 effect<1.15x
+B_weather,wx_wind_ms,HQ,wx_wind_ms,0.9292418045525273,1.377088815118963e-15,4.3185803263031136e-14,,CS1;CS2;CS4,False,R2 effect<1.15x
+B_weather,wx_wind_ms,HQ_UNEXPLAINED,wx_wind_ms,0.9310324837792828,3.1982129690836034e-10,6.057380410297141e-09,,CS1;CS2;CS4,False,R2 effect<1.15x
+B_weather,wx_wind_ms,MULTI_SENSOR,wx_wind_ms,0.8997403371018384,0.0014829964914082,0.0104049915773704,,CS1;CS2;CS4,False,R2 effect<1.15x
+B_weather,wx_wind_ms,UNEXPLAINED,wx_wind_ms,0.9489426183749508,1.2266307295612114e-22,5.823975491313916e-21,,CS1;CS2;CS4,False,R2 effect<1.15x
+C_spatial,in_icbm_field_active,ALL,in_icbm_field_active,1.0501008651205568,0.8694703571230147,1.0,101.0,,False,R1 q>=0.05; R2 effect<1.15x
+C_spatial,in_icbm_field_active,EXPLAINED,in_icbm_field_active,0.845416734088838,0.7767670020781272,0.9587713070081824,9.0,,False,R1 q>=0.05; R3 exposed cases<30
+C_spatial,in_icbm_field_active,HQ,in_icbm_field_active,0.8685428474100274,0.8329173123691369,0.9872239483326164,9.0,,False,R1 q>=0.05; R3 exposed cases<30
+C_spatial,in_icbm_field_active,HQ_UNEXPLAINED,in_icbm_field_active,1.0140692018571371,1.0,1.0,8.0,,False,R1 q>=0.05; R2 effect<1.15x; R3 exposed cases<30
+C_spatial,in_icbm_field_active,MULTI_SENSOR,in_icbm_field_active,1.0396841995794923,1.0,1.0,0.0,,False,R1 q>=0.05; R2 effect<1.15x; R3 exposed cases<30
+C_spatial,in_icbm_field_active,UNEXPLAINED,in_icbm_field_active,1.0268264706741264,0.9293639536442636,1.0,68.0,,False,R1 q>=0.05; R2 effect<1.15x
+C_spatial,log_dist_coast_km,ALL,log_dist_coast_km,1.0381510842190418,0.5820474927040848,0.8391749624427446,,,False,R1 q>=0.05; R2 effect<1.15x
+C_spatial,log_dist_coast_km,EXPLAINED,log_dist_coast_km,1.0545522370226728,0.463119197519792,0.7606455471471054,,,False,R1 q>=0.05; R2 effect<1.15x
+C_spatial,log_dist_coast_km,HQ,log_dist_coast_km,0.9848247791228668,0.8177367811663214,0.980099137038316,,,False,R1 q>=0.05; R2 effect<1.15x
+C_spatial,log_dist_coast_km,HQ_UNEXPLAINED,log_dist_coast_km,1.0044042920606016,0.9480080367381716,1.0,,,False,R1 q>=0.05; R2 effect<1.15x
+C_spatial,log_dist_coast_km,MULTI_SENSOR,log_dist_coast_km,1.00537838067391,0.9526496440976304,1.0,,,False,R1 q>=0.05; R2 effect<1.15x
+C_spatial,log_dist_coast_km,UNEXPLAINED,log_dist_coast_km,1.042492862138154,0.5446583692948908,0.8161633843389932,,,False,R1 q>=0.05; R2 effect<1.15x
+C_spatial,log_dist_dod_air_naval_km,ALL,log_dist_dod_air_naval_km,1.434709520179196,0.0016151196441352,0.0112635909186578,,CS4,True,
+C_spatial,log_dist_dod_air_naval_km,EXPLAINED,log_dist_dod_air_naval_km,1.521446470602403,0.0008318599172535,0.0061607403273524,,CS4,True,
+C_spatial,log_dist_dod_air_naval_km,HQ,log_dist_dod_air_naval_km,1.6724921426093264,2.176775771821477e-06,2.665973436442841e-05,,CS4,True,
+C_spatial,log_dist_dod_air_naval_km,HQ_UNEXPLAINED,log_dist_dod_air_naval_km,1.6638249760814392,3.82611302935388e-06,4.510648897870934e-05,,CS4,True,
+C_spatial,log_dist_dod_air_naval_km,MULTI_SENSOR,log_dist_dod_air_naval_km,1.1155471764946556,0.4416366709589351,0.749014312816968,,,False,R1 q>=0.05; R2 effect<1.15x
+C_spatial,log_dist_dod_air_naval_km,UNEXPLAINED,log_dist_dod_air_naval_km,1.4251122805921104,0.0019672449838741,0.0134752393559441,,CS4,True,
+C_spatial,log_dist_dod_boundary_km,ALL,log_dist_dod_boundary_km,1.311764161251454,0.0009657223564375,0.0070615900578325,,CS4,True,
+C_spatial,log_dist_dod_boundary_km,EXPLAINED,log_dist_dod_boundary_km,1.334629112639497,0.0013005244351419,0.0091804840981709,,CS4,True,
+C_spatial,log_dist_dod_boundary_km,HQ,log_dist_dod_boundary_km,1.6938994036307404,2.7359376058106567e-10,5.239093779966705e-09,,CS4,True,
+C_spatial,log_dist_dod_boundary_km,HQ_UNEXPLAINED,log_dist_dod_boundary_km,1.6666344402265472,1.192835044639641e-09,2.120187828062049e-08,,CS4,True,
+C_spatial,log_dist_dod_boundary_km,MULTI_SENSOR,log_dist_dod_boundary_km,1.1021625712519172,0.4533154289987851,0.757197837598091,,,False,R1 q>=0.05; R2 effect<1.15x
+C_spatial,log_dist_dod_boundary_km,UNEXPLAINED,log_dist_dod_boundary_km,1.3114008595188598,0.0009734810584264,0.007103337575802,,CS4,True,
+C_spatial,log_dist_dod_site_km,ALL,log_dist_dod_site_km,1.4524790596036072,0.0001842487887531,0.0015537866224291,,CS4,True,
+C_spatial,log_dist_dod_site_km,EXPLAINED,log_dist_dod_site_km,1.4730234474006545,0.0003242346538156,0.0025893947237906,,CS4,True,
+C_spatial,log_dist_dod_site_km,HQ,log_dist_dod_site_km,2.066683269448805,1.6769387046066436e-14,4.612912341402085e-13,,CS4,True,
+C_spatial,log_dist_dod_site_km,HQ_UNEXPLAINED,log_dist_dod_site_km,2.013617682928486,4.695338409052346e-13,1.1624316375553879e-11,,CS4,True,
+C_spatial,log_dist_dod_site_km,MULTI_SENSOR,log_dist_dod_site_km,1.0665040656761964,0.6578401624162824,0.8851218955492371,,,False,R1 q>=0.05; R2 effect<1.15x
+C_spatial,log_dist_dod_site_km,UNEXPLAINED,log_dist_dod_site_km,1.4502791206439472,0.0001802720698576,0.0015351916317605,,CS4,True,
+C_spatial,log_dist_doe_weapons_active_km,ALL,log_dist_doe_weapons_active_km,0.8283952085511864,0.1611107849659333,0.4491323027402749,,,False,R1 q>=0.05
+C_spatial,log_dist_doe_weapons_active_km,EXPLAINED,log_dist_doe_weapons_active_km,0.8036189908148228,0.1210503854535238,0.3766253464828667,,,False,R1 q>=0.05
+C_spatial,log_dist_doe_weapons_active_km,HQ,log_dist_doe_weapons_active_km,0.8750765778990254,0.2634186625377323,0.5886583393654288,,,False,R1 q>=0.05; R2 effect<1.15x
+C_spatial,log_dist_doe_weapons_active_km,HQ_UNEXPLAINED,log_dist_doe_weapons_active_km,0.8238664501360958,0.1159158545003265,0.3679160729836372,,,False,R1 q>=0.05
+C_spatial,log_dist_doe_weapons_active_km,MULTI_SENSOR,log_dist_doe_weapons_active_km,0.7861781214721465,0.222565879013673,0.5424847655846631,,,False,R1 q>=0.05
+C_spatial,log_dist_doe_weapons_active_km,UNEXPLAINED,log_dist_doe_weapons_active_km,0.8176096669120477,0.1340411247965833,0.3997820301827315,,,False,R1 q>=0.05
+C_spatial,log_dist_icbm_field_active_km,ALL,log_dist_icbm_field_active_km,0.8111424323862297,0.2794822751025611,0.6077073811201233,,,False,R1 q>=0.05
+C_spatial,log_dist_icbm_field_active_km,EXPLAINED,log_dist_icbm_field_active_km,0.7972293092321884,0.2882112752134504,0.6194609639608234,,,False,R1 q>=0.05
+C_spatial,log_dist_icbm_field_active_km,HQ,log_dist_icbm_field_active_km,1.0708734834019284,0.7268773101607202,0.9310261481955124,,,False,R1 q>=0.05; R2 effect<1.15x
+C_spatial,log_dist_icbm_field_active_km,HQ_UNEXPLAINED,log_dist_icbm_field_active_km,0.9925166547869044,0.9682336039797346,1.0,,,False,R1 q>=0.05; R2 effect<1.15x
+C_spatial,log_dist_icbm_field_active_km,MULTI_SENSOR,log_dist_icbm_field_active_km,0.7600116455092063,0.3333099319761399,0.6641540438210222,,,False,R1 q>=0.05
+C_spatial,log_dist_icbm_field_active_km,UNEXPLAINED,log_dist_icbm_field_active_km,0.843895334417532,0.3798436535603942,0.7051604578943796,,,False,R1 q>=0.05
+C_spatial,log_dist_large_airport_km,ALL,log_dist_large_airport_km,1.6206799082989565,1.0449136021903892e-06,1.36666813026109e-05,,CS4,True,
+C_spatial,log_dist_large_airport_km,EXPLAINED,log_dist_large_airport_km,1.5961759587440538,4.962498593715072e-06,5.530553095117827e-05,,CS4,False,R0 subset-definition artifact (exposure is a matcher input)
+C_spatial,log_dist_large_airport_km,HQ,log_dist_large_airport_km,2.32520608673828,3.559501330404243e-17,1.2337231611181104e-15,,CS4,True,
+C_spatial,log_dist_large_airport_km,HQ_UNEXPLAINED,log_dist_large_airport_km,2.275512750057348,1.383042170281724e-15,4.3185803263031136e-14,,CS4,False,R0 subset-definition artifact (exposure is a matcher input)
+C_spatial,log_dist_large_airport_km,MULTI_SENSOR,log_dist_large_airport_km,1.1402451369654172,0.3498965445855919,0.6794069599628356,,,False,R1 q>=0.05; R2 effect<1.15x
+C_spatial,log_dist_large_airport_km,UNEXPLAINED,log_dist_large_airport_km,1.6197499066274552,1.3727470921845373e-06,1.7556979415171977e-05,,CS4,False,R0 subset-definition artifact (exposure is a matcher input)
+C_spatial,log_dist_launch_site_km,ALL,log_dist_launch_site_km,1.701294915729319,0.011654401010074,0.0648381282518728,,CS4,False,R1 q>=0.05
+C_spatial,log_dist_launch_site_km,EXPLAINED,log_dist_launch_site_km,1.7761495494087562,0.011447826934317,0.0642041555895514,,CS4,False,R0 subset-definition artifact (exposure is a matcher input); R1 q>=0.05
+C_spatial,log_dist_launch_site_km,HQ,log_dist_launch_site_km,1.8542585976828945,0.0023684503566657,0.0159709123272439,,CS4,True,
+C_spatial,log_dist_launch_site_km,HQ_UNEXPLAINED,log_dist_launch_site_km,2.03195332799606,0.0007946214448346,0.0059102101454872,,CS4,False,R0 subset-definition artifact (exposure is a matcher input)
+C_spatial,log_dist_launch_site_km,MULTI_SENSOR,log_dist_launch_site_km,1.6737051256559798,0.0499434496936924,0.2031737049745752,,CS4,False,R1 q>=0.05
+C_spatial,log_dist_launch_site_km,UNEXPLAINED,log_dist_launch_site_km,1.7137331571896617,0.0099323132169652,0.0568075868151842,,CS4,False,R0 subset-definition artifact (exposure is a matcher input); R1 q>=0.05
+C_spatial,log_dist_medium_airport_km,ALL,log_dist_medium_airport_km,1.1509244551765188,0.1464947324362021,0.4231256188532304,,,False,R1 q>=0.05
+C_spatial,log_dist_medium_airport_km,EXPLAINED,log_dist_medium_airport_km,1.222566874934791,0.0576260228926554,0.2254789989566568,,,False,R1 q>=0.05
+C_spatial,log_dist_medium_airport_km,HQ,log_dist_medium_airport_km,1.288108584506011,0.0066825629280855,0.0402637084351265,,CS4,False,R4 not replicated in both discovery periods 1995-2005 / 2006-2015
+C_spatial,log_dist_medium_airport_km,HQ_UNEXPLAINED,log_dist_medium_airport_km,1.272076747474738,0.0142110224390557,0.0756635719656426,,CS4,False,R1 q>=0.05
+C_spatial,log_dist_medium_airport_km,MULTI_SENSOR,log_dist_medium_airport_km,1.6736649790495317,0.0052121546734889,0.0325501407176806,,CS4,True,
+C_spatial,log_dist_medium_airport_km,UNEXPLAINED,log_dist_medium_airport_km,1.1481313780000162,0.1597137872797247,0.446534187140196,,,False,R1 q>=0.05; R2 effect<1.15x
+C_spatial,log_dist_nuclear_any_active_km,ALL,log_dist_nuclear_any_active_km,0.9748705750037132,0.8493104960831311,0.9944966822378826,,,False,R1 q>=0.05; R2 effect<1.15x
+C_spatial,log_dist_nuclear_any_active_km,EXPLAINED,log_dist_nuclear_any_active_km,1.0008586544430549,0.9950976273138952,1.0,,,False,R1 q>=0.05; R2 effect<1.15x
+C_spatial,log_dist_nuclear_any_active_km,HQ,log_dist_nuclear_any_active_km,0.9787804228772796,0.8633117323360092,1.0,,,False,R1 q>=0.05; R2 effect<1.15x
+C_spatial,log_dist_nuclear_any_active_km,HQ_UNEXPLAINED,log_dist_nuclear_any_active_km,0.9739898595537304,0.8345259737769715,0.9872239483326164,,,False,R1 q>=0.05; R2 effect<1.15x
+C_spatial,log_dist_nuclear_any_active_km,MULTI_SENSOR,log_dist_nuclear_any_active_km,0.976463738941704,0.889465890650003,1.0,,,False,R1 q>=0.05; R2 effect<1.15x
+C_spatial,log_dist_nuclear_any_active_km,UNEXPLAINED,log_dist_nuclear_any_active_km,0.9625336219168932,0.7813694298858066,0.961045579838256,,,False,R1 q>=0.05; R2 effect<1.15x
+C_spatial,log_dist_nuclear_closed_active_km,ALL,log_dist_nuclear_closed_active_km,1.1531639114347647,0.4186656218926388,0.7291934901908975,,,False,R1 q>=0.05
+C_spatial,log_dist_nuclear_closed_active_km,EXPLAINED,log_dist_nuclear_closed_active_km,1.2127534102083286,0.3135239593913196,0.6433830925105469,,,False,R1 q>=0.05
+C_spatial,log_dist_nuclear_closed_active_km,HQ,log_dist_nuclear_closed_active_km,1.1795415685308592,0.3221821870899262,0.6539911793911013,,,False,R1 q>=0.05
+C_spatial,log_dist_nuclear_closed_active_km,HQ_UNEXPLAINED,log_dist_nuclear_closed_active_km,1.1709876444361706,0.35060320219886,0.6799345194300582,,,False,R1 q>=0.05
+C_spatial,log_dist_nuclear_closed_active_km,MULTI_SENSOR,log_dist_nuclear_closed_active_km,1.3315033990059868,0.2069079093302658,0.5186532374100721,,,False,R1 q>=0.05
+C_spatial,log_dist_nuclear_closed_active_km,UNEXPLAINED,log_dist_nuclear_closed_active_km,1.1198842851542363,0.5199021655824905,0.8046482594650618,,,False,R1 q>=0.05; R2 effect<1.15x
+C_spatial,log_dist_nuclear_operating_km,ALL,log_dist_nuclear_operating_km,0.9101057363268086,0.4650194034358242,0.7620601665761545,,,False,R1 q>=0.05; R2 effect<1.15x
+C_spatial,log_dist_nuclear_operating_km,EXPLAINED,log_dist_nuclear_operating_km,0.9206512159486768,0.5354657551961723,0.8113332771757593,,,False,R1 q>=0.05; R2 effect<1.15x
+C_spatial,log_dist_nuclear_operating_km,HQ,log_dist_nuclear_operating_km,0.9215888224407393,0.4988154547279728,0.793070810131722,,,False,R1 q>=0.05; R2 effect<1.15x
+C_spatial,log_dist_nuclear_operating_km,HQ_UNEXPLAINED,log_dist_nuclear_operating_km,0.9072894309934212,0.4267087479894418,0.7376421548785064,,,False,R1 q>=0.05; R2 effect<1.15x
+C_spatial,log_dist_nuclear_operating_km,MULTI_SENSOR,log_dist_nuclear_operating_km,0.7943606675364582,0.2156496002337726,0.5331582979505928,,,False,R1 q>=0.05
+C_spatial,log_dist_nuclear_operating_km,UNEXPLAINED,log_dist_nuclear_operating_km,0.9048017777752192,0.4492606270905898,0.7547856693600842,,,False,R1 q>=0.05; R2 effect<1.15x
+C_spatial,log_dist_nuclear_test_site_km,ALL,log_dist_nuclear_test_site_km,1.1398357749136354,0.5417991263754525,0.8140314776069869,,,False,R1 q>=0.05; R2 effect<1.15x
+C_spatial,log_dist_nuclear_test_site_km,EXPLAINED,log_dist_nuclear_test_site_km,1.1828243707517194,0.4749963119147485,0.7718411706969145,,,False,R1 q>=0.05
+C_spatial,log_dist_nuclear_test_site_km,HQ,log_dist_nuclear_test_site_km,1.5779720761752394,0.0141202107440024,0.0754093227098804,,CS4,False,R1 q>=0.05
+C_spatial,log_dist_nuclear_test_site_km,HQ_UNEXPLAINED,log_dist_nuclear_test_site_km,1.5662090530992183,0.0190733403443632,0.09594803720401,,CS4,False,R1 q>=0.05
+C_spatial,log_dist_nuclear_test_site_km,MULTI_SENSOR,log_dist_nuclear_test_site_km,0.8377267098984053,0.5226816953662123,0.8058680738330378,,,False,R1 q>=0.05
+C_spatial,log_dist_nuclear_test_site_km,UNEXPLAINED,log_dist_nuclear_test_site_km,1.114079601464989,0.6102987201756869,0.8567992154632514,,,False,R1 q>=0.05; R2 effect<1.15x
+C_spatial,log_dist_small_airport_km,ALL,log_dist_small_airport_km,0.6465713312044346,0.0001159165922095,0.0010223076554661,,CS4,True,
+C_spatial,log_dist_small_airport_km,EXPLAINED,log_dist_small_airport_km,0.6116837123334561,2.8621816020098592e-05,0.0002786607143979,,CS4,True,
+C_spatial,log_dist_small_airport_km,HQ,log_dist_small_airport_km,0.4222938136270429,5.095772633378569e-15,1.484197306494968e-13,,CS4,True,
+C_spatial,log_dist_small_airport_km,HQ_UNEXPLAINED,log_dist_small_airport_km,0.4549360860950391,2.3971589836751462e-11,5.035486689344276e-10,,CS4,True,
+C_spatial,log_dist_small_airport_km,MULTI_SENSOR,log_dist_small_airport_km,0.713933339235779,0.0956534655961004,0.325034227211847,,,False,R1 q>=0.05
+C_spatial,log_dist_small_airport_km,UNEXPLAINED,log_dist_small_airport_km,0.6561999464750029,0.0002829502794282,0.0023075427494079,,CS4,True,
+C_spatial,log_dist_sua_alert_km,ALL,log_dist_sua_alert_km,1.1078819398229485,0.3785012989659763,0.7049659780740439,,,False,R1 q>=0.05; R2 effect<1.15x
+C_spatial,log_dist_sua_alert_km,EXPLAINED,log_dist_sua_alert_km,1.1278514523803032,0.3158621219708204,0.646649801979246,,,False,R1 q>=0.05; R2 effect<1.15x
+C_spatial,log_dist_sua_alert_km,HQ,log_dist_sua_alert_km,1.229769692193652,0.0559710675458512,0.2212622934477242,,,False,R1 q>=0.05
+C_spatial,log_dist_sua_alert_km,HQ_UNEXPLAINED,log_dist_sua_alert_km,1.24751279849341,0.0454575128127925,0.1898261920592036,,CS4,False,R1 q>=0.05
+C_spatial,log_dist_sua_alert_km,MULTI_SENSOR,log_dist_sua_alert_km,0.9774465371547388,0.8709785855339148,1.0,,,False,R1 q>=0.05; R2 effect<1.15x
+C_spatial,log_dist_sua_alert_km,UNEXPLAINED,log_dist_sua_alert_km,1.1004728993131354,0.4180603818232833,0.7286130195674153,,,False,R1 q>=0.05; R2 effect<1.15x
+C_spatial,log_dist_sua_moa_km,ALL,log_dist_sua_moa_km,0.7770164558152588,4.607183754415172e-05,0.0004362977839563,,CS4,True,
+C_spatial,log_dist_sua_moa_km,EXPLAINED,log_dist_sua_moa_km,0.7507747580850583,4.760077966677429e-05,0.0004483269084919,,CS4,True,
+C_spatial,log_dist_sua_moa_km,HQ,log_dist_sua_moa_km,0.7657586284611301,1.4829105877820652e-05,0.0001511696499191,,CS4,True,
+C_spatial,log_dist_sua_moa_km,HQ_UNEXPLAINED,log_dist_sua_moa_km,0.7790014574546653,5.69362889364955e-05,0.0005220666070208,,CS4,True,
+C_spatial,log_dist_sua_moa_km,MULTI_SENSOR,log_dist_sua_moa_km,0.8001603310345866,0.0543575711366225,0.2169322672837114,,,False,R1 q>=0.05
+C_spatial,log_dist_sua_moa_km,UNEXPLAINED,log_dist_sua_moa_km,0.7788505836863303,6.743816918145834e-05,0.0006134926361756,,CS4,True,
+C_spatial,log_dist_sua_prohibited_km,ALL,log_dist_sua_prohibited_km,0.8254922242411137,0.2884115912926339,0.6194609639608234,,,False,R1 q>=0.05
+C_spatial,log_dist_sua_prohibited_km,EXPLAINED,log_dist_sua_prohibited_km,0.7587792039713553,0.1562169737302389,0.4398440543858719,,,False,R1 q>=0.05
+C_spatial,log_dist_sua_prohibited_km,HQ,log_dist_sua_prohibited_km,0.7529928993117244,0.0695661237262419,0.2589862350538719,,,False,R1 q>=0.05
+C_spatial,log_dist_sua_prohibited_km,HQ_UNEXPLAINED,log_dist_sua_prohibited_km,0.7747203687820634,0.1154154382730068,0.3679160729836372,,,False,R1 q>=0.05
+C_spatial,log_dist_sua_prohibited_km,MULTI_SENSOR,log_dist_sua_prohibited_km,0.7673850730299738,0.1961151294468266,0.504628833454121,,,False,R1 q>=0.05
+C_spatial,log_dist_sua_prohibited_km,UNEXPLAINED,log_dist_sua_prohibited_km,0.8461089650110953,0.3516096850028745,0.6808263509608732,,,False,R1 q>=0.05
+C_spatial,log_dist_sua_restricted_km,ALL,log_dist_sua_restricted_km,1.0360845493873307,0.7433010688509702,0.9395629119757342,,,False,R1 q>=0.05; R2 effect<1.15x
+C_spatial,log_dist_sua_restricted_km,EXPLAINED,log_dist_sua_restricted_km,1.0357437563317362,0.7754878809082295,0.9587713070081824,,,False,R1 q>=0.05; R2 effect<1.15x
+C_spatial,log_dist_sua_restricted_km,HQ,log_dist_sua_restricted_km,0.966830630983478,0.7615623227580436,0.9505131475258836,,,False,R1 q>=0.05; R2 effect<1.15x
+C_spatial,log_dist_sua_restricted_km,HQ_UNEXPLAINED,log_dist_sua_restricted_km,0.9743204364602774,0.8215628203762824,0.9809795312757668,,,False,R1 q>=0.05; R2 effect<1.15x
+C_spatial,log_dist_sua_restricted_km,MULTI_SENSOR,log_dist_sua_restricted_km,1.2242890231057315,0.2462386215053299,0.5711804706912097,,,False,R1 q>=0.05
+C_spatial,log_dist_sua_restricted_km,UNEXPLAINED,log_dist_sua_restricted_km,1.043833925616138,0.6935655051092577,0.9146178838780296,,,False,R1 q>=0.05; R2 effect<1.15x
+C_spatial,n_airports_lm,ALL,n_airports_lm_25km,0.7969643983983459,2.4594058512210436e-05,0.0002407994542466,,CS4,True,
+C_spatial,n_airports_lm,EXPLAINED,n_airports_lm_25km,0.790673648325686,1.8853375997520253e-05,0.0001880367322691,,CS4,True,
+C_spatial,n_airports_lm,HQ,n_airports_lm_25km,0.6342874608145622,1.4267043937661432e-20,5.886854081896967e-19,,CS4,True,
+C_spatial,n_airports_lm,HQ_UNEXPLAINED,n_airports_lm_25km,0.6490105825735556,5.326766301521786e-17,1.8100560785367167e-15,,CS4,True,
+C_spatial,n_airports_lm,MULTI_SENSOR,n_airports_lm_25km,0.8803339407699486,0.1122830843797009,0.3620412543707604,,,False,R1 q>=0.05; R2 effect<1.15x
+C_spatial,n_airports_lm,UNEXPLAINED,n_airports_lm_25km,0.8039317213187899,8.556068133857891e-05,0.0007643126843286,,CS4,True,
+C_spatial,n_dod_sites,ALL,n_dod_sites_50km,0.954579901955387,0.0135409384950122,0.0729765940435399,,CS4,False,R1 q>=0.05; R2 effect<1.15x
+C_spatial,n_dod_sites,EXPLAINED,n_dod_sites_50km,0.948394534685084,0.0144257014676499,0.0765688840534068,,CS4,False,R1 q>=0.05; R2 effect<1.15x
+C_spatial,n_dod_sites,HQ,n_dod_sites_50km,0.9447870217906392,0.0050374957954596,0.0315161740560709,,CS4,False,R2 effect<1.15x
+C_spatial,n_dod_sites,HQ_UNEXPLAINED,n_dod_sites_50km,0.9495104103817704,0.0105860498671538,0.0600511437635928,,CS4,False,R1 q>=0.05; R2 effect<1.15x
+C_spatial,n_dod_sites,MULTI_SENSOR,n_dod_sites_50km,0.9662439473801014,0.1416502315546198,0.4143119852897149,,,False,R1 q>=0.05; R2 effect<1.15x
+C_spatial,n_dod_sites,UNEXPLAINED,n_dod_sites_50km,0.9556491788179444,0.0157621626307815,0.0821528656816371,,CS4,False,R1 q>=0.05; R2 effect<1.15x
+C_spatial,within_coast,ALL,within50_coast,0.8400913571229836,0.1873420524212684,0.4919148134031185,14468.0,,False,R1 q>=0.05
+C_spatial,within_coast,EXPLAINED,within25_coast,0.8042429345621777,0.1339488039907765,0.3997820301827315,1259.0,,False,R1 q>=0.05
+C_spatial,within_coast,HQ,within1_coast,1.5025153422187227,0.0244747635614088,0.1173299177093264,313.0,CS4,False,R1 q>=0.05
+C_spatial,within_coast,HQ_UNEXPLAINED,within1_coast,1.4524963509635829,0.065687789643673,0.2474716075054031,212.0,,False,R1 q>=0.05
+C_spatial,within_coast,MULTI_SENSOR,within250_coast,0.870185912836631,0.4407507174884493,0.749014312816968,372.0,,False,R1 q>=0.05; R2 effect<1.15x
+C_spatial,within_coast,UNEXPLAINED,within25_coast,0.8324438799074404,0.1768526046232491,0.4769785557369991,7271.0,,False,R1 q>=0.05
+C_spatial,within_dod_air_naval,ALL,within50_dod_air_naval,0.6776353834064912,0.0002689758531471,0.0022039487163311,16986.0,CS4,True,
+C_spatial,within_dod_air_naval,EXPLAINED,within50_dod_air_naval,0.6425397227701756,0.000120629977493,0.001055816924219,1853.0,CS4,True,
+C_spatial,within_dod_air_naval,HQ,within25_dod_air_naval,0.5497622293622145,1.777750040972811e-07,2.535671457618009e-06,1213.0,CS4,True,
+C_spatial,within_dod_air_naval,HQ_UNEXPLAINED,within25_dod_air_naval,0.5576377344001124,6.565511078964875e-07,8.752331307573946e-06,830.0,CS4,True,
+C_spatial,within_dod_air_naval,MULTI_SENSOR,within25_dod_air_naval,0.8073411480596248,0.219362718202671,0.5384640094125056,174.0,,False,R1 q>=0.05
+C_spatial,within_dod_air_naval,UNEXPLAINED,within50_dod_air_naval,0.6811541314161674,0.0003429379737589,0.0027199611374109,10567.0,CS4,True,
+C_spatial,within_dod_boundary,ALL,within25_dod_boundary,0.7083995140827972,4.369238036522336e-06,5.008868102921049e-05,20447.0,CS4,True,
+C_spatial,within_dod_boundary,EXPLAINED,within50_dod_boundary,0.6820100444950045,1.5878461363354248e-05,0.0001604511576833,3133.0,CS4,True,
+C_spatial,within_dod_boundary,HQ,within25_dod_boundary,0.5690578208816807,1.2637703747965477e-12,3.02084697865161e-11,2629.0,CS4,True,
+C_spatial,within_dod_boundary,HQ_UNEXPLAINED,within25_dod_boundary,0.5728962757337941,4.8068142986117206e-12,1.0960801551965936e-10,1787.0,CS4,True,
+C_spatial,within_dod_boundary,MULTI_SENSOR,within25_dod_boundary,0.8123383037832846,0.1200128518220999,0.3746386512322135,330.0,,False,R1 q>=0.05
+C_spatial,within_dod_boundary,UNEXPLAINED,within25_dod_boundary,0.7116264833212946,9.012802946588045e-06,9.70135869965036e-05,12682.0,CS4,True,
+C_spatial,within_dod_site,ALL,within25_dod_site,0.6792282523307642,8.469939273672462e-07,1.1162284989562264e-05,18180.0,CS4,True,
+C_spatial,within_dod_site,EXPLAINED,within50_dod_site,0.6672911121763354,4.8016404832612575e-06,5.404931137362461e-05,2967.0,CS4,True,
+C_spatial,within_dod_site,HQ,within25_dod_site,0.4992289939560346,7.300947217694173e-19,2.84326775916045e-17,2196.0,CS4,True,
+C_spatial,within_dod_site,HQ_UNEXPLAINED,within25_dod_site,0.4958908956461768,5.998020551640468e-18,2.2116105565942408e-16,1480.0,CS4,True,
+C_spatial,within_dod_site,MULTI_SENSOR,within25_dod_site,0.8390938538534803,0.1865703829302802,0.4910045157451416,297.0,,False,R1 q>=0.05
+C_spatial,within_dod_site,UNEXPLAINED,within25_dod_site,0.6855636815386884,1.8024183401913256e-06,2.255300349134706e-05,11310.0,CS4,True,
+C_spatial,within_doe_weapons_active,ALL,within500_doe_weapons_active,1.220419415089621,0.0730580749221644,0.2688102841615946,21451.0,,False,R1 q>=0.05
+C_spatial,within_doe_weapons_active,EXPLAINED,within500_doe_weapons_active,1.3078984921342804,0.0248035803274957,0.1187420019545583,2415.0,CS4,False,R1 q>=0.05
+C_spatial,within_doe_weapons_active,HQ,within500_doe_weapons_active,1.2202736735874795,0.0604656452138585,0.2331189391671119,2886.0,,False,R1 q>=0.05
+C_spatial,within_doe_weapons_active,HQ_UNEXPLAINED,within500_doe_weapons_active,1.3268031006627827,0.0113908589757944,0.0640920733930252,2029.0,CS4,False,R1 q>=0.05
+C_spatial,within_doe_weapons_active,MULTI_SENSOR,within500_doe_weapons_active,1.1764916706928463,0.3593482395931681,0.6887079733503804,317.0,,False,R1 q>=0.05
+C_spatial,within_doe_weapons_active,UNEXPLAINED,within500_doe_weapons_active,1.2441826305575172,0.0537745309440611,0.2152223143788867,13418.0,,False,R1 q>=0.05
+C_spatial,within_icbm_field_active,ALL,within10_icbm_field_active,1.4999999999999998,0.5432574722761738,0.8147686710987531,18.0,,False,R1 q>=0.05; R3 exposed cases<30
+C_spatial,within_icbm_field_active,EXPLAINED,within10_icbm_field_active,2.7050254800679,0.5254400000000002,0.8058746163798588,2.0,,False,R1 q>=0.05; R3 exposed cases<30
+C_spatial,within_icbm_field_active,HQ,within100_icbm_field_active,0.5692490002670384,0.2884919057514207,0.6194609639608234,5.0,,False,R1 q>=0.05; R3 exposed cases<30
+C_spatial,within_icbm_field_active,HQ_UNEXPLAINED,within100_icbm_field_active,0.588254639983574,0.4087678009720334,0.7219539083765405,4.0,,False,R1 q>=0.05; R3 exposed cases<30
+C_spatial,within_icbm_field_active,MULTI_SENSOR,within250_icbm_field_active,0.7303099006900041,0.5867292683569931,0.8427698483735343,12.0,,False,R1 q>=0.05; R3 exposed cases<30
+C_spatial,within_icbm_field_active,UNEXPLAINED,within5_icbm_field_active,0.7475504910328479,0.7666761984938881,0.9530285083107336,4.0,,False,R1 q>=0.05; R3 exposed cases<30
+C_spatial,within_large_airport,ALL,within50_large_airport,0.5980107906306213,1.554330229984942e-08,2.437696188745615e-07,20288.0,CS4,True,
+C_spatial,within_large_airport,EXPLAINED,within50_large_airport,0.5917688941366247,6.007337185062166e-08,8.898047300609173e-07,2234.0,CS4,False,R0 subset-definition artifact (exposure is a matcher input)
+C_spatial,within_large_airport,HQ,within25_large_airport,0.3627323869937957,7.68807071177658e-17,2.537795532096917e-15,1273.0,CS4,True,
+C_spatial,within_large_airport,HQ_UNEXPLAINED,within25_large_airport,0.3826472267579593,2.9761487496693567e-15,8.816522706285463e-14,891.0,CS4,False,R0 subset-definition artifact (exposure is a matcher input)
+C_spatial,within_large_airport,MULTI_SENSOR,within500_large_airport,3.843724054326713,0.1717986918400001,0.4677566896444936,562.0,,False,R1 q>=0.05
+C_spatial,within_large_airport,UNEXPLAINED,within50_large_airport,0.59293364851003,1.420478228755296e-08,2.258430064617365e-07,12556.0,CS4,False,R0 subset-definition artifact (exposure is a matcher input)
+C_spatial,within_launch_site,ALL,within500_launch_site,0.6769579893312051,0.0071652636832833,0.0428925801835234,24844.0,CS4,True,
+C_spatial,within_launch_site,EXPLAINED,within500_launch_site,0.644120085629556,0.005989173223855,0.036740662644038,2768.0,CS4,False,R0 subset-definition artifact (exposure is a matcher input)
+C_spatial,within_launch_site,HQ,within10_launch_site,0.2409137122788799,2.3022622961187006e-06,2.8097327881504983e-05,8.0,CS4,False,R3 exposed cases<30
+C_spatial,within_launch_site,HQ_UNEXPLAINED,within10_launch_site,0.2224239248939105,6.727375449304778e-05,0.0006134926361756,5.0,CS4,False,R0 subset-definition artifact (exposure is a matcher input); R3 exposed cases<30
+C_spatial,within_launch_site,MULTI_SENSOR,within100_launch_site,0.5725385151860098,0.0942593275694871,0.3218747087249678,47.0,,False,R1 q>=0.05
+C_spatial,within_launch_site,UNEXPLAINED,within500_launch_site,0.6772465991577659,0.0060580787677012,0.0370865065975764,15391.0,CS4,False,R0 subset-definition artifact (exposure is a matcher input)
+C_spatial,within_medium_airport,ALL,within50_medium_airport,0.7952487800870754,0.0073752635728635,0.0440735578336984,33514.0,CS4,True,
+C_spatial,within_medium_airport,EXPLAINED,within50_medium_airport,0.7717972585556149,0.0108125846965325,0.0610401807259219,3697.0,CS4,False,R1 q>=0.05
+C_spatial,within_medium_airport,HQ,within25_medium_airport,0.7433105488208601,1.5157942261206805e-05,0.0001540687034526,3155.0,CS4,True,
+C_spatial,within_medium_airport,HQ_UNEXPLAINED,within25_medium_airport,0.7363549006411607,1.7243991675368515e-05,0.000172738945511,2139.0,CS4,True,
+C_spatial,within_medium_airport,MULTI_SENSOR,within25_medium_airport,0.7450927512142838,0.0244367443860918,0.1173099114157815,350.0,CS4,False,R1 q>=0.05
+C_spatial,within_medium_airport,UNEXPLAINED,within250_medium_airport,0.0681818181818181,0.002486892776615,0.0166194206544639,23730.0,CS4,True,
+C_spatial,within_nuclear_any_active,ALL,within5_nuclear_any_active,1.804889218994388,0.1026205544177438,0.340366355609474,66.0,,False,R1 q>=0.05
+C_spatial,within_nuclear_any_active,EXPLAINED,within5_nuclear_any_active,2.8571428571428568,0.0262291750396168,0.1235194574555871,10.0,CS4,False,R1 q>=0.05; R3 exposed cases<30
+C_spatial,within_nuclear_any_active,HQ,within5_nuclear_any_active,2.650222870806206,0.0489365857724959,0.1997811617049128,11.0,CS4,False,R1 q>=0.05; R3 exposed cases<30
+C_spatial,within_nuclear_any_active,HQ_UNEXPLAINED,within5_nuclear_any_active,2.656738093429067,0.0973391085987431,0.32914863453975,7.0,,False,R1 q>=0.05; R3 exposed cases<30
+C_spatial,within_nuclear_any_active,MULTI_SENSOR,within500_nuclear_any_active,1.5790497112315085,0.1055372398088485,0.3467223442440465,515.0,,False,R1 q>=0.05
+C_spatial,within_nuclear_any_active,UNEXPLAINED,within1_nuclear_any_active,4.97027986275906,0.03916288,0.168829032437811,5.0,CS4,False,R1 q>=0.05; R3 exposed cases<30
+C_spatial,within_nuclear_closed_active,ALL,within5_nuclear_closed_active,2.447792616489234,0.0486345347625236,0.1990168801498311,42.0,CS4,False,R1 q>=0.05
+C_spatial,within_nuclear_closed_active,EXPLAINED,within5_nuclear_closed_active,3.508590252025117,0.036117613969408,0.1598324411078298,7.0,CS4,False,R1 q>=0.05; R3 exposed cases<30
+C_spatial,within_nuclear_closed_active,HQ,within5_nuclear_closed_active,3.5625042554522723,0.0218686304681984,0.1072088729883673,8.0,CS4,False,R1 q>=0.05; R3 exposed cases<30
+C_spatial,within_nuclear_closed_active,HQ_UNEXPLAINED,within100_nuclear_closed_active,0.6791072008865713,0.0367347529622293,0.1613721847491594,572.0,CS4,False,R1 q>=0.05
+C_spatial,within_nuclear_closed_active,MULTI_SENSOR,within100_nuclear_closed_active,0.5858441183193626,0.0794063189514548,0.2869727599110219,74.0,,False,R1 q>=0.05
+C_spatial,within_nuclear_closed_active,UNEXPLAINED,within1_nuclear_closed_active,4.97027986275906,0.03916288,0.168829032437811,5.0,CS4,False,R1 q>=0.05; R3 exposed cases<30
+C_spatial,within_nuclear_operating,ALL,within250_nuclear_operating,1.153663301009032,0.2928197052458871,0.6249644988846955,25528.0,,False,R1 q>=0.05
+C_spatial,within_nuclear_operating,EXPLAINED,within10_nuclear_operating,1.789711926874339,0.1261067481649982,0.3840825915113214,16.0,,False,R1 q>=0.05; R3 exposed cases<30
+C_spatial,within_nuclear_operating,HQ,within250_nuclear_operating,1.190174080543853,0.1745697088510237,0.4723330295688121,3957.0,,False,R1 q>=0.05
+C_spatial,within_nuclear_operating,HQ_UNEXPLAINED,within250_nuclear_operating,1.2057009911726944,0.1597871499103743,0.446534187140196,2691.0,,False,R1 q>=0.05
+C_spatial,within_nuclear_operating,MULTI_SENSOR,within500_nuclear_operating,1.6022881324315297,0.0927999495531747,0.3184600249022808,515.0,,False,R1 q>=0.05
+C_spatial,within_nuclear_operating,UNEXPLAINED,within250_nuclear_operating,1.1490630264759991,0.3118440876944433,0.6429813253711721,15880.0,,False,R1 q>=0.05; R2 effect<1.15x
+C_spatial,within_nuclear_test_site,ALL,within500_nuclear_test_site,0.6780424242819938,0.0399804468284156,0.171500283053575,10050.0,CS4,False,R1 q>=0.05
+C_spatial,within_nuclear_test_site,EXPLAINED,within500_nuclear_test_site,0.6135515773249354,0.0174205427214297,0.0890554588089608,1126.0,CS4,False,R1 q>=0.05
+C_spatial,within_nuclear_test_site,HQ,within500_nuclear_test_site,0.5230600736957308,0.0001033913197717,0.0009188572162281,1204.0,CS4,True,
+C_spatial,within_nuclear_test_site,HQ_UNEXPLAINED,within500_nuclear_test_site,0.5337887468488274,0.0002914810600436,0.0023549495433829,824.0,CS4,True,
+C_spatial,within_nuclear_test_site,MULTI_SENSOR,within500_nuclear_test_site,0.8115728852068188,0.3672528056791623,0.6950399288830739,175.0,,False,R1 q>=0.05
+C_spatial,within_nuclear_test_site,UNEXPLAINED,within500_nuclear_test_site,0.6942247615973633,0.0479917991399907,0.1970848054729952,6230.0,CS4,False,R1 q>=0.05
+C_spatial,within_small_airport,ALL,within5_small_airport,1.2490019758737565,5.274466604034019e-05,0.0004875013666555,8059.0,CS4,True,
+C_spatial,within_small_airport,EXPLAINED,within5_small_airport,1.32219892822409,4.756973192858194e-05,0.0004483269084919,934.0,CS4,False,R4 not replicated in both discovery periods 1995-2005 / 2006-2015
+C_spatial,within_small_airport,HQ,within10_small_airport,1.782745576281054,4.479758226265356e-16,1.4376705566884926e-14,3427.0,CS4,True,
+C_spatial,within_small_airport,HQ_UNEXPLAINED,within10_small_airport,1.6906863064212787,1.0709203016223882e-11,2.2912405959402456e-10,2311.0,CS4,True,
+C_spatial,within_small_airport,MULTI_SENSOR,within1_small_airport,5.914916557310346,0.11584,0.3679160729836372,3.0,,False,R1 q>=0.05; R3 exposed cases<30
+C_spatial,within_small_airport,UNEXPLAINED,within5_small_airport,1.2328255287599854,0.0002567576495296,0.0021088199366579,4985.0,CS4,True,
+C_spatial,within_sua_alert,ALL,within5_sua_alert,0.7652055759476057,0.2038260912193585,0.513416593144111,719.0,,False,R1 q>=0.05
+C_spatial,within_sua_alert,EXPLAINED,within5_sua_alert,0.602690758973559,0.0298883459616144,0.1363065882933629,67.0,CS4,False,R1 q>=0.05
+C_spatial,within_sua_alert,HQ,within50_sua_alert,0.6742441811473463,0.0140857730563549,0.0753414960082195,644.0,CS4,False,R1 q>=0.05
+C_spatial,within_sua_alert,HQ_UNEXPLAINED,within25_sua_alert,0.6169981633568703,0.0211187200099464,0.1046073231818406,218.0,CS4,False,R1 q>=0.05
+C_spatial,within_sua_alert,MULTI_SENSOR,within5_sua_alert,0.5477092402401819,0.1031067552057065,0.3413257053896647,9.0,,False,R1 q>=0.05; R3 exposed cases<30
+C_spatial,within_sua_alert,UNEXPLAINED,within5_sua_alert,0.7831870839961959,0.2533945577165132,0.5770470020009426,457.0,,False,R1 q>=0.05
+C_spatial,within_sua_moa,ALL,within500_sua_moa,2.2692874319933303,0.0009879713123134,0.0071939255640304,37849.0,CS4,True,
+C_spatial,within_sua_moa,EXPLAINED,within5_sua_moa,1.5087537683857652,0.0016963898951826,0.0117359029475108,167.0,CS4,True,
+C_spatial,within_sua_moa,HQ,within10_sua_moa,1.4653002419355332,0.0007249697994799,0.0054388426947996,332.0,CS4,False,R4 not replicated in both discovery periods 1995-2005 / 2006-2015
+C_spatial,within_sua_moa,HQ_UNEXPLAINED,within500_sua_moa,2.0720465037784583,0.0016433176322719,0.0114143064397885,3778.0,CS4,True,
+C_spatial,within_sua_moa,MULTI_SENSOR,within500_sua_moa,4.2076252965802725,0.0053393555634117,0.0331652444135936,557.0,CS4,False,R4 not replicated in both discovery periods 1995-2005 / 2006-2015
+C_spatial,within_sua_moa,UNEXPLAINED,within10_sua_moa,1.320089740293874,0.0013306633087557,0.0093551298745387,1170.0,CS4,True,
+C_spatial,within_sua_prohibited,ALL,within500_sua_prohibited,1.2840484572483546,0.0898477421359115,0.3112232742202578,20643.0,,False,R1 q>=0.05
+C_spatial,within_sua_prohibited,EXPLAINED,within500_sua_prohibited,1.34231297577834,0.0773800810493207,0.2811314055733183,2302.0,,False,R1 q>=0.05
+C_spatial,within_sua_prohibited,HQ,within5_sua_prohibited,0.1376979070383491,9.89569822927886e-08,1.4291037526116887e-06,4.0,CS4,False,R3 exposed cases<30
+C_spatial,within_sua_prohibited,HQ_UNEXPLAINED,within5_sua_prohibited,0.160284311334457,4.874897556354199e-05,0.0004566593224411,3.0,CS4,False,R3 exposed cases<30
+C_spatial,within_sua_prohibited,MULTI_SENSOR,within500_sua_prohibited,1.3521814533912675,0.1186488055196386,0.3723743361036315,307.0,,False,R1 q>=0.05
+C_spatial,within_sua_prohibited,UNEXPLAINED,within500_sua_prohibited,1.24339506384683,0.1329143807252024,0.3982166355749463,12706.0,,False,R1 q>=0.05
+C_spatial,within_sua_restricted,ALL,within1_sua_restricted,1.3866896460849856,0.1996807025854002,0.5092666042391445,223.0,,False,R1 q>=0.05
+C_spatial,within_sua_restricted,EXPLAINED,within250_sua_restricted,0.7996863485694344,0.1933112809878726,0.5005736178043415,3940.0,,False,R1 q>=0.05
+C_spatial,within_sua_restricted,HQ,within250_sua_restricted,0.7545125127456735,0.0300933211013644,0.1370610393394601,5226.0,CS4,False,R1 q>=0.05
+C_spatial,within_sua_restricted,HQ_UNEXPLAINED,within250_sua_restricted,0.6926535838447352,0.0058064970887148,0.0357465699990863,3541.0,CS4,True,
+C_spatial,within_sua_restricted,MULTI_SENSOR,within5_sua_restricted,0.336823401862966,0.1435599410792374,0.4177823306302577,2.0,,False,R1 q>=0.05; R3 exposed cases<30
+C_spatial,within_sua_restricted,UNEXPLAINED,within250_sua_restricted,0.8184048684541058,0.1499713352577514,0.4300248138957816,22128.0,,False,R1 q>=0.05
+G_launch_grid,any_glaunch,ALL,any_glaunch_pm30m_500km,7.312322722433983,1.3305743443823248e-32,9.04268760319439e-31,134.0,CS1;CS4,True,
+G_launch_grid,any_glaunch,HQ_UNEXPLAINED,any_glaunch_pm7d_500km,0.8705068763874179,0.0787519325050701,0.2852185977665339,404.0,,False,"R0 subset-definition artifact (exposure is a matcher input); R1 q>=0.05; R2 effect<1.15x; R4 strategies supporting [] < 2 of ['CS1', 'CS4']"
+G_quake_grid,any_gquake,ALL,any_gquake_pm7d_5km,0.5195139958741986,0.012401778376813,0.0682294664349744,19.0,CS1;CS4,False,R1 q>=0.05; R3 exposed cases<30
+G_quake_grid,any_gquake,HQ_UNEXPLAINED,any_gquake_pm15m_500km,1.5350129229801392,0.0090385067562167,0.0526512007009199,48.0,CS1,False,"R1 q>=0.05; R4 strategies supporting ['CS1'] < 2 of ['CS1', 'CS4']"
+G_storm_grid,any_gstorm,ALL,any_gstorm_pm6h_500km,0.7525037632173879,4.102277482848064e-25,2.187460577777137e-23,6434.0,CS1;CS4,True,
+G_storm_grid,any_gstorm,HQ_UNEXPLAINED,any_gstorm_pm3h_500km,0.6665835466532716,2.8733870623990805e-10,5.472065691360007e-09,490.0,CS1;CS4,False,R0 subset-definition artifact (exposure is a matcher input)

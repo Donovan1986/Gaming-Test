@@ -2,23 +2,23 @@ control,n_events,power,reps
 CNEOS bolide,100,0.0,40
 CNEOS bolide,300,0.0,40
 CNEOS bolide,1000,0.0,40
-CNEOS bolide,3000,0.025,40
-CNEOS bolide,10000,0.275,40
-launch 3h 1500km,100,0.075,40
-launch 3h 1500km,300,0.1,40
-launch 3h 1500km,1000,0.425,40
-launch 3h 1500km,3000,0.625,40
+CNEOS bolide,3000,0.075,40
+CNEOS bolide,10000,0.775,40
+launch 3h 1500km,100,0.05,40
+launch 3h 1500km,300,0.075,40
+launch 3h 1500km,1000,0.4,40
+launch 3h 1500km,3000,0.65,40
 launch 3h 1500km,10000,1.0,40
 July 4th,100,0.05,40
-July 4th,300,0.425,40
+July 4th,300,0.325,40
 July 4th,1000,0.875,40
 July 4th,3000,1.0,40
 July 4th,10000,1.0,40
-shower ZHR>=50 meteor-like,100,0.05,40
-shower ZHR>=50 meteor-like,300,0.175,40
-shower ZHR>=50 meteor-like,1000,0.275,40
-shower ZHR>=50 meteor-like,3000,0.7,40
-clear sky,100,0.4,40
+shower ZHR>=50 meteor-like,100,0.0,40
+shower ZHR>=50 meteor-like,300,0.05,40
+shower ZHR>=50 meteor-like,1000,0.325,40
+shower ZHR>=50 meteor-like,3000,0.725,40
+clear sky,100,0.375,40
 clear sky,300,0.85,40
 clear sky,1000,1.0,40
 clear sky,3000,1.0,40

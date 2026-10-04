@@ -44,6 +44,7 @@ def derive(p: pd.DataFrame) -> pd.DataFrame:
     p["ae_substorm500_prior6h"] = b(p.ae_max_prior6h >= 500, p.ae_max_prior6h)
     p["bz_south10_prior3h"] = b(p.bz_min_prior3h <= -10, p.bz_min_prior3h)
     p["hss600_prior24h"] = b(p.v_max_prior24h >= 600, p.v_max_prior24h)
+    p["f107_ge172"] = b(p.F107 >= 172, p.F107)  # secondary: top decile of discovery F10.7 (spline U-shape)
     p["proton_event_prior24h"] = b(p.pflux10_max_prior24h >= 10, p.pflux10_max_prior24h)
     p["flareMX_any_prior24h"] = b(p.n_flareMX_prior24h > 0, p.n_flareMX_prior24h)
     p["log_wiki_views"] = np.log10(p.wiki_ufo_views)

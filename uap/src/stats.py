@@ -335,3 +335,16 @@ def poisson_rr(cases_exp, cases_unexp, pt_exp, pt_unexp):
     to_rr = lambda q: (q / (1 - q)) * ((1 - f) / f) if 0 < q < 1 else (0 if q <= 0 else np.inf)
     p = sps.binomtest(int(a), int(a + b), f).pvalue
     return dict(RR=rr, lo=to_rr(lo_p), hi=to_rr(hi_p), p=p)
+
+
+def read_registry() -> pd.DataFrame:
+    """Read the registry tolerating the header written before the v3 columns were added
+    (older rows have 25 fields, v3 rows 29)."""
+    with open(REGISTRY, newline="") as f:
+        rows = list(csv.reader(f))[1:]
+    rows = [r + [""] * (len(FIELDS) - len(r)) for r in rows]
+    df = pd.DataFrame(rows, columns=FIELDS)
+    for c in ["n_cases", "n_controls", "n_strata", "effect", "ci_low", "ci_high", "p_value", "n_exposed_cases",
+              "n_exposed_controls"]:
+        df[c] = pd.to_numeric(df[c], errors="coerce")
+    return df

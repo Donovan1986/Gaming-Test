@@ -64,8 +64,44 @@ def subset_ids(e, subset):
     return e.loc[e[col].fillna(False).astype(bool), "EVENT_ID"].to_numpy()
 
 
+def seq_indicator(pts, ids, a, b, strategy="CS1"):
+    """Recompute the ordered-pair indicator A in [t-72h,t-24h) and B in [t-24h,t] for given events."""
+    import covariates as C
+    d = cc.matched(pts, ids, strategy).copy()
+    t = F.to_sec(d.utc_ts)
+    la, lo = d.lat.to_numpy(float), d.lon.to_numpy(float)
+    kp = C.kp3h()
+    om = C.omni_hourly()
+    fl = C.flares()
+    q = C.quakes().rename(columns={"latitude": "lat", "longitude": "lon"})
+    L = C.launches()
+    defs = {"kp_storm": (kp[kp.kp >= 5].assign(lat=0.0, lon=0.0), False, 0),
+            "substorm_AE500": (om[om.ae >= 500][["time"]].assign(lat=0.0, lon=0.0), False, 0),
+            "flare_MX": (fl[fl.cls.isin(["M", "X"])][["time"]].assign(lat=0.0, lon=0.0), False, 0),
+            "quake_M4_500km": (q[q.mag >= 4.0], True, 500), "launch_1500km": (L[L.time_has_clock & L.lat.notna()], True, 1500),
+            "convective_storm_50km": (weather.storm_events(), True, 50)}
+    ind = []
+    for name, win in ((a, (-72 * 3600, -24 * 3600)), (b, (-24 * 3600, 0))):
+        cat, loc, r = defs[name]
+        w = F.window_counts(t, la if loc else np.zeros(len(t)), lo if loc else np.zeros(len(t)), cat, {"w": win},
+                            [r] if loc else [0], need_loc=loc)
+        ind.append((w.iloc[:, 0] > 0).to_numpy().astype(float))
+    d["x_seq"] = ind[0] * ind[1]
+    return d
+
+
 def run_one(pts, ids, c, label, phase, register=True, strategy=None):
     st = strategy or c["control_strategy"]
+    if c.get("kind") == "interaction":
+        from ml_discovery import test_interaction
+        r = test_interaction(pts, ids, c["variable"], c["variable_b"], st, c["subset"], phase=phase, split=label,
+                             register=register)
+        return r or dict(status="NOT_TESTABLE", effect=np.nan, p_value=np.nan, ci_low=np.nan, ci_high=np.nan, n_cases=0)
+    if c.get("kind") == "sequence":
+        d = seq_indicator(pts, ids, c["variable"], c["variable_b"], st)
+        return cc.run(d, ids, "x_seq", st, family=c["family"], hypothesis=f"[{c['candidate_id']}] {c['hypothesis']}",
+                      var_a=c["variable"], var_b=c["variable_b"], window=c.get("window", ""), subset=c["subset"],
+                      split=label, phase=phase, register=register, min_cases=10)
     return cc.run(pts, ids, c["variable"], st, family=c["family"], hypothesis=f"[{c['candidate_id']}] {c['hypothesis']}",
                   var_a=c["variable"], window=c.get("window", ""), radius=c.get("radius_km", ""), subset=c["subset"],
                   split=label, phase=phase, register=register, min_cases=10)
@@ -240,6 +276,98 @@ def shifted_layer_distance(layer, la, lo, yr, dlat, dlon):
     return None
 
 
+# ---------------------------------------------------------------- fast weather permutation
+_WX = {}
+WX_BASE = {"wx_clear": ["wx_sky_oktas"], "wx_overcast": ["wx_sky_oktas"], "wx_sky_oktas": ["wx_sky_oktas"],
+           "wx_front_pressure_fall": ["wx_dslp_24h"], "wx_cold_front_proxy": ["wx_dtemp_24h", "wx_dslp_24h"],
+           "wx_clearing_6h": ["wx_dsky_6h"], "wx_inversion_night": ["wx_inversion_proxy"],
+           "wx_precip_any": ["wx_precip_1h_mm"]}
+
+
+def _wx_matrix(cols):
+    """Station x hour matrices (float32) for the requested ISD-derived columns, 1995-2023."""
+    key = tuple(sorted(cols))
+    if key in _WX:
+        return _WX[key]
+    st = weather.stations().sid.tolist()
+    t0 = pd.Timestamp("1995-01-01", tz="UTC")
+    nh = int((pd.Timestamp("2024-01-01", tz="UTC") - t0) / pd.Timedelta(hours=1))
+    M = {c: np.full((len(st), nh), np.nan, dtype=np.float32) for c in cols}
+    for i, sid in enumerate(st):
+        df = weather.load_station(sid)
+        if df.empty:
+            continue
+        hi = ((df.index - t0) / pd.Timedelta(hours=1)).astype(int)
+        ok = (hi >= 0) & (hi < nh)
+        for c in cols:
+            M[c][i, hi[ok]] = df[c].to_numpy(np.float32)[ok]
+    _WX[key] = (st, t0, nh, M)
+    return _WX[key]
+
+
+def _wx_value(var, base):
+    b = base
+    if var == "wx_clear":
+        v = (b["wx_sky_oktas"] <= 2).astype(float)
+        v[np.isnan(b["wx_sky_oktas"])] = np.nan
+    elif var == "wx_overcast":
+        v = (b["wx_sky_oktas"] >= 7).astype(float)
+        v[np.isnan(b["wx_sky_oktas"])] = np.nan
+    elif var == "wx_front_pressure_fall":
+        v = (b["wx_dslp_24h"] <= -8).astype(float)
+        v[np.isnan(b["wx_dslp_24h"])] = np.nan
+    elif var == "wx_cold_front_proxy":
+        v = ((b["wx_dtemp_24h"] <= -8) & (b["wx_dslp_24h"] > 0)).astype(float)
+        v[np.isnan(b["wx_dtemp_24h"])] = np.nan
+    elif var == "wx_clearing_6h":
+        v = (b["wx_dsky_6h"] <= -4).astype(float)
+        v[np.isnan(b["wx_dsky_6h"])] = np.nan
+    elif var == "wx_precip_any":
+        v = (b["wx_precip_1h_mm"] > 0).astype(float)
+        v[np.isnan(b["wx_precip_1h_mm"])] = np.nan
+    else:
+        v = b[var].astype(float)
+    return v
+
+
+def permutation_weather(pts, ids, c, n_perm=200, seed=MASTER_SEED + 63):
+    var = c["variable"]
+    cols = WX_BASE.get(var, [var])
+    if var == "wx_inversion_night":
+        cols = ["wx_inversion_proxy"]
+    d = cc.matched(pts, ids, c["control_strategy"]).copy()
+    obs = run_one(d, ids, c, "perm_observed", "permutation", register=False)
+    st, t0, nh, M = _wx_matrix(cols)
+    sidx = {s: i for i, s in enumerate(st)}
+    s_i = np.array([sidx.get(x, -1) for x in d.wx_station.astype(object).where(d.wx_station.notna(), None)])
+    h = np.round((F.to_sec(d.utc_ts) - t0.value / 1e9) / 3600.0).astype(np.int64)
+    ks = [k for k in range(-15, 16) if abs(k) >= 1]
+    rng = np.random.default_rng(seed)
+    nulls = []
+    for i in range(n_perm):
+        k = ks[i % len(ks)] if i < len(ks) else int(rng.choice(ks))
+        hh = h + k * 364 * 24
+        ok = (s_i >= 0) & (hh >= 0) & (hh < nh)
+        base = {}
+        for col in cols:
+            v = np.full(len(d), np.nan)
+            v[ok] = M[col][s_i[ok], hh[ok]]
+            base[col] = v
+        x = _wx_value(var if var != "wx_inversion_night" else "wx_inversion_proxy", base)
+        if var == "wx_inversion_night":
+            x = x * (d.sun_alt.to_numpy() < -6)
+        d["x_perm"] = x
+        r = run_one(d, ids, dict(c, variable="x_perm"), "perm_null", "permutation", register=False)
+        if np.isfinite(r.get("effect", np.nan)):
+            nulls.append(np.log(r["effect"]))
+    nulls = np.array(nulls)
+    lo_ = np.log(obs["effect"])
+    return dict(candidate_id=c["candidate_id"], kind="weather", observed_or=obs["effect"], n_null=len(nulls),
+                null_median_or=float(np.exp(np.median(nulls))) if len(nulls) else np.nan,
+                null_95pct_or=float(np.exp(np.percentile(nulls, 97.5))) if len(nulls) else np.nan,
+                p_perm=(np.sum(np.abs(nulls) >= abs(lo_)) + 1) / (len(nulls) + 1))
+
+
 def main(do_perm=True, n_perm=200):
     spec, h = load_frozen()
     pts = derive(cc.points())
@@ -262,11 +390,20 @@ def main(do_perm=True, n_perm=200):
             r.update(candidate_id=c["candidate_id"], eval_set=f"LOSO_drop_{src}", verdict=verdict(r, c["direction"]))
             rows.append(r)
         nuf_pool = pd.concat([sets["E1_validation"], sets["E2_holdout_random"], sets["E3_holdout_temporal"]])
-        sens += sensitivity(pts, nuf_pool, c)
-        if do_perm:
+        if c.get("kind", "single") == "single":
+            sens += sensitivity(pts, nuf_pool, c)
+        # Two-stage rule (declared before validation): permutation only if REPLICATED in >= 2 of E1-E3
+        n_rep = sum(1 for r in rows if r["candidate_id"] == c["candidate_id"] and r["eval_set"] in
+                    ("E1_validation", "E2_holdout_random", "E3_holdout_temporal") and r["verdict"] == "REPLICATED")
+        if do_perm and n_rep >= 2 and c.get("kind", "single") == "single":
             ids = subset_ids(nuf_pool, c["subset"])
             kind = var_kind(c["variable"])
-            pr = permutation_spatial(pts, ids, c, n_perm) if kind == "spatial" else permutation_temporal(pts, ids, c, n_perm)
+            if kind == "spatial":
+                pr = permutation_spatial(pts, ids, c, n_perm)
+            elif kind == "weather":
+                pr = permutation_weather(pts, ids, c, n_perm)
+            else:
+                pr = permutation_temporal(pts, ids, c, n_perm if kind not in ("astro",) else 100)
             perms.append(pr)
             print(pr, flush=True)
         print(c["candidate_id"], c["variable"], [(r["eval_set"], round(r.get("effect", np.nan), 3), r["verdict"])

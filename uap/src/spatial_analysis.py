@@ -207,5 +207,37 @@ def main():
     pd.DataFrame(knox_rows).to_csv(RESULTS / "spatial_knox.csv", index=False)
 
 
+def main_holdout():
+    """Frozen adjudication (run only after freezing): (a) does the discovery scan's top
+    overdispersion-robust cluster (Washington State, NUFORC's home region) reappear in held-out
+    data? (b) Knox space-time interaction in held-out data."""
+    ev = pd.read_parquet(PROCESSED / "events.parquet")
+    cty = counties()
+    conus = ev[(ev.SOURCE == "NUFORC") & ev.LATITUDE.between(24, 50) & ev.LONGITUDE.between(-125, -66)]
+    scan_rows, knox_rows = [], []
+    for split_name, years in [("validation", (1995, 2015)), ("holdout_random", (1995, 2015)), ("holdout_temporal", (2016, 2023))]:
+        sub = conus[conus.SPLIT == split_name]
+        for subset, mask in [("ALL", np.ones(len(sub), bool)), ("HQ_UNEXPLAINED", sub.HQ_UNEXPLAINED.to_numpy()),
+                             ("EXPLAINED", (sub.P_EXPLAINED >= 0.6).to_numpy())]:
+            t = county_table(sub[mask], years, cty)
+            E = t.py * t.n.sum() / t.py.sum()
+            cl = kulldorff(t, E, n_sim=499)
+            cl["split"], cl["subset"], cl["baseline"] = split_name, subset, "population"
+            cl["center_state"] = cl.center_fips.str[:2]
+            scan_rows.append(cl)
+            print(split_name, subset, cl.head(3)[["center_fips", "radius_km", "observed", "expected", "rr", "p_mc_overdispersed"]].to_string())
+            s2 = sub[mask & sub.utc_ts.notna().to_numpy()].drop_duplicates("REGIONAL_CLUSTER")
+            for dk, dd in [(10, 1), (25, 7), (50, 30)]:
+                k = knox(s2, dk, dd, n_perm=199)
+                k.update(split=split_name, subset=subset, d_km=dk, dt_days=dd, n=len(s2))
+                knox_rows.append(k)
+    pd.concat(scan_rows).to_csv(RESULTS / "spatial_scan_clusters_holdout.csv", index=False)
+    pd.DataFrame(knox_rows).to_csv(RESULTS / "spatial_knox_holdout.csv", index=False)
+
+
 if __name__ == "__main__":
-    main()
+    import sys
+    if len(sys.argv) > 1 and sys.argv[1] == "holdout":
+        main_holdout()
+    else:
+        main()
