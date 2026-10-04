@@ -19,6 +19,7 @@ import numpy as np
 import pandas as pd
 
 import stats as S
+from stats import INFERENCE_VERSION
 from select_candidates import KNOWN, MATCHER_INPUTS, MATCHER_SUBSETS, freeze
 from common import RESULTS
 
@@ -36,6 +37,7 @@ def rule_candidates():
                         direction=b.direction, discovery_or=float(b.effect), discovery_ci=[float(b.ci_low), float(b.ci_high)],
                         discovery_p=float(b.p_value), discovery_q=float(b.q_bh_all), discovery_n_cases=int(b.n_cases),
                         discovery_n_exposed_cases=None if pd.isna(b.n_exposed_cases) else int(b.n_exposed_cases),
+                        scale=float(b.scale),
                         strategies_supporting=str(r.strategies_supporting), kind="single",
                         label="CONVENTIONAL_STIMULUS" if KNOWN.search(b.variable_a) else "NOVEL_OR_CONFOUNDER",
                         tier="PRIMARY", hypothesis=b.hypothesis))
@@ -44,7 +46,7 @@ def rule_candidates():
 
 def ml_candidates():
     r = S.read_registry()
-    m = r[(r.family == "ML_interaction") & r.inference_version.astype(str).str.startswith("v3")].copy()
+    m = r[(r.family == "ML_interaction") & (r.inference_version.astype(str) == INFERENCE_VERSION)].copy()
     m = m.drop_duplicates(["variable_a", "variable_b", "subset", "control_strategy"])
     if m.empty:
         return [], m
@@ -58,14 +60,14 @@ def ml_candidates():
                         control_strategy=b.control_strategy, window="", radius_km="", direction=b.direction,
                         discovery_or=float(b.effect), discovery_ci=[float(b.ci_low), float(b.ci_high)],
                         discovery_p=float(b.p_value), discovery_q=float(b.q), discovery_n_cases=int(b.n_cases),
-                        kind="interaction", label="NOVEL_OR_CONFOUNDER", tier="PRIMARY",
+                        scale=1.0, kind="interaction", label="NOVEL_OR_CONFOUNDER", tier="PRIMARY",
                         hypothesis=f"{b.variable_a} x {b.variable_b} interaction (per-SD product, main effects adjusted)"))
     return out, m
 
 
 def seq_candidates():
     r = S.read_registry()
-    s = r[(r.family == "SEQ_ordered_pair") & r.inference_version.astype(str).str.startswith("v3")].copy()
+    s = r[(r.family == "SEQ_ordered_pair") & (r.inference_version.astype(str) == INFERENCE_VERSION)].copy()
     s = s.drop_duplicates(["variable_a", "variable_b", "subset"])
     if s.empty:
         return [], s
@@ -74,7 +76,7 @@ def seq_candidates():
     out = [dict(family="SEQ_ordered_pair", variable=b.variable_a, variable_b=b.variable_b, subset=b.subset,
                 control_strategy="CS1", window=b.window, radius_km="", direction=b.direction,
                 discovery_or=float(b.effect), discovery_ci=[float(b.ci_low), float(b.ci_high)], discovery_p=float(b.p_value),
-                discovery_q=float(b.q), discovery_n_cases=int(b.n_cases), kind="sequence", label="NOVEL_OR_CONFOUNDER",
+                discovery_q=float(b.q), discovery_n_cases=int(b.n_cases), scale=1.0, kind="sequence", label="NOVEL_OR_CONFOUNDER",
                 tier="PRIMARY", hypothesis=b.hypothesis) for _, b in keep.iterrows()]
     return out, s
 
@@ -118,7 +120,7 @@ ADJUDICATION = [
 ]
 
 
-def main():
+def main(metadata=None):
     cands = rule_candidates()
     mlc, mltab = ml_candidates()
     sqc, sqtab = seq_candidates()
@@ -127,9 +129,13 @@ def main():
         c["candidate_id"] = f"C{i:03d}"
     sec = []
     for i, s in enumerate(SECONDARY, 1):
-        sec.append(dict(s, candidate_id=f"S{i:02d}", window="", radius_km="", kind="single", label="SECONDARY", tier="SECONDARY"))
+        from discovery_tests import FAM_A
+        scale = {v: sc for v, sc, *_ in FAM_A}.get(s["variable"], 1.0)
+        sec.append(dict(s, candidate_id=f"S{i:02d}", window="", radius_km="", kind="single", label="SECONDARY",
+                        tier="SECONDARY", scale=float(scale)))
     print(f"primary {len(all_c)} (rule {len(cands)}, ML {len(mlc)}, SEQ {len(sqc)}); secondary {len(sec)}")
-    h = freeze(all_c + sec, {"adjudication_hypotheses": ADJUDICATION,
+    extra = dict(metadata or {})
+    h = freeze(all_c + sec, {**extra, "adjudication_hypotheses": ADJUDICATION,
                               "two_stage_permutation_rule": "permutation only for candidates REPLICATED (p<0.05, same direction) in >=2 of E1-E3",
                               "grading_rules": "see report/METHODS.md section 11"})
     return h

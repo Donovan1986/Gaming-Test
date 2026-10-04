@@ -20,6 +20,11 @@ from common import RAW, INTERIM
 
 W = RAW / "weather"
 MAX_KM = 50.0
+WEATHER_COLUMNS = (
+    "wx_temp_c", "wx_dewpt_spread_c", "wx_slp_hpa", "wx_wind_ms", "wx_sky_oktas",
+    "wx_precip_1h_mm", "wx_dslp_3h", "wx_dslp_24h", "wx_dtemp_24h", "wx_dsky_6h",
+    "wx_sky_mean_prior6h", "wx_precip_prior24h_mm", "wx_inversion_proxy",
+)
 
 
 @lru_cache(maxsize=1)
@@ -50,7 +55,9 @@ def load_station(sid: str, years=range(1995, 2024)) -> pd.DataFrame:
     df["time"] = pd.to_datetime(dict(year=df.y, month=df.m, day=df.d, hour=df.h), utc=True)
     df = df.drop_duplicates("time").set_index("time").sort_index()
     df["t"] /= 10; df["td"] /= 10; df["slp"] /= 10; df["ws"] /= 10; df["p1"] /= 10; df["p6"] /= 10
-    df["sky"] = df["sky"].where(df["sky"] <= 8, 8)
+    # Only observed obscured-sky codes map to overcast; missing stays missing.
+    df["sky"] = df["sky"].replace({9.0: 8.0, 10.0: 8.0})
+    df.loc[~df["sky"].between(0, 8), "sky"] = np.nan
     full = df.reindex(pd.date_range(df.index.min(), df.index.max(), freq="h", tz="UTC"))
     out = pd.DataFrame(index=full.index)
     out["wx_temp_c"] = full.t
@@ -65,11 +72,13 @@ def load_station(sid: str, years=range(1995, 2024)) -> pd.DataFrame:
     out["wx_dsky_6h"] = full.sky - full.sky.shift(6)
     out["wx_sky_mean_prior6h"] = full.sky.rolling(6, min_periods=3).mean()
     out["wx_precip_prior24h_mm"] = full.p1.rolling(24, min_periods=6).sum()
-    # Radiative-inversion proxy (documented): night-time clear sky + light wind
+    # Clear-sky/light-wind component; downstream wx_inversion_night adds
+    # the Sun-altitude requirement after weather and astronomy are joined.
     out["wx_inversion_proxy"] = ((full.sky <= 2) & (full.ws <= 2.0)).astype(float)
     out.loc[full.sky.isna() | full.ws.isna(), "wx_inversion_proxy"] = np.nan
-    # nearest-observation tolerance +-90 min: forward/back fill up to 1 h gap
-    return out.ffill(limit=1)
+    # Keep source measurement gaps. Match actual observation timestamps in
+    # weather_features rather than impute every variable on the hourly grid.
+    return out.loc[df.index]
 
 
 def assign_station(lat, lon):
@@ -91,21 +100,30 @@ def weather_features(pts_t, lat, lon) -> pd.DataFrame:
     if ok.any():
         s_, d_ = assign_station(lat[ok], lon[ok])
         sid[ok] = s_; dist[ok] = d_
-    cols = None
-    res = {}
-    hours = pd.to_datetime(np.where(np.isfinite(tt), tt, 0) * 1e9, utc=True, unit="ns").round("h")
+    res = {column: np.full(len(lat), np.nan) for column in WEATHER_COLUMNS}
+    observation_age = np.full(len(lat), np.nan)
+    times = pd.to_datetime(tt, utc=True, unit="s")
     for s in pd.unique(sid[pd.notna(sid)]):
         m = np.where(sid == s)[0]
         df = load_station(s)
         if df.empty:
             continue
-        cols = df.columns
-        sub = df.reindex(hours[m])
+        indexer = df.index.get_indexer(times[m], method="nearest", tolerance=pd.Timedelta("90min"))
+        usable = indexer >= 0
+        if not usable.any():
+            continue
+        target = m[usable]
+        sub = df.iloc[indexer[usable]]
         for c in df.columns:
-            res.setdefault(c, np.full(len(lat), np.nan))[m] = sub[c].to_numpy()
+            res.setdefault(c, np.full(len(lat), np.nan))[target] = sub[c].to_numpy()
+        observation_age[target] = (times[target] - sub.index).total_seconds() / 60
     out = pd.DataFrame(res, index=range(len(lat)))
     out["wx_station"] = sid
     out["wx_station_km"] = dist
+    # Negative age identifies observations after the event. Prospective rules
+    # must require nonnegative age; retrospective nearest-weather matches may
+    # use either side of the documented 90-minute tolerance.
+    out["wx_observation_age_min"] = observation_age
     return out
 
 

@@ -35,7 +35,9 @@ CENSUS_REGION = {  # state -> Census region
 
 def load_cases() -> pd.DataFrame:
     ev = pd.read_parquet(PROCESSED / "events.parquet")
-    ev = ev[ev.utc_ts.notna() & ev.LATITUDE.notna() & ev.TIMEZONE.notna()].copy()
+    valid = ev.utc_ts.notna() & ev.TIMEZONE.notna()
+    valid &= ev.LATITUDE.between(-90, 90) & ev.LONGITUDE.between(-180, 180)
+    ev = ev[valid].copy()
     ev["t"] = F.to_sec(ev.utc_ts)
     return ev.reset_index(drop=True)
 
@@ -152,7 +154,7 @@ def _compute_features(pts: pd.DataFrame) -> pd.DataFrame:
     parts = [F.space_weather_features(t)]
     parts.append(F.astro_calendar_features(t, la, lo, tz))
     parts += [F.quake_features(t, la, lo), F.fireball_features(t, la, lo), F.launch_features(t, la, lo),
-              F.storm_event_features(t, la, lo, weather.storm_events()), F.media_features(t)]
+              F.storm_event_features(t, la, lo, weather.storm_events(), countries=pts.COUNTRY.to_numpy()), F.media_features(t)]
     parts.append(pd.DataFrame({"iss_visible_win": iss.iss_visible_window(t, la, lo, np.full(len(t), 10.0))}))
     out = pd.concat([p.reset_index(drop=True) for p in parts], axis=1)
     out.index = pts.index

@@ -85,17 +85,22 @@ def main():
             pts[c_] = u[c_].to_numpy()
     for c in spec["candidates"]:
         ids = subset_ids(pool, c["subset"])
-        base = cc.run(pts, ids, c["variable"], c["control_strategy"], family="ADJ", hypothesis=c["candidate_id"],
-                      var_a=c["variable"], register=False, min_cases=10)
+        if c.get("kind", "single") != "single":
+            continue
+        from validate import materialize_candidate
+        pts_c = materialize_candidate(pts, c)
+        sc = float(c.get("scale", 1.0))
+        base = cc.run(pts_c, ids, c["variable"], c["control_strategy"], family="ADJ", hypothesis=c["candidate_id"],
+                      var_a=c["variable"], register=False, min_cases=10, scale=sc)
         if c in spatial_cands:
-            a = adjusted(pts, ids, c["variable"], c["control_strategy"])
+            a = adjusted(pts_c, ids, c["variable"], c["control_strategy"])
             rows_u.append(dict(candidate_id=c["candidate_id"], variable=c["variable"], subset=c["subset"],
                                OR_unadjusted=base.get("effect"), p_unadjusted=base.get("p_value"), **a))
-        un = cc.run(pts, subset_ids(pool, "UNEXPLAINED"), c["variable"], c["control_strategy"], family="ADJ",
-                    hypothesis="", var_a=c["variable"], register=False, min_cases=10)
+        un = cc.run(pts_c, subset_ids(pool, "UNEXPLAINED"), c["variable"], c["control_strategy"], family="ADJ",
+                    hypothesis="", var_a=c["variable"], register=False, min_cases=10, scale=sc)
         ex_ids = pool.loc[pool.P_EXPLAINED >= 0.6, "EVENT_ID"].to_numpy()
-        ex = cc.run(pts, ex_ids, c["variable"], c["control_strategy"], family="ADJ", hypothesis="", var_a=c["variable"],
-                    register=False, min_cases=10)
+        ex = cc.run(pts_c, ex_ids, c["variable"], c["control_strategy"], family="ADJ", hypothesis="", var_a=c["variable"],
+                    register=False, min_cases=10, scale=sc)
         row = dict(candidate_id=c["candidate_id"], variable=c["variable"], OR_unexplained=un.get("effect"),
                    ci_unexplained=[un.get("ci_low"), un.get("ci_high")], OR_explained=ex.get("effect"),
                    ci_explained=[ex.get("ci_low"), ex.get("ci_high")])

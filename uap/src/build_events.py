@@ -29,14 +29,15 @@ def report_context(r: pd.DataFrame) -> pd.DataFrame:
     p = INTERIM / "report_context.parquet"
     if p.exists():
         return pd.read_parquet(p)
-    ok = r["utc_ts"].notna() & r["LATITUDE"].notna()
+    okc = r["LATITUDE"].between(-90, 90) & r["LONGITUDE"].between(-180, 180)
+    ok = r["utc_ts"].notna() & okc
     t = F.to_sec(r["utc_ts"])
     t[~ok.to_numpy()] = np.nan
     la, lo = r["LATITUDE"].to_numpy(float), r["LONGITUDE"].to_numpy(float)
     parts = [F.astro_calendar_features(t, la, lo, r["TIMEZONE"].to_numpy()),
              F.launch_features(t, la, lo), F.fireball_features(t, la, lo)]
     st = weather.storm_events()
-    parts.append(F.storm_event_features(t, la, lo, st))
+    parts.append(F.storm_event_features(t, la, lo, st, countries=r.COUNTRY.to_numpy()))
     # reentries of tracked objects (global, +-1 day; no location available)
     re_ = C.satcat_reentries()
     re_ = re_[(re_.mass >= 500)].rename(columns={"decay_time": "time"})
@@ -47,7 +48,7 @@ def report_context(r: pd.DataFrame) -> pd.DataFrame:
     iss_df = pd.DataFrame({"iss_visible_win": iss.iss_visible_window(t, la, lo, r["TIME_UNCERTAINTY_MIN"].to_numpy(float))})
     parts.append(iss_df)
     sp = pd.DataFrame(index=r.index)
-    okc = r["LATITUDE"].notna().to_numpy()
+    okc = okc.to_numpy()
     yr = r["YEAR"].fillna(2000).to_numpy()
     s = spatial.spatial_features(la[okc], lo[okc], yr[okc])
     for c in s.columns:

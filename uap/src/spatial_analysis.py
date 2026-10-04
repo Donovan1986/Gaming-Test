@@ -172,11 +172,14 @@ def knox(ev, d_km=25, dt_days=7, n_perm=499, seed=MASTER_SEED + 23):
 
 
 def main():
+    from cohorts import discovery_mask
     ev = pd.read_parquet(PROCESSED / "events.parquet")
     cty = counties()
-    conus = ev[(ev.SOURCE == "NUFORC") & ev.LATITUDE.between(24, 50) & ev.LONGITUDE.between(-125, -66)]
+    country = ev.COUNTRY.fillna("").astype(str).str.strip().str.upper()
+    conus = ev[(ev.SOURCE == "NUFORC") & country.isin(["US", "USA"])
+               & ev.LATITUDE.between(24, 50) & ev.LONGITUDE.between(-125, -66)]
     out_rows, scan_rows, knox_rows = [], [], []
-    for split_name, sub, years in [("discovery", conus[conus.SPLIT == "discovery"], (1995, 2015))]:
+    for split_name, sub, years in [("discovery", conus[discovery_mask(conus)], (1995, 2015))]:
         for subset, mask in [("ALL", np.ones(len(sub), bool)), ("HQ", sub.HIGH_QUALITY.to_numpy()),
                              ("HQ_UNEXPLAINED", sub.HQ_UNEXPLAINED.to_numpy()), ("EXPLAINED", (sub.P_EXPLAINED >= 0.6).to_numpy())]:
             t = county_table(sub[mask], years, cty)

@@ -33,14 +33,15 @@ def detrend(s: pd.Series):
 
 
 def main():
-    ev = pd.read_parquet(PROCESSED / "events.parquet", columns=["SOURCE", "SPLIT", "YEAR", "HQ_UNEXPLAINED", "HIGH_QUALITY"])
+    from cohorts import discovery_mask
+    ev = pd.read_parquet(PROCESSED / "events.parquet", columns=["SOURCE", "SPLIT", "YEAR", "COUNTRY", "GEO_REGION", "HQ_UNEXPLAINED", "HIGH_QUALITY"])
     sd = C.sw_daily()
     sn = sd.groupby(pd.to_datetime(sd.date).dt.year).SN.mean()
     rows = []
     for name, (src, (a, b)) in SYSTEMS.items():
         e = ev[(ev.SOURCE == src) & ev.YEAR.between(a, b)]
         if name == "NUFORC_discovery":
-            e = e[e.SPLIT == "discovery"]
+            e = e[discovery_mask(e)]
         for subset, ee in [("ALL", e), ("HIGH_QUALITY", e[e.HIGH_QUALITY])]:
             yrs = np.arange(a, b + 1)
             cnt = ee.groupby("YEAR").size().reindex(yrs, fill_value=0)

@@ -10,11 +10,13 @@ when the catalog covers that period and region (TRUE ZERO).
 """
 from __future__ import annotations
 
+from functools import lru_cache
 import numpy as np
 import pandas as pd
-from numba import njit
+from numba import njit, prange
 
 import covariates as C
+from common import RAW
 
 R_EARTH = 6371.0088
 
@@ -27,7 +29,7 @@ def to_sec(ts) -> np.ndarray:
     return out
 
 
-@njit(cache=True)
+@njit(cache=True, parallel=True)
 def _window_counts(pt_t, pt_lat, pt_lon, cat_t, cat_lat, cat_lon, cat_v, w_lo, w_hi, radii, need_loc):
     n, nw, nr = pt_t.shape[0], w_lo.shape[0], radii.shape[0]
     cnt = np.zeros((n, nw, nr), dtype=np.int32)
@@ -35,9 +37,9 @@ def _window_counts(pt_t, pt_lat, pt_lon, cat_t, cat_lat, cat_lon, cat_v, w_lo, w
     tmin = w_lo.min()
     tmax = w_hi.max()
     rad = np.pi / 180.0
-    for i in range(n):
+    for i in prange(n):
         t = pt_t[i]
-        if np.isnan(t):
+        if not np.isfinite(t) or (need_loc and (not np.isfinite(pt_lat[i]) or not np.isfinite(pt_lon[i]))):
             for a in range(nw):
                 for b in range(nr):
                     cnt[i, a, b] = -1
@@ -70,7 +72,7 @@ def window_counts(pts_t, pts_lat, pts_lon, cat: pd.DataFrame, windows: dict, rad
                   prefix="", need_loc=True, coverage=None):
     """Return DataFrame of counts (and max value) for each window x radius.
     coverage: (start_ts, end_ts) of the catalog; points outside -> NaN (DATA_UNAVAILABLE)."""
-    cat = cat.dropna(subset=["time"]).sort_values("time")
+    cat = cat.dropna(subset=["time"] + (["lat", "lon"] if need_loc else [])).sort_values("time")
     ct = to_sec(cat["time"])
     cla = cat["lat"].to_numpy(float) if need_loc else np.zeros(len(cat))
     clo = cat["lon"].to_numpy(float) if need_loc else np.zeros(len(cat))
@@ -93,13 +95,93 @@ def window_counts(pts_t, pts_lat, pts_lon, cat: pd.DataFrame, windows: dict, rad
     df = pd.DataFrame(out)
     if coverage is not None:
         lo, hi = to_sec([coverage[0]])[0], to_sec([coverage[1]])[0]
-        bad = (np.asarray(pts_t) < lo + max(0, -wlo.min())) | (np.asarray(pts_t) > hi - max(0, whi.max()))
-        df.loc[bad, :] = np.nan
+        if not np.isfinite(lo) or not np.isfinite(hi) or hi < lo:
+            df.loc[:, :] = np.nan
+        else:
+            for a, w in enumerate(names):
+                bad = (np.asarray(pts_t) + wlo[a] < lo) | (np.asarray(pts_t) + whi[a] > hi)
+                for r in rr:
+                    key = f"{prefix}{w}" + (f"_{int(r)}km" if need_loc else "")
+                    columns = [f"n_{key}"] + ([f"max_{key}"] if value_col else [])
+                    df.loc[bad, columns] = np.nan
+    elif cat.empty:
+        # Without declared coverage, an absent catalogue establishes no zeros.
+        df.loc[:, :] = np.nan
     return df
 
 
 H = 3600.0
 D = 86400.0
+
+
+QUAKE_BOXES = ((15., 72., -170., -50.), (35., 60., -12., 20.))
+
+
+@lru_cache(maxsize=2)
+def _storm_us_boundary(path: str, modified_ns: int):
+    """Authoritative restored Census state coverage; never infer global support."""
+    import geopandas as gpd
+    states = gpd.read_file("zip://" + path).to_crs("EPSG:4326")
+    # The state file establishes supported US land/territory geometry. A
+    # complete bounding envelope inside it is deliberately conservative near
+    # coastlines and borders, including where an exposure circle crosses water.
+    boundary = states.geometry.union_all()
+    import shapely
+    shapely.prepare(boundary)
+    return boundary
+
+
+def catalog_location_mask(lat, lon, radius_km, kind, countries=None) -> np.ndarray:
+    """Require the whole spherical exposure circle inside documented support.
+
+    Quakes use the exact boxes requested by acquire_env.py. Storm Events use
+    restored US Census state geometry; absent boundary data means unavailable.
+    The spherical circle's enclosing latitude/longitude rectangle must fit
+    within one box/polygon, which may exclude valid near-boundary observations
+    but cannot declare a partially supported circle completely observed.
+    """
+    lat, lon = np.broadcast_arrays(np.asarray(lat, float), np.asarray(lon, float))
+    radius = float(radius_km)
+    if kind not in ("quake", "storm"):
+        raise ValueError(f"unknown catalogue geography: {kind}")
+    if not np.isfinite(radius) or radius < 0:
+        raise ValueError("radius_km must be finite and nonnegative")
+    valid = np.isfinite(lat) & np.isfinite(lon) & (np.abs(lat) <= 90) & (np.abs(lon) <= 180)
+    angular = radius / R_EARTH
+    margin_lat = np.degrees(angular)
+    with np.errstate(invalid="ignore", divide="ignore"):
+        ratio = np.sin(angular) / np.cos(np.radians(lat))
+        margin_lon = np.degrees(np.arcsin(np.clip(ratio, 0, 1)))
+    valid &= (angular < np.pi / 2) & (np.abs(lat) + margin_lat < 90) & (ratio < 1)
+    lat_lo, lat_hi = lat - margin_lat, lat + margin_lat
+    lon_lo, lon_hi = lon - margin_lon, lon + margin_lon
+    if kind == "quake":
+        supported = np.zeros(lat.shape, dtype=bool)
+        for south, north, west, east in QUAKE_BOXES:
+            supported |= (lat_lo >= south) & (lat_hi <= north) & (lon_lo >= west) & (lon_hi <= east)
+        return valid & supported
+    if countries is not None:
+        country = pd.Series(np.asarray(countries).reshape(-1)).fillna("").astype(str).str.strip().str.upper()
+        valid &= country.isin(["US", "USA"]).to_numpy().reshape(lat.shape)
+    path = RAW / "population" / "cb_2020_us_state_20m.zip"
+    if not path.exists() or not valid.any():
+        return np.zeros(lat.shape, dtype=bool)
+    import shapely
+    boundary = _storm_us_boundary(str(path), path.stat().st_mtime_ns)
+    result = np.zeros(lat.shape, dtype=bool)
+    # Checking the enclosing rectangle supplies a conservative full-radius
+    # test without trusting the case's country label alone.
+    envelope = (shapely.points(lon[valid], lat[valid]) if radius == 0 else
+                shapely.box(lon_lo[valid], lat_lo[valid], lon_hi[valid], lat_hi[valid]))
+    result[valid] = shapely.covers(boundary, envelope)
+    return result
+
+
+def _mask_catalog_geography(frame, lat, lon, radii, kind, countries=None):
+    for radius in radii:
+        columns = [column for column in frame if column.endswith(f"_{int(radius)}km")]
+        frame.loc[~catalog_location_mask(lat, lon, radius, kind, countries=countries), columns] = np.nan
+    return frame
 
 
 # --------------------------------------------------------------------------- space weather
@@ -111,17 +193,18 @@ def space_weather_features(pts_t) -> pd.DataFrame:
     kv = kp.kp.to_numpy(float)
     i = np.searchsorted(ks, tsec, side="right") - 1
     i = np.clip(i, 0, len(ks) - 1)
-    out = {"kp": np.where(np.isfinite(tsec), kv[i], np.nan)}
+    kp_ok = np.isfinite(tsec) & (tsec >= ks[0]) & (tsec - ks[i] < 3 * H)
+    out = {"kp": np.where(kp_ok, kv[i], np.nan)}
     # rolling maxima over prior windows using cumulative arrays
     s = pd.Series(kv, index=pd.to_datetime(ks * 1e9, utc=True, unit="ns"))
     for hrs in (24, 72):
         r = s.rolling(f"{hrs}h").max().to_numpy()
-        out[f"kp_max_prior{hrs}h"] = np.where(np.isfinite(tsec), r[i], np.nan)
-    out["kp_change_prior24h"] = out["kp"] - np.where(i >= 8, kv[np.clip(i - 8, 0, None)], np.nan)
+        out[f"kp_max_prior{hrs}h"] = np.where(kp_ok & (tsec - hrs * H >= ks[0]), r[i], np.nan)
+    out["kp_change_prior24h"] = out["kp"] - np.where(kp_ok & (i >= 8), kv[np.clip(i - 8, 0, None)], np.nan)
     om = C.omni_hourly()
     os_ = to_sec(om.time)
     j = np.clip(np.searchsorted(os_, tsec, side="right") - 1, 0, len(os_) - 1)
-    ok = np.isfinite(tsec) & (np.abs(os_[j] - tsec) <= 2 * H)
+    ok = np.isfinite(tsec) & (tsec >= os_[0]) & (tsec - os_[j] <= 2 * H)
     oi = om.set_index(pd.to_datetime(os_ * 1e9, utc=True, unit="ns"))
     for col in ("dst", "ae", "bz_gsm", "v", "np", "pdyn", "pflux10", "efield"):
         out[col] = np.where(ok, om[col].to_numpy(float)[j], np.nan)
@@ -133,10 +216,11 @@ def space_weather_features(pts_t) -> pd.DataFrame:
         out[name] = np.where(ok, r[j], np.nan)
     out["dst_change_prior6h"] = out["dst"] - np.where(ok & (j >= 6), om["dst"].to_numpy(float)[np.clip(j - 6, 0, None)], np.nan)
     sd = C.sw_daily()
-    ds = to_sec(pd.to_datetime(sd.date).dt.tz_localize("UTC"))
+    ds = to_sec(pd.to_datetime(sd.date, utc=True))
     k = np.clip(np.searchsorted(ds, tsec, side="right") - 1, 0, len(ds) - 1)
+    daily_ok = np.isfinite(tsec) & (tsec >= ds[0]) & (tsec - ds[k] < D)
     for col in ("F107", "SN", "Ap"):
-        out[col] = np.where(np.isfinite(tsec), sd[col].to_numpy(float)[k], np.nan)
+        out[col] = np.where(daily_ok, sd[col].to_numpy(float)[k], np.nan)
     fl = C.flares()
     fl["v"] = fl.cls.map({"A": 0, "B": 1, "C": 2, "M": 3, "X": 4}) + fl.mag / 10
     fl["lat"] = 0.0
@@ -159,7 +243,8 @@ def astro_calendar_features(pts_t, lat, lon, tz_names=None) -> pd.DataFrame:
         a = C.astro_features(ts[ok], np.asarray(lat)[ok], np.asarray(lon)[ok])
         for c in a.columns:
             out.loc[ok, c] = a[c].to_numpy()
-        s = C.shower_activity(ts[ok])
+        unique, inverse = np.unique(ts[ok].as_unit("ns").asi8, return_inverse=True)
+        s = C.shower_activity(pd.to_datetime(unique, unit="ns", utc=True)).iloc[inverse]
         for c in s.columns:
             out.loc[ok, c] = s[c].to_numpy()
     # Local solar time (no tz database needed; used for matching/time-of-day)
@@ -201,7 +286,7 @@ def quake_features(pts_t, lat, lon) -> pd.DataFrame:
     q4 = q[q.mag >= 4.0]
     b = window_counts(pts_t, lat, lon, q4, QUAKE_WINDOWS, [100, 250, 500], prefix="eq4_",
                       coverage=(pd.Timestamp("1973-01-01", tz="UTC"), q.time.max()))
-    return pd.concat([a, b], axis=1)
+    return _mask_catalog_geography(pd.concat([a, b], axis=1), lat, lon, QUAKE_RADII, "quake")
 
 
 def fireball_features(pts_t, lat, lon) -> pd.DataFrame:
@@ -219,29 +304,38 @@ def launch_features(pts_t, lat, lon) -> pd.DataFrame:
     a = window_counts(pts_t, lat, lon, L, win, [500, 1000, 1500, 2500], prefix="launch_",
                       coverage=(pd.Timestamp("1957-01-01", tz="UTC"), L.time.max()))
     orb = L[L.orbital]
-    b = window_counts(pts_t, lat, lon, orb, {"lpost3h": (-3 * H, 0.5 * H)}, [1000, 2500], prefix="launchorb_")
+    coverage = (pd.Timestamp("1957-01-01", tz="UTC"), L.time.max())
+    b = window_counts(pts_t, lat, lon, orb, {"lpost3h": (-3 * H, 0.5 * H)}, [1000, 2500], prefix="launchorb_", coverage=coverage)
     sub = L[~L.orbital]
-    c = window_counts(pts_t, lat, lon, sub, {"lpost3h": (-3 * H, 0.5 * H)}, [1000, 2500], prefix="launchsub_")
+    c = window_counts(pts_t, lat, lon, sub, {"lpost3h": (-3 * H, 0.5 * H)}, [1000, 2500], prefix="launchsub_", coverage=coverage)
     out = pd.concat([a, b, c], axis=1)
     # Starlink: days since the most recent Starlink launch (global)
     st = to_sec(L[L.is_starlink].time)
     st.sort()
     tt = np.asarray(pts_t, float)
+    if len(st) == 0:
+        for column in ("days_since_starlink_launch", "n_starlink_launches_prior7d", "n_starlink_launches_prior14d",
+                       "n_starlink_launches_prior30d", "starlink_era"):
+            out[column] = np.nan
+        return out
     k = np.searchsorted(st, tt, side="right") - 1
     ds = np.where(k >= 0, (tt - st[np.clip(k, 0, None)]) / D, np.nan)
-    ds[tt < st[0]] = np.nan  # pre-Starlink era: not applicable
+    catalog_ok = np.isfinite(tt) & (tt >= st[0]) & (tt <= to_sec([L.time.max()])[0])
+    ds[~catalog_ok] = np.nan
     out["days_since_starlink_launch"] = ds
     for w in (7, 14, 30):
         lo = np.searchsorted(st, tt - w * D)
-        out[f"n_starlink_launches_prior{w}d"] = np.where(np.isfinite(tt), k + 1 - lo, np.nan)
-    out["starlink_era"] = (tt >= st[0]).astype(float)
+        out[f"n_starlink_launches_prior{w}d"] = np.where(catalog_ok, k + 1 - lo, np.nan)
+    out["starlink_era"] = np.where(np.isfinite(tt) & (tt <= to_sec([L.time.max()])[0]), (tt >= st[0]).astype(float), np.nan)
     return out
 
 
-def storm_event_features(pts_t, lat, lon, storms: pd.DataFrame) -> pd.DataFrame:
-    return window_counts(pts_t, lat, lon, storms, {"pm1h": (-H, H), "pm3h": (-3 * H, 3 * H), "pm12h": (-12 * H, 12 * H)},
-                         [25, 50, 100], prefix="storm_",
-                         coverage=(pd.Timestamp("1996-01-01", tz="UTC"), pd.Timestamp("2023-12-31", tz="UTC")))
+def storm_event_features(pts_t, lat, lon, storms: pd.DataFrame, countries=None) -> pd.DataFrame:
+    radii = [25, 50, 100]
+    frame = window_counts(pts_t, lat, lon, storms, {"pm1h": (-H, H), "pm3h": (-3 * H, 3 * H), "pm12h": (-12 * H, 12 * H)},
+                          radii, prefix="storm_",
+                          coverage=(pd.Timestamp("1996-01-01", tz="UTC"), pd.Timestamp("2023-12-31", tz="UTC")))
+    return _mask_catalog_geography(frame, lat, lon, radii, "storm", countries=countries)
 
 
 def media_features(pts_t) -> pd.DataFrame:

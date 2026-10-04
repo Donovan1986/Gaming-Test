@@ -92,7 +92,7 @@ def ne1_icbm(ev):
             p = p[(p.year >= 1984) & (p.year <= 2008)]
         keep.append(p)
     panel = pd.concat(keep)
-    panel.to_csv(RESULTS / "ne1_icbm_panel.csv", index=False)
+    panel.to_csv(RESULTS / f"ne1_icbm_panel{TAG}.csv", index=False)
     return did(panel, "ICBM field deactivation (Ellsworth 1994, Whiteman 1997, Grand Forks 1998) vs active fields")
 
 
@@ -114,17 +114,23 @@ def ne2_nuclear(ev, radius=50):
             rows.append(dict(unit=name, year=y, n=int((inside.YEAR == y).sum()), pop_=pop_,
                              treat_post=int(pd.notna(end) and y > end)))
     panel = pd.DataFrame(rows)
-    panel.to_csv(RESULTS / f"ne2_nuclear_panel_{radius}km.csv", index=False)
+    panel.to_csv(RESULTS / f"ne2_nuclear_panel_{radius}km{TAG}.csv", index=False)
     return did(panel, f"Nuclear plant permanent shutdown (1992-2013) vs operating plants, {radius} km")
 
 
-def main(splits=("discovery",)):
+TAG = ""
+
+
+def main(splits=("discovery",), tag=""):
+    global TAG
+    TAG = f"_{tag}" if tag else ""
+    from cohorts import discovery_mask
     ev = pd.read_parquet(PROCESSED / "events.parquet")
-    ev = ev[ev.SPLIT.isin(splits)]
+    ev = ev[ev.SPLIT.isin(splits) & ((ev.SPLIT != "discovery") | discovery_mask(ev))]
     res = [ne1_icbm(ev), ne2_nuclear(ev, 25), ne2_nuclear(ev, 50)]
     out = pd.DataFrame(res)
     print(out.to_string())
-    out.to_csv(RESULTS / "natural_experiments.csv", index=False)
+    out.to_csv(RESULTS / f"natural_experiments{TAG}.csv", index=False)
 
 
 if __name__ == "__main__":

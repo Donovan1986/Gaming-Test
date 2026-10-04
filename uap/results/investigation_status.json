@@ -1,0 +1,62 @@
+{
+  "exit_code": 2,
+  "readiness": {
+    "accepted_current_snapshots": [],
+    "data_fingerprint": "e98591fd6b50b60827e5b54729613d0013962a7ef495fa564cb8ade791783d30",
+    "expected_files": 9907,
+    "manifest_prefix_bytes": 3856071,
+    "manifest_prefix_sha256": "c633f59ac6ebe76f5aeca4fb426da2264626a01ff87f33f96ac5eac77bec9ce5",
+    "manifest_sha256": "c633f59ac6ebe76f5aeca4fb426da2264626a01ff87f33f96ac5eac77bec9ce5",
+    "mismatch_sample": [],
+    "mismatched_files": 0,
+    "missing_files": 9899,
+    "missing_hosts": [
+      "api.worldbank.org",
+      "davidmegginson.github.io",
+      "download.geonames.org",
+      "earthquake.usgs.gov",
+      "gis.fema.gov",
+      "kp.gfz.de",
+      "mirror.cyberbits.eu",
+      "naturalearth.s3.amazonaws.com",
+      "planet4589.org",
+      "services6.arcgis.com",
+      "services7.arcgis.com",
+      "spdf.gsfc.nasa.gov",
+      "ssd-api.jpl.nasa.gov",
+      "wikimedia.org",
+      "www.cnes-geipan.fr",
+      "www.ncei.noaa.gov",
+      "www.ngdc.noaa.gov",
+      "www2.census.gov"
+    ],
+    "missing_sample": [
+      "data/raw/catalogs/berliner_bluebook_unknowns_pt1.txt",
+      "data/raw/catalogs/berliner_bluebook_unknowns_pt2.txt",
+      "data/raw/catalogs/berliner_bluebook_unknowns_pt3.txt",
+      "data/raw/catalogs/berliner_bluebook_unknowns_pt4.txt",
+      "data/raw/catalogs/berliner_bluebook_unknowns_pt5.txt",
+      "data/raw/catalogs/berliner_bluebook_unknowns_pt6.txt",
+      "data/raw/geipan/geipan_export_cas.xlsx",
+      "data/raw/geophysical/usgs/na_1940_0.csv",
+      "data/raw/geophysical/usgs/na_1940_1.csv",
+      "data/raw/geophysical/usgs/na_1941_0.csv",
+      "data/raw/geophysical/usgs/na_1941_1.csv",
+      "data/raw/geophysical/usgs/na_1942_0.csv",
+      "data/raw/geophysical/usgs/na_1942_1.csv",
+      "data/raw/geophysical/usgs/na_1943_0.csv",
+      "data/raw/geophysical/usgs/na_1943_1.csv"
+    ],
+    "ready": false,
+    "restoration_report_counts": {
+      "network_policy_blocked": 9899,
+      "verified_existing": 8
+    },
+    "restoration_report_updated_utc": "2026-10-04T07:51:12Z",
+    "verified_files": 8
+  },
+  "research_executed": false,
+  "scientific_conclusion": "NOT_EVALUATED",
+  "state": "BLOCKED_INPUTS",
+  "updated_utc": "2026-10-04T08:13:44.483103+00:00"
+}

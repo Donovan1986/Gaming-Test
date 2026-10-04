@@ -34,6 +34,8 @@ import numpy as np
 import pandas as pd
 
 from common import RESULTS
+from cohorts import discovery_mask
+from stats import INFERENCE_VERSION
 
 KNOWN = re.compile(r"fireball|launch|iss_|venus|shower|hol_|july|starlink|moon|outburst|jupiter")
 
@@ -76,17 +78,11 @@ def halves_check(variable, subset, strategy, direction_sign):
     src_cols = [f"dist_{m.group(1)}_km"] if m else [variable]
     key = tuple(src_cols)
     if key not in _pts_cache:
-        _pts_cache[key] = cc.points_light([c_ for c_ in src_cols])
+        # memory-light: load only the needed raw column(s); derive() supports partial frames
+        _pts_cache[key] = derive(cc.points_light(src_cols))
     pts = _pts_cache[key]
-    if variable not in pts:
-        mw = _re.match(r"within(\d+)_", variable)
-        dist = pts[src_cols[0]]
-        if mw:
-            pts[variable] = (dist <= float(mw.group(1))).astype("float32").where(dist.notna())
-        else:
-            pts[variable] = np.log10(dist.clip(lower=0.5)).astype("float32")
     ev = cc.events()
-    disc = ev[(ev.SOURCE == "NUFORC") & (ev.SPLIT == "discovery")]
+    disc = ev[discovery_mask(ev)]
     res = []
     for a, b in [(1995, 2005), (2006, 2015)]:
         e = disc[disc.YEAR.between(a, b)]
@@ -104,6 +100,19 @@ _pts_cache = {}
 
 def main():
     d = pd.read_csv(RESULTS / "discovery_results.csv")
+    required = {"scale", "inference_version"}
+    missing = sorted(required - set(d.columns))
+    if missing:
+        raise RuntimeError(f"Legacy discovery results lack {missing}; rerun discovery_tests.py "
+                           f"with {INFERENCE_VERSION} before selecting or freezing hypotheses")
+    if not d.inference_version.eq(INFERENCE_VERSION).all():
+        raise RuntimeError(f"Discovery results use a superseded inference version; rerun discovery_tests.py "
+                           f"with {INFERENCE_VERSION} before selecting or freezing hypotheses")
+    scale = pd.to_numeric(d.scale, errors="coerce")
+    if not (np.isfinite(scale) & (scale > 0)).all():
+        raise RuntimeError("Discovery results have a missing or invalid effect scale; rerun discovery_tests.py "
+                           "before selecting or freezing hypotheses")
+    d["scale"] = scale
     d["fam"] = d.variable_a.map(family_key)
     d["logor"] = np.log(d.effect)
     cands, audit = [], []
@@ -122,7 +131,7 @@ def main():
         if pd.notna(best.n_exposed_cases) and best.n_exposed_cases < 30:
             reasons.append("R3 exposed cases<30")
         sign = np.sign(best.logor)
-        same_var = d[(d.variable_a == best.variable_a) & (d.subset == subset)]
+        same_var = d[(d.family == family) & (d.variable_a == best.variable_a) & (d.subset == subset)]
         sup = supports(same_var, sign)
         if family in REQUIRED:
             req, need = REQUIRED[family]
@@ -135,6 +144,8 @@ def main():
                 if not ok:
                     reasons.append("R4 not replicated in both discovery periods 1995-2005 / 2006-2015")
             n_sup = np.nan
+        else:
+            reasons.append("R4 no predeclared strategy design for family")
         audit.append(dict(family=family, fam=fam, subset=subset, variable=best.variable_a, OR=best.effect,
                           p=best.p_value, q=best.q_bh_all, n_exposed_cases=best.n_exposed_cases,
                           strategies_supporting=";".join(sorted(sup)), promoted=not reasons, reasons="; ".join(reasons)))
@@ -142,7 +153,8 @@ def main():
             continue
         cands.append(dict(candidate_id=f"C{len(cands) + 1:02d}", family=best.family, variable=best.variable_a,
                           subset=subset, control_strategy=best.control_strategy, window=best.window,
-                          radius_km=best.radius_km, direction=best.direction, discovery_or=best.effect,
+                          radius_km=best.radius_km, scale=float(best.scale),
+                          direction=best.direction, discovery_or=best.effect,
                           discovery_ci=[best.ci_low, best.ci_high], discovery_p=best.p_value, discovery_q=best.q_bh_all,
                           discovery_n_cases=int(best.n_cases), discovery_n_exposed_cases=best.n_exposed_cases,
                           strategies_supporting=sorted(sup),
@@ -157,11 +169,43 @@ def main():
 
 
 def freeze(cands: list[dict], extra: dict):
-    spec = {"frozen_utc": pd.Timestamp.now("UTC").isoformat(), "candidates": cands, **extra}
-    txt = json.dumps(spec, indent=1, sort_keys=True, default=float)
-    (RESULTS / "frozen_hypotheses.json").write_text(txt)
+    if {"frozen_utc", "candidates"} & extra.keys():
+        raise ValueError("Freeze metadata cannot override candidates or frozen_utc")
+    spec_path = RESULTS / "frozen_hypotheses.json"
+    hash_path = RESULTS / "frozen_hypotheses.sha256"
+
+    def finite_json(value):
+        if isinstance(value, dict):
+            return {key: finite_json(item) for key, item in value.items()}
+        if isinstance(value, (list, tuple)):
+            return [finite_json(item) for item in value]
+        if isinstance(value, (float, np.floating)) and not np.isfinite(value):
+            return None
+        return value.item() if isinstance(value, np.generic) else value
+
+    payload = finite_json({"candidates": cands, **extra})
+    payload = json.loads(json.dumps(payload, sort_keys=True, default=float, allow_nan=False))
+    if spec_path.exists() or hash_path.exists():
+        if not (spec_path.exists() and hash_path.exists()):
+            raise RuntimeError("Incomplete existing hypothesis freeze; preserve and investigate it")
+        existing = spec_path.read_text()
+        h = hashlib.sha256(existing.encode()).hexdigest()
+        if hash_path.read_text().strip() != h:
+            raise RuntimeError("Existing hypothesis freeze does not match its checksum")
+        old = json.loads(existing)
+        old.pop("frozen_utc", None)
+        if old != payload:
+            raise RuntimeError("Hypotheses are already frozen; refusing to change the frozen design")
+        return h
+    spec = {"frozen_utc": pd.Timestamp.now("UTC").isoformat(), **payload}
+    txt = json.dumps(spec, indent=1, sort_keys=True, default=float, allow_nan=False)
     h = hashlib.sha256(txt.encode()).hexdigest()
-    (RESULTS / "frozen_hypotheses.sha256").write_text(h + "\n")
+    # Exclusive creation preserves an existing freeze even if another process
+    # starts freezing after the check above. Partial freezes must fail closed.
+    with spec_path.open("x") as stream:
+        stream.write(txt)
+    with hash_path.open("x") as stream:
+        stream.write(h + "\n")
     print("FROZEN", h)
     return h
 

@@ -15,6 +15,7 @@ import features as F
 import covariates as C
 import stats as S
 from common import RESULTS, MASTER_SEED
+from cohorts import discovery_mask
 
 
 def subsets(ev):
@@ -41,17 +42,20 @@ def add_exposures(p):
     p["x_fireball_30m_500"] = (p.n_fb_pm30m_500km > 0).astype(float).where(p.n_fb_pm30m_500km.notna())
     p["x_launch_3h_1500"] = (p.n_launch_lpost3h_1500km > 0).astype(float).where(p.n_launch_lpost3h_1500km.notna())
     tw = (p.sun_alt < -3) & (p.sun_alt > -20)
-    p["x_launch_twilight"] = (p.x_launch_3h_1500 * tw).where(p.x_launch_3h_1500.notna())
-    p["x_launch_dark_or_day"] = (p.x_launch_3h_1500 * ~tw).where(p.x_launch_3h_1500.notna())
+    launch_ok = p.x_launch_3h_1500.notna() & p.sun_alt.notna()
+    p["x_launch_twilight"] = (p.x_launch_3h_1500 * tw).where(launch_ok)
+    p["x_launch_dark_or_day"] = (p.x_launch_3h_1500 * ~tw).where(launch_ok)
     p["x_starlink_10d"] = ((p.days_since_starlink_launch <= 10) & (p.starlink_era > 0)).astype(float)
     p.loc[p.starlink_era.fillna(0) == 0, "x_starlink_10d"] = np.nan
+    p.loc[p.days_since_starlink_launch.isna(), "x_starlink_10d"] = np.nan
     p["x_july4"] = p.hol_independence_day
     p["x_nye"] = ((p.mmdd == "12-31") | (p.mmdd == "01-01")).astype(float).where(p.mmdd.notna())
-    p["x_venus_vis"] = ((p.venus_alt > 3) & (p.sun_alt < -3) & (p.venus_elong > 15)).astype(float).where(p.venus_alt.notna())
+    p["x_venus_vis"] = ((p.venus_alt > 3) & (p.sun_alt < -3) & (p.venus_elong > 15)).astype(float).where(
+        p.venus_alt.notna() & p.sun_alt.notna() & p.venus_elong.notna())
     p["x_venus_alt"] = p.venus_alt.clip(lower=-5)
     p["x_iss"] = p.iss_visible_win
     p["x_moon_up"] = (p.moon_alt > 0).astype(float).where(p.moon_alt.notna())
-    p["x_moon_bright"] = ((p.moon_alt > 0) * p.moon_illum).where(p.moon_alt.notna())
+    p["x_moon_bright"] = ((p.moon_alt > 0) * p.moon_illum).where(p.moon_alt.notna() & p.moon_illum.notna())
     p["x_outburst"] = (p.meteor_outburst_pm1d * dark).where(p.meteor_outburst_pm1d.notna() & p.sun_alt.notna())
     p["x_large_airport_25km"] = (p.dist_large_airport_km <= 25).astype(float).where(p.dist_large_airport_km.notna())
     if "wx_sky_oktas" in p:
@@ -90,7 +94,8 @@ EQUIV = (0.8, 1.25)  # predeclared equivalence margin for expected-null (specifi
 def classify(r, expected):
     """PASSED / FAILED / INCONCLUSIVE / NOT_TESTABLE (audit item 5)."""
     p, OR, lo, hi = (r.get(k, np.nan) for k in ("p_value", "effect", "ci_low", "ci_high"))
-    if not np.isfinite(p) or str(r.get("status", "")).startswith(("NOT_", "TOO_")):
+    if (r.get("status", "OK") not in {"OK", "OK_EXACT"} or not np.isfinite(p)
+            or not np.isfinite(OR) or OR <= 0 or np.isnan(lo) or np.isnan(hi)):
         return "NOT_TESTABLE"
     if expected == "+":
         if p < 0.05 and lo > 1:
@@ -116,7 +121,7 @@ def classify(r, expected):
 def main():
     pts = add_exposures(cc.points())
     ev = cc.events()
-    disc = ev[(ev.SOURCE == "NUFORC") & (ev.SPLIT == "discovery")]
+    disc = ev[discovery_mask(ev)]
     sub = subsets(disc)
     rows = []
     for name, x, sname, strats, exp, scale in PCS:
@@ -132,31 +137,59 @@ def main():
             print(f"{name:72s} {st} n={r.get('n_cases')} exp_cases={r.get('n_exposed_cases')} OR={r.get('effect'):.3f} "
                   f"[{r.get('ci_low'):.3f},{r.get('ci_high'):.3f}] p={r.get('p_value'):.2e} {r.get('inference_method')} -> {r['pc_status']}")
     out = pd.DataFrame(rows)
-    # aircraft-like vs non-aircraft-like contrast (independent subsets): ratio of ORs
+    # These disjoint subsets can share nights and cells. Their clustered
+    # estimates are correlated, so independent-SE ratio inference is invalid.
+    # Retain a descriptive ratio without inventing a covariance estimate.
     a = out[out.hypothesis.str.startswith("large airport") & (out.subset == "aircraft_like")]
     b = out[out.hypothesis.str.startswith("large airport") & (out.subset == "non_aircraft_like")]
     if len(a) and len(b) and np.isfinite(a.effect.iloc[0]) and np.isfinite(b.effect.iloc[0]):
         la, lb = np.log(a.effect.iloc[0]), np.log(b.effect.iloc[0])
-        sa = (np.log(a.ci_high.iloc[0]) - np.log(a.ci_low.iloc[0])) / 3.92
-        sb = (np.log(b.ci_high.iloc[0]) - np.log(b.ci_low.iloc[0])) / 3.92
-        z = (la - lb) / np.sqrt(sa ** 2 + sb ** 2)
-        from scipy import stats as sps
-        pz = 2 * sps.norm.sf(abs(z))
         row = dict(hypothesis="large airport within 25 km: ratio of ORs aircraft-like / non-aircraft-like", subset="contrast",
-                   control_strategy="CS4", effect=np.exp(la - lb), ci_low=np.exp(la - lb - 1.96 * np.sqrt(sa ** 2 + sb ** 2)),
-                   ci_high=np.exp(la - lb + 1.96 * np.sqrt(sa ** 2 + sb ** 2)), p_value=pz, expected="+")
-        row["pc_status"] = classify(row, "+")
+                   control_strategy="CS4", effect=np.exp(la - lb), ci_low=np.nan,
+                   ci_high=np.nan, p_value=np.nan, expected="+", status="DESCRIPTIVE_SHARED_CLUSTERS")
+        row["pc_status"] = "INFORMATIONAL"
         rows.append(row)
         S.register(family="positive_control", phase="positive_control", hypothesis=row["hypothesis"], variable_a="x_large_airport_25km",
                    model="ratio_of_conditional_ORs", subset="aircraft_like vs non_aircraft_like", split="discovery",
                    control_strategy="CS4", effect_measure="ROR", effect=row["effect"], ci_low=row["ci_low"],
-                   ci_high=row["ci_high"], p_value=pz, status="OK", inference_method="z_test_log_ROR")
+                   ci_high=row["ci_high"], p_value=np.nan, status=row["status"],
+                   inference_method="descriptive_ROR; cross-subset cluster covariance not estimated")
         print(row)
     out = pd.DataFrame(rows)
     out.to_csv(RESULTS / "positive_controls.csv", index=False)
     print(out.pc_status.value_counts().to_string())
     placebo(pts, disc)
     power(pts, disc, sub)
+
+
+def post_freeze_starlink_integrity():
+    """Known-stimulus check after freezing; never contributes to discovery.
+
+    The discovery years end before Starlink existed. Check line-formation
+    reports in the reserved 2019+ cohort only after validating the freeze.
+    This is a pipeline integrity check, not evidence for a novel association.
+    """
+    from validate import load_frozen
+    _, freeze_sha = load_frozen()  # Must succeed before any reserved data read.
+    ev = cc.events()
+    country = ev.COUNTRY.fillna("").astype(str).str.strip().str.upper()
+    eligible = ev[(ev.SOURCE == "NUFORC") & country.isin(["US", "USA", "CA", "CANADA"])
+                  & (ev.YEAR >= 2019) & ev.utc_ts.notna() & (ev.TIME_UNCERTAINTY_MIN < 720)]
+    pts = add_exposures(cc.points())
+    sub = subsets(eligible)
+    rows = []
+    for subset in ("line_formation", "all"):
+        ids = eligible.loc[sub[subset], "EVENT_ID"].to_numpy()
+        for strategy in ("CS1", "CS2"):
+            row = cc.run(pts, ids, "x_starlink_10d", strategy, family="positive_control",
+                         hypothesis="Starlink launch within 10 d (post-freeze integrity)",
+                         var_a="x_starlink_10d", subset=subset, split="post2019_reserved",
+                         phase="post_freeze_positive_control")
+            row.update(expected="+", pc_status=classify(row, "+"), freeze_sha256=freeze_sha)
+            rows.append(row)
+    result = pd.DataFrame(rows)
+    result.to_csv(RESULTS / "positive_controls_starlink_integrity.csv", index=False)
+    return result
 
 
 def placebo(pts, disc, n_noise=50):
@@ -186,6 +219,8 @@ def placebo(pts, disc, n_noise=50):
             cov2 = (cov[0] + pd.Timedelta(days=shift_days), cov[1] + pd.Timedelta(days=shift_days))
             w = F.window_counts(t, la, lo, c2, win, rad, coverage=cov2)
             v = w.iloc[:, 0].to_numpy()
+            if name.startswith("quake"):
+                v[~F.catalog_location_mask(la, lo, rad[0], "quake")] = np.nan
             d["x_placebo"] = np.where(np.isfinite(v), (v > 0).astype(float), np.nan)
             for st in ("CS1", "CS2"):
                 r = cc.run(d, ids, "x_placebo", st, family="placebo", hypothesis=f"placebo {name}", var_a=name,
@@ -228,13 +263,19 @@ def power(pts, disc, sub, sizes=(100, 300, 1000, 3000, 10000), reps=40):
         for n in sizes:
             if n > len(pool):
                 continue
-            det = []
+            classifications = []
             for _ in range(reps):
                 ids = rng.choice(pool, size=n, replace=False)
                 r = cc.run(pts, ids, x, "CS1", family="power", hypothesis=name, var_a=x, register=False, min_cases=5)
-                det.append(classify(r, "+") == "PASSED")
-            rows.append(dict(control=name, n_events=n, power=np.mean(det), reps=reps))
-            print(f"power {name} n={n}: {np.mean(det):.2f}")
+                classifications.append(classify(r, "+"))
+            detected = np.asarray(classifications) == "PASSED"
+            testable = np.asarray(classifications) != "NOT_TESTABLE"
+            rows.append(dict(control=name, n_events=n, power=np.mean(detected), reps=reps,
+                             empirical_subsample_detection_rate=np.mean(detected),
+                             n_testable=int(testable.sum()), n_not_testable=int((~testable).sum()),
+                             detection_rate_testable=np.mean(detected[testable]) if testable.any() else np.nan,
+                             interpretation="empirical discovery-data subsampling; not prospective power"))
+            print(f"subsample detection {name} n={n}: {np.mean(detected):.2f}; {testable.sum()}/{reps} testable")
     pd.DataFrame(rows).to_csv(RESULTS / "detection_power.csv", index=False)
 
 
