@@ -1,0 +1,21 @@
+{
+ "rule": "u=sha256(f'{MASTER_SEED}:{EVENT_ID}')[:8]/0xFFFFFFFF; u<0.6 discovery; <0.8 validation; else holdout_random; NUFORC events with YEAR>=2016 -> holdout_temporal (overrides). Geographic holdout = GEO_REGION europe_*.",
+ "master_seed": 20261004,
+ "frozen_utc": "2026-10-04T06:17:09.154677+00:00",
+ "discovery": {
+  "n": 55084,
+  "sha256_ids": "0543eb6ab376f49f2e2d54a58b33b4d20b235c0f176fb4d3ec8538bc5c047f72"
+ },
+ "holdout_random": {
+  "n": 18495,
+  "sha256_ids": "9f458a687269954e1079acf436497bcc46d23424a0aade87512ce4f466ff8301"
+ },
+ "holdout_temporal": {
+  "n": 23150,
+  "sha256_ids": "81e9e5bf571d042be519a3c39c55b3e78729e8f9b1e3099f14f53f83f431e74e"
+ },
+ "validation": {
+  "n": 18455,
+  "sha256_ids": "c3ad583690e1be8b7fc55b99e123f4c36fc1d60cc1831663248d26f4df16a347"
+ }
+}

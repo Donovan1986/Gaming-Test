@@ -1,0 +1,9 @@
+# Raw third-party data are NOT redistributed (licence / size). Re-acquire with
+# uap/src/acquire_*.py and verify against uap/data/manifest.jsonl (sha256).
+uap/data/raw/
+uap/data/interim/
+uap/data/processed/
+*.part
+__pycache__/
+*.pyc
+uap/logs/*.log

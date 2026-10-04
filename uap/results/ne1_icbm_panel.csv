@@ -1,0 +1,139 @@
+unit,year,n,pop_,treat_post,deactivated
+341 MW Malmstrom,1984,0,84082.0,0,False
+341 MW Malmstrom,1985,0,84082.0,0,False
+341 MW Malmstrom,1986,0,84082.0,0,False
+341 MW Malmstrom,1987,0,84082.0,0,False
+341 MW Malmstrom,1988,0,84082.0,0,False
+341 MW Malmstrom,1989,0,84082.0,0,False
+341 MW Malmstrom,1990,0,84082.0,0,False
+341 MW Malmstrom,1991,0,84082.0,0,False
+341 MW Malmstrom,1992,0,84082.0,0,False
+341 MW Malmstrom,1993,0,84082.0,0,False
+341 MW Malmstrom,1994,2,84082.0,0,False
+341 MW Malmstrom,1995,1,84082.0,0,False
+341 MW Malmstrom,1996,0,84082.0,0,False
+341 MW Malmstrom,1997,0,84082.0,0,False
+341 MW Malmstrom,1998,0,84082.0,0,False
+341 MW Malmstrom,1999,2,84082.0,0,False
+341 MW Malmstrom,2000,2,84082.0,0,False
+341 MW Malmstrom,2001,0,84082.0,0,False
+341 MW Malmstrom,2002,0,84082.0,0,False
+341 MW Malmstrom,2003,2,84082.0,0,False
+341 MW Malmstrom,2004,1,84082.0,0,False
+341 MW Malmstrom,2005,4,84082.0,0,False
+341 MW Malmstrom,2006,0,84082.0,0,False
+341 MW Malmstrom,2007,1,84082.0,0,False
+341 MW Malmstrom,2008,1,84082.0,0,False
+91 MW Minot,1984,0,74834.0,0,False
+91 MW Minot,1985,0,74834.0,0,False
+91 MW Minot,1986,0,74834.0,0,False
+91 MW Minot,1987,0,74834.0,0,False
+91 MW Minot,1988,0,74834.0,0,False
+91 MW Minot,1989,0,74834.0,0,False
+91 MW Minot,1990,1,74834.0,0,False
+91 MW Minot,1991,0,74834.0,0,False
+91 MW Minot,1992,0,74834.0,0,False
+91 MW Minot,1993,0,74834.0,0,False
+91 MW Minot,1994,0,74834.0,0,False
+91 MW Minot,1995,0,74834.0,0,False
+91 MW Minot,1996,0,74834.0,0,False
+91 MW Minot,1997,0,74834.0,0,False
+91 MW Minot,1998,2,74834.0,0,False
+91 MW Minot,1999,0,74834.0,0,False
+91 MW Minot,2000,0,74834.0,0,False
+91 MW Minot,2001,0,74834.0,0,False
+91 MW Minot,2002,0,74834.0,0,False
+91 MW Minot,2003,1,74834.0,0,False
+91 MW Minot,2004,0,74834.0,0,False
+91 MW Minot,2005,0,74834.0,0,False
+91 MW Minot,2006,0,74834.0,0,False
+91 MW Minot,2007,1,74834.0,0,False
+91 MW Minot,2008,0,74834.0,0,False
+90 MW F.E. Warren,1984,0,147325.0,0,False
+90 MW F.E. Warren,1985,0,147325.0,0,False
+90 MW F.E. Warren,1986,0,147325.0,0,False
+90 MW F.E. Warren,1987,0,147325.0,0,False
+90 MW F.E. Warren,1988,0,147325.0,0,False
+90 MW F.E. Warren,1989,0,147325.0,0,False
+90 MW F.E. Warren,1990,0,147325.0,0,False
+90 MW F.E. Warren,1991,0,147325.0,0,False
+90 MW F.E. Warren,1992,0,147325.0,0,False
+90 MW F.E. Warren,1993,0,147325.0,0,False
+90 MW F.E. Warren,1994,1,147325.0,0,False
+90 MW F.E. Warren,1995,0,147325.0,0,False
+90 MW F.E. Warren,1996,0,147325.0,0,False
+90 MW F.E. Warren,1997,0,147325.0,0,False
+90 MW F.E. Warren,1998,3,147325.0,0,False
+90 MW F.E. Warren,1999,1,147325.0,0,False
+90 MW F.E. Warren,2000,1,147325.0,0,False
+90 MW F.E. Warren,2001,1,147325.0,0,False
+90 MW F.E. Warren,2002,0,147325.0,0,False
+90 MW F.E. Warren,2003,1,147325.0,0,False
+90 MW F.E. Warren,2004,0,147325.0,0,False
+90 MW F.E. Warren,2005,0,147325.0,0,False
+90 MW F.E. Warren,2006,0,147325.0,0,False
+90 MW F.E. Warren,2007,0,147325.0,0,False
+90 MW F.E. Warren,2008,1,147325.0,0,False
+44 MW Ellsworth,1984,0,115826.0,0,True
+44 MW Ellsworth,1985,0,115826.0,0,True
+44 MW Ellsworth,1986,0,115826.0,0,True
+44 MW Ellsworth,1987,0,115826.0,0,True
+44 MW Ellsworth,1988,0,115826.0,0,True
+44 MW Ellsworth,1989,0,115826.0,0,True
+44 MW Ellsworth,1990,0,115826.0,0,True
+44 MW Ellsworth,1991,0,115826.0,0,True
+44 MW Ellsworth,1992,1,115826.0,0,True
+44 MW Ellsworth,1993,0,115826.0,0,True
+44 MW Ellsworth,1994,1,115826.0,0,True
+44 MW Ellsworth,1995,3,115826.0,1,True
+44 MW Ellsworth,1996,0,115826.0,1,True
+44 MW Ellsworth,1997,0,115826.0,1,True
+44 MW Ellsworth,1998,1,115826.0,1,True
+44 MW Ellsworth,1999,0,115826.0,1,True
+44 MW Ellsworth,2000,1,115826.0,1,True
+44 MW Ellsworth,2001,2,115826.0,1,True
+44 MW Ellsworth,2002,0,115826.0,1,True
+44 MW Ellsworth,2003,0,115826.0,1,True
+44 MW Ellsworth,2004,1,115826.0,1,True
+351 MW Whiteman,1987,0,725368.0,0,True
+351 MW Whiteman,1988,0,725368.0,0,True
+351 MW Whiteman,1989,2,725368.0,0,True
+351 MW Whiteman,1990,0,725368.0,0,True
+351 MW Whiteman,1991,0,725368.0,0,True
+351 MW Whiteman,1992,0,725368.0,0,True
+351 MW Whiteman,1993,1,725368.0,0,True
+351 MW Whiteman,1994,2,725368.0,0,True
+351 MW Whiteman,1995,2,725368.0,0,True
+351 MW Whiteman,1996,1,725368.0,0,True
+351 MW Whiteman,1997,1,725368.0,0,True
+351 MW Whiteman,1998,2,725368.0,1,True
+351 MW Whiteman,1999,6,725368.0,1,True
+351 MW Whiteman,2000,3,725368.0,1,True
+351 MW Whiteman,2001,4,725368.0,1,True
+351 MW Whiteman,2002,2,725368.0,1,True
+351 MW Whiteman,2003,7,725368.0,1,True
+351 MW Whiteman,2004,4,725368.0,1,True
+351 MW Whiteman,2005,6,725368.0,1,True
+351 MW Whiteman,2006,3,725368.0,1,True
+351 MW Whiteman,2007,16,725368.0,1,True
+321 MW Grand Forks,1988,0,92094.0,0,True
+321 MW Grand Forks,1989,1,92094.0,0,True
+321 MW Grand Forks,1990,0,92094.0,0,True
+321 MW Grand Forks,1991,0,92094.0,0,True
+321 MW Grand Forks,1992,0,92094.0,0,True
+321 MW Grand Forks,1993,0,92094.0,0,True
+321 MW Grand Forks,1994,0,92094.0,0,True
+321 MW Grand Forks,1995,0,92094.0,0,True
+321 MW Grand Forks,1996,0,92094.0,0,True
+321 MW Grand Forks,1997,0,92094.0,0,True
+321 MW Grand Forks,1998,0,92094.0,0,True
+321 MW Grand Forks,1999,0,92094.0,1,True
+321 MW Grand Forks,2000,1,92094.0,1,True
+321 MW Grand Forks,2001,1,92094.0,1,True
+321 MW Grand Forks,2002,0,92094.0,1,True
+321 MW Grand Forks,2003,0,92094.0,1,True
+321 MW Grand Forks,2004,0,92094.0,1,True
+321 MW Grand Forks,2005,0,92094.0,1,True
+321 MW Grand Forks,2006,1,92094.0,1,True
+321 MW Grand Forks,2007,0,92094.0,1,True
+321 MW Grand Forks,2008,0,92094.0,1,True

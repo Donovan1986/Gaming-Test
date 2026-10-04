@@ -1,0 +1,2 @@
+test_id,timestamp_utc,family,phase,hypothesis,variable_a,variable_b,variable_c,window,radius_km,model,subset,split,control_strategy,n_cases,n_controls,n_strata,effect_measure,effect,ci_low,ci_high,p_value,direction,notes
+T000001,2026-10-04T06:30:56Z,NE_did,discovery,"ICBM field deactivation (Ellsworth 1994, Whiteman 1997, Grand Forks 1998) vs active fields",treat_post,,,,,poisson_DiD_unit_year_FE,ALL,all_years_event_level,untreated units + year FE,106,,,IRR,1.66290009833975,0.8418127711705595,3.717811289258069,0.050083006844539694,,cluster-robust p; bootstrap CI
