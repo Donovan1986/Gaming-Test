@@ -27,6 +27,7 @@ import features as F
 import stats as S
 from discovery_tests import derive
 from common import RESULTS, MASTER_SEED
+from cohorts import discovery_mask
 
 
 def daily_counts(ev):
@@ -125,7 +126,7 @@ def ordered_pairs(pts, ids, subset=""):
 
 def main():
     ev = cc.events()
-    disc_ev = ev[(ev.SPLIT == "discovery")]
+    disc_ev = ev[discovery_mask(ev)]
     c = daily_counts(disc_ev)
     E, m = expected_counts(c)
     on = storm_onsets()
@@ -145,7 +146,7 @@ def main():
         print(name, summ)
     pd.DataFrame(res).to_csv(RESULTS / "seq_superposed_epoch_summary.csv", index=False)
     pts = derive(cc.points())
-    disc = ev[(ev.SOURCE == "NUFORC") & (ev.SPLIT == "discovery") & ev.utc_ts.notna() & (ev.TIME_UNCERTAINTY_MIN < 720)]
+    disc = ev[discovery_mask(ev) & ev.utc_ts.notna() & (ev.TIME_UNCERTAINTY_MIN < 720)]
     asym = []
     for sname, ids in [("ALL", disc.EVENT_ID), ("HQ_UNEXPLAINED", disc.loc[disc.HQ_UNEXPLAINED, "EVENT_ID"])]:
         for w in ("1d", "7d"):

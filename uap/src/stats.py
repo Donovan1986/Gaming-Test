@@ -7,43 +7,135 @@ so the complete testing history is preserved (including null results).
 from __future__ import annotations
 
 import csv
+import fcntl
 import itertools
 import json
 import os
+import tempfile
 from datetime import datetime, timezone
 
 import numpy as np
 import pandas as pd
 from scipy import stats as sps
 
-from common import RESULTS
+from common import RESULTS, LOGS
 
 REGISTRY = RESULTS / "hypothesis_registry.csv"
+INFERENCE_VERSION = "v4_cluster_safe_scale_invariant"
 FIELDS = ["test_id", "timestamp_utc", "family", "phase", "hypothesis", "variable_a", "variable_b", "variable_c",
           "window", "radius_km", "model", "subset", "split", "control_strategy", "n_cases", "n_controls",
           "n_strata", "effect_measure", "effect", "ci_low", "ci_high", "p_value", "direction", "notes",
-          "inference_version", "status", "inference_method", "n_exposed_cases", "n_exposed_controls"]
+          "inference_version", "status", "inference_method", "n_exposed_cases", "n_exposed_controls", "scale"]
 _counter = itertools.count(1)
+_registry_ids = {}
+_registry_schemas = {}
+
+
+def _migrate_registry_schema():
+    """Normalize only proven historical layouts, preserving every parsed cell.
+
+    The first source version had 24 columns; historical tagging added column
+    25. Commit c793379 appended v3 rows with all 29 source-declared columns
+    under that 25-column header. Wider rows are interpreted only when both
+    their prefix/header and declared inference version prove that layout.
+    Caller holds the registry lock. Unknown widths fail before replacement.
+    """
+    if not REGISTRY.exists() or REGISTRY.stat().st_size == 0:
+        return list(FIELDS), 0
+    with REGISTRY.open(newline="") as stream:
+        old_fields = next(csv.reader(stream))
+    fields = old_fields + [field for field in FIELDS if field not in old_fields]
+    stat = REGISTRY.stat()
+    stamp = (stat.st_size, stat.st_mtime_ns)
+    cached = _registry_schemas.get(str(REGISTRY))
+    if fields == old_fields and cached is not None and cached[0] == stamp:
+        return fields, 0
+    temporary = None
+    total = 0
+    changed = fields != old_fields
+    try:
+        with tempfile.NamedTemporaryFile("w", newline="", dir=REGISTRY.parent,
+                                         prefix=".registry-schema-", delete=False) as target:
+            temporary = target.name
+            writer = csv.DictWriter(target, fieldnames=fields, lineterminator="\n")
+            writer.writeheader()
+            with REGISTRY.open(newline="") as source:
+                reader = csv.reader(source)
+                next(reader)
+                for record in reader:
+                    total += 1
+                    layout = old_fields
+                    if len(record) != len(old_fields):
+                        changed = True
+                        prefix = old_fields == FIELDS[:len(old_fields)]
+                        if prefix and len(record) in (24, 25):
+                            layout = FIELDS[:len(record)]
+                        elif prefix and len(record) == 29 and record[24] == "v3_dstfix_separation_exact":
+                            layout = FIELDS[:29]
+                        elif prefix and len(record) == len(FIELDS) and record[24] == INFERENCE_VERSION:
+                            layout = FIELDS
+                        else:
+                            raise RuntimeError("Registry has an unproven row layout; preserve and investigate it")
+                    writer.writerow(dict(zip(layout, record)))
+        if changed:
+            os.replace(temporary, REGISTRY)
+    finally:
+        if temporary is not None and os.path.exists(temporary):
+            os.unlink(temporary)
+    stat = REGISTRY.stat()
+    _registry_schemas[str(REGISTRY)] = ((stat.st_size, stat.st_mtime_ns), fields)
+    return fields, total if changed else 0
+
+
+def migrate_registry_schema():
+    """Explicit lossless migration without adding or modifying research rows."""
+    LOGS.mkdir(parents=True, exist_ok=True)
+    with (LOGS / "hypothesis_registry.lock.log").open("a") as lock:
+        fcntl.flock(lock, fcntl.LOCK_EX)
+        fields, rows = _migrate_registry_schema()
+    return {"fields": fields, "rows_migrated": rows}
 
 
 def _next_id():
     if not REGISTRY.exists():
         return 1
-    with open(REGISTRY) as f:
-        return sum(1 for _ in f)
+    stat = REGISTRY.stat()
+    stamp = (stat.st_size, stat.st_mtime_ns)
+    cached = _registry_ids.get(str(REGISTRY))
+    if cached is not None and cached[0] == stamp:
+        return cached[1]
+    largest = count = 0
+    with REGISTRY.open(newline="") as stream:
+        for row in csv.DictReader(stream):
+            count += 1
+            label = str(row.get("test_id", ""))
+            if label.startswith("T") and label[1:].isdigit():
+                largest = max(largest, int(label[1:]))
+    next_id = max(largest, count) + 1
+    _registry_ids[str(REGISTRY)] = (stamp, next_id)
+    return next_id
 
 
 def register(**kw) -> dict:
     row = {k: kw.get(k, "") for k in FIELDS}
-    row["inference_version"] = kw.get("inference_version", "v3_dstfix_separation_exact")
+    row["inference_version"] = kw.get("inference_version", INFERENCE_VERSION)
     row["timestamp_utc"] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
-    new = not REGISTRY.exists()
-    row["test_id"] = f"T{_next_id():06d}"
-    with open(REGISTRY, "a", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=FIELDS)
-        if new:
-            w.writeheader()
-        w.writerow(row)
+    # Serialize header migration and appends. Preserve every old cell and any
+    # legacy columns, adding blank cells only for newly declared parameters.
+    LOGS.mkdir(parents=True, exist_ok=True)
+    with (LOGS / "hypothesis_registry.lock.log").open("a") as lock:
+        fcntl.flock(lock, fcntl.LOCK_EX)
+        new = not REGISTRY.exists() or REGISTRY.stat().st_size == 0
+        fields, _ = _migrate_registry_schema()
+        row["test_id"] = f"T{_next_id():06d}"
+        with REGISTRY.open("a", newline="") as stream:
+            writer = csv.DictWriter(stream, fieldnames=fields, lineterminator="\n")
+            if new:
+                writer.writeheader()
+            writer.writerow(row)
+        stat = REGISTRY.stat()
+        _registry_ids[str(REGISTRY)] = ((stat.st_size, stat.st_mtime_ns), int(row["test_id"][1:]) + 1)
+        _registry_schemas[str(REGISTRY)] = ((stat.st_size, stat.st_mtime_ns), fields)
     return row
 
 
@@ -54,7 +146,7 @@ def _prepare(x, strata, case, clusters=None):
     x = np.asarray(x, float)
     if x.ndim == 1:
         x = x[:, None]
-    ok = np.all(np.isfinite(x), axis=1)
+    ok = np.all(np.isfinite(x), axis=1) & pd.notna(np.asarray(strata)) & np.isin(np.asarray(case), [0, 1])
     s = np.asarray(strata)[ok]
     c = np.asarray(case)[ok].astype(int)
     xs = x[ok]
@@ -79,8 +171,11 @@ def _ll_grad_hess(beta, codes, xc, cc, nstr):
     den = np.bincount(codes, weights=w, minlength=nstr)
     p = w / den[codes]
     k = xc.shape[1]
-    xbar = np.zeros((nstr, k))
-    np.add.at(xbar, codes, p[:, None] * xc)
+    if k == 1:
+        xbar = np.bincount(codes, weights=p * xc[:, 0], minlength=nstr)[:, None]
+    else:
+        xbar = np.zeros((nstr, k))
+        np.add.at(xbar, codes, p[:, None] * xc)
     grad = (xc[cc == 1] - xbar[codes[cc == 1]]).sum(0)
     d = xc - xbar[codes]
     H = -(p[:, None, None] * d[:, :, None] * d[:, None, :]).sum(0)
@@ -111,9 +206,23 @@ def clogit(x: np.ndarray, strata: np.ndarray, case: np.ndarray, max_iter=100, cl
     np.add.at(means, codes, xs)
     means /= np.bincount(codes)[:, None]
     xc = xs - means[codes]
-    if np.all(np.abs(xc).max(0) < 1e-12):
+    spread = np.sqrt(np.mean(xc ** 2, axis=0))
+    if np.any(spread == 0):
         out["status"] = "NO_WITHIN_SET_VARIATION"
         return out
+    # Fit in standardized units: coefficient magnitude and Newton tolerance
+    # must not depend on whether an exposure is measured in metres or km.
+    xc /= spread
+    if k == 1:
+        starts = np.r_[0, np.flatnonzero(np.diff(codes)) + 1]
+        minimum = np.minimum.reduceat(xc[:, 0], starts)
+        maximum = np.maximum.reduceat(xc[:, 0], starts)
+        case_x = xc[cc == 1, 0]
+        separated = ((np.all(case_x == maximum) or np.all(case_x == minimum))
+                     and np.any(maximum > minimum))
+        if separated:
+            out.update(status="SEPARATION", separation=True)
+            return out
     beta = np.zeros(k)
     converged = False
     for it in range(max_iter):
@@ -124,11 +233,15 @@ def clogit(x: np.ndarray, strata: np.ndarray, case: np.ndarray, max_iter=100, cl
             break
         # step-halving to guarantee likelihood increase
         t = 1.0
+        accepted = False
         while t > 1e-4:
             nb = beta - t * step
             if _ll_grad_hess(nb, codes, xc, cc, nstr)[0] >= ll - 1e-10:
+                accepted = True
                 break
             t /= 2
+        if not accepted:
+            break
         beta = beta - t * step
         if np.max(np.abs(t * step)) < tol:
             converged = True
@@ -139,23 +252,26 @@ def clogit(x: np.ndarray, strata: np.ndarray, case: np.ndarray, max_iter=100, cl
         cond = np.linalg.cond(-H)
     except np.linalg.LinAlgError:
         cov, cond = None, np.inf
-    sep = (np.max(np.abs(beta)) > 15) or (cond > 1e12) or (cov is None)
+    sep = (cond > 1e12) or (cov is None)
     if np.isfinite(out["n_exposed_cases"]):
         # binary first covariate: complete/quasi-complete separation patterns
         ec, ek = out["n_exposed_cases"], out["n_exposed_controls"]
         if ec == 0 or ek == 0 or ec == out["n_case"]:
             sep = True
-    out.update(beta=beta, ll=ll, converged=bool(converged and np.all(np.isfinite(beta))), separation=bool(sep))
+    out.update(beta=beta / spread, ll=ll, converged=bool(converged and np.all(np.isfinite(beta))), separation=bool(sep))
     if cov is None:
         out["status"] = "SINGULAR_HESSIAN"
         return out
-    se = np.sqrt(np.clip(np.diag(cov), 0, None))
+    se = np.sqrt(np.clip(np.diag(cov), 0, None)) / spread
     out.update(se=se, se_model=se.copy())
     if kk is not None:
         U = xc[cc == 1] - xbar[codes[cc == 1]]
         sk = kk[cc == 1]
         if sk.ndim == 1:
             sk = sk[:, None]
+        if pd.isna(sk).any():
+            out["status"] = "MISSING_CLUSTER"
+            return out
 
         def meat_for(cols):
             if len(cols) > 1:
@@ -179,8 +295,11 @@ def clogit(x: np.ndarray, strata: np.ndarray, case: np.ndarray, max_iter=100, cl
             if np.any(np.diag(cov @ meat @ cov) <= 0):
                 meat = mA if np.trace(cov @ mA @ cov) >= np.trace(cov @ mB @ cov) else mB
             nc = min(ncA, ncB)
-        out["se"] = np.sqrt(np.clip(np.diag(cov @ meat @ cov), 0, None))
+        out["se"] = np.sqrt(np.clip(np.diag(cov @ meat @ cov), 0, None)) / spread
         out["n_clusters"] = nc
+        if nc < 2:
+            out["status"] = "TOO_FEW_CLUSTERS"
+            return out
     out["status"] = "OK" if (out["converged"] and not out["separation"]) else (
         "SEPARATION" if out["separation"] else "NONCONVERGED")
     return out
@@ -202,6 +321,8 @@ def exact_conditional_or(x, strata, case, max_dp=5000):
     Returns median-unbiased OR, exact 95% CI (tail-inversion), two-sided p at psi=1
     (doubling of the smaller tail), and counts on the retained rows."""
     codes, xs, cc, _ = _prepare(x, strata, case)
+    if not np.isin(xs[:, 0], [0, 1]).all():
+        raise ValueError("Exact conditional inference requires a binary 0/1 exposure")
     x0 = xs[:, 0] > 0
     n = np.bincount(codes)
     e = np.bincount(codes, weights=x0)
@@ -215,13 +336,17 @@ def exact_conditional_or(x, strata, case, max_dp=5000):
         return res
     ee, nn = e[inf], n[inf]
     m = len(ee)
-    if m > max_dp:
+    odds = ee / (nn - ee)
+    equal_odds = np.all(odds == odds[0])
+    if m > max_dp and not equal_odds:
         res.update(OR=np.nan, lo=np.nan, hi=np.nan, p=np.nan, method="exact_conditional(too many sets; use Wald)")
         return res
 
     def tails(logpsi):
         psi = np.exp(logpsi)
         p = psi * ee / (psi * ee + nn - ee)
+        if equal_odds:
+            return sps.binom.sf(t - 1, m, p[0]), sps.binom.cdf(t, m, p[0])
         d = _poisson_binomial(p)
         return d[t:].sum(), d[:t + 1].sum()  # P(T>=t), P(T<=t)
 
@@ -267,12 +392,21 @@ def clogit_or(x, strata, case, scale=1.0, clusters=None):
                 n_exposed_cases=r["n_exposed_cases"], n_exposed_controls=r["n_exposed_controls"],
                 n_clusters=r["n_clusters"], OR=np.nan, lo=np.nan, hi=np.nan, p=np.nan, beta=np.nan, se=np.nan,
                 se_model=np.nan)
-    if r.get("status") != "OK" or r["se"] is None or not np.isfinite(r["se"][0]) or r["se"][0] == 0:
+    if r.get("status") != "OK":
+        return base
+    if r["se"] is None or not np.isfinite(r["se"][0]) or r["se"][0] == 0:
+        base["status"] = "INVALID_STANDARD_ERROR"
         return base
     b, se = r["beta"][0] * scale, r["se"][0] * scale
-    p = 2 * sps.norm.sf(abs(b / se))
+    if np.isfinite(r["n_clusters"]):
+        # Small-cluster uncertainty uses the limiting clustering dimension.
+        law = sps.t(df=r["n_clusters"] - 1)
+    else:
+        law = sps.norm
+    p = 2 * law.sf(abs(b / se))
+    critical = law.ppf(0.975)
     with np.errstate(over="ignore"):
-        base.update(OR=np.exp(b), lo=np.exp(b - 1.96 * se), hi=np.exp(b + 1.96 * se), p=p, beta=b, se=se,
+        base.update(OR=np.exp(b), lo=np.exp(b - critical * se), hi=np.exp(b + critical * se), p=p, beta=b, se=se,
                     se_model=r["se_model"][0] * scale)
     return base
 

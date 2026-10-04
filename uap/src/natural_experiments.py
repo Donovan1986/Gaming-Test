@@ -119,8 +119,9 @@ def ne2_nuclear(ev, radius=50):
 
 
 def main(splits=("discovery",)):
+    from cohorts import discovery_mask
     ev = pd.read_parquet(PROCESSED / "events.parquet")
-    ev = ev[ev.SPLIT.isin(splits)]
+    ev = ev[ev.SPLIT.isin(splits) & ((ev.SPLIT != "discovery") | discovery_mask(ev))]
     res = [ne1_icbm(ev), ne2_nuclear(ev, 25), ne2_nuclear(ev, 50)]
     out = pd.DataFrame(res)
     print(out.to_string())

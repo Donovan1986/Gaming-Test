@@ -63,22 +63,33 @@ def _sun_eci(jd):
 
 def iss_visible_window(t_sec, lat, lon, half_window_min) -> np.ndarray:
     """1.0 if ISS visible at any minute in [t-W, t+W]; 0.0 if not; NaN if no TLE within 5 days."""
-    sats, ep = tles()
-    t_sec = np.asarray(t_sec, float)
-    lat = np.asarray(lat, float)
-    lon = np.asarray(lon, float)
-    W = np.clip(np.nan_to_num(np.asarray(half_window_min, float), nan=10), 10, 30).astype(int)
+    t_sec, lat, lon, half_window_min = np.broadcast_arrays(
+        np.atleast_1d(np.asarray(t_sec, float)), np.asarray(lat, float),
+        np.asarray(lon, float), np.asarray(half_window_min, float))
+    if t_sec.ndim != 1:
+        raise ValueError("ISS inputs must be one-dimensional")
+    W = np.clip(np.nan_to_num(half_window_min, nan=10), 10, 30).astype(int)
     out = np.full(len(t_sec), np.nan)
     jd0 = t_sec / 86400.0 + 2440587.5
-    ok = np.isfinite(jd0) & np.isfinite(lat)
-    k = np.clip(np.searchsorted(ep, jd0), 1, len(ep) - 1)
-    k = np.where(np.abs(ep[k - 1] - jd0) < np.abs(ep[k] - jd0), k - 1, k)
+    ok = np.isfinite(jd0) & np.isfinite(lat) & np.isfinite(lon)
+    ok &= (np.abs(lat) <= 90) & (np.abs(lon) <= 180)
+    if not ok.any():
+        return out
+    sats, ep = tles()
+    ep = np.asarray(ep, float)
+    if not len(ep):
+        return out
+    if len(sats) != len(ep) or not np.isfinite(ep).all() or (np.diff(ep) < 0).any():
+        raise ValueError("Invalid ISS TLE epoch table")
+    following = np.clip(np.searchsorted(ep, jd0), 0, len(ep) - 1)
+    preceding = np.clip(following - 1, 0, len(ep) - 1)
+    k = np.where(np.abs(ep[preceding] - jd0) < np.abs(ep[following] - jd0), preceding, following)
     near = np.abs(ep[k] - jd0) <= 5
-    ok &= near
-    out[np.isfinite(jd0) & ~near] = np.nan
-    offs = np.arange(-30, 31)
+    ok &= near & (jd0 >= ep[0]) & (jd0 <= ep[-1])
     for kk in np.unique(k[ok]):
         idx = np.where(ok & (k == kk))[0]
+        width = int(W[idx].max())
+        offs = np.arange(-width, width + 1)
         s = sats[kk]
         jd = jd0[idx][:, None] + offs[None, :] / 1440.0
         jdf = jd.ravel()
@@ -99,7 +110,11 @@ def iss_visible_window(t_sec, lat, lon, half_window_min) -> np.ndarray:
         proj = (r * sun).sum(-1)
         perp = np.linalg.norm(r - proj[..., None] * sun, axis=-1)
         lit = (proj > 0) | (perp > Re)
-        vis = (alt > 10) & lit & (sun_alt < -4) & (e.reshape(len(idx), len(offs)) == 0)
+        propagated = (e.reshape(len(idx), len(offs)) == 0) & np.isfinite(r).all(axis=-1)
+        vis = (alt > 10) & lit & (sun_alt < -4) & propagated
         win = np.abs(offs)[None, :] <= W[idx][:, None]
-        out[idx] = (vis & win).any(axis=1).astype(float)
+        detected = (vis & win).any(axis=1)
+        complete = (propagated | ~win).all(axis=1)
+        # A failed propagation cannot establish that no visible pass occurred.
+        out[idx] = np.where(detected, 1.0, np.where(complete, 0.0, np.nan))
     return out

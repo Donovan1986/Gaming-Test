@@ -1,0 +1,28 @@
+{
+  "added_columns": [
+    "status",
+    "inference_method",
+    "n_exposed_cases",
+    "n_exposed_controls",
+    "scale"
+  ],
+  "cells_preserved": true,
+  "layout_evidence": "Source FIELDS at c793379 declares the 29-column order; all wider rows declare v3_dstfix_separation_exact. The 25-column header is its exact prefix.",
+  "line_terminator": "LF",
+  "new_cells": "blank only",
+  "new_research_records_added": 0,
+  "normalized_header_fields": 30,
+  "normalized_sha256": "f259a2b44883c07895cfaa5450b93684d04abaf2328b4f965e3d946f868633f1",
+  "original_byte_archive": "/workspace/.setup/gaming-test/registry-backups/b9b33a42526a1758f97c8eae9100a534898add241756898ff6fa1d92a1a2c972.csv",
+  "recovered_utc": "2026-10-04T08:05:07.054029+00:00",
+  "rows_preserved": 1017,
+  "source_git_revision": "c793379dcca9537ed36a6f5486c9d9fcd5f08388",
+  "source_header_fields": 25,
+  "source_registry_git_path": "uap/results/hypothesis_registry.csv",
+  "source_row_layouts": {
+    "25": 979,
+    "29": 38
+  },
+  "source_sha256": "b9b33a42526a1758f97c8eae9100a534898add241756898ff6fa1d92a1a2c972",
+  "test_ids_preserved": true
+}

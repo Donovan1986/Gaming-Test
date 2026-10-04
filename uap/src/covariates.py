@@ -224,12 +224,17 @@ def azimuth_deg(ra, dec, gmst, lat_deg, lon_deg):
 
 
 def astro_features(times_utc, lats, lons) -> pd.DataFrame:
-    """Sun/Moon/planet geometry at (time, lat, lon). Vectorised over unique hours."""
+    """Geometry using 10-minute apparent-position bins and exact Earth rotation.
+
+    Binning RA/Dec approximates slow orbital motion. Sidereal rotation must
+    use each observation's actual timestamp; flooring it can shift altitude
+    by up to 2.5 degrees and change a visibility threshold decision.
+    """
     times_utc = pd.DatetimeIndex(pd.to_datetime(times_utc, utc=True))
     th = times_utc.floor("10min").as_unit("ns")
     uniq, inv = np.unique(th.asi8, return_inverse=True)
     ut = pd.DatetimeIndex(pd.to_datetime(uniq, unit="ns", utc=True))
-    g = gmst_rad(ut)[inv]
+    g = gmst_rad(times_utc)
     out = {}
     pos = {}
     for b in ("sun", "moon", "venus", "jupiter"):

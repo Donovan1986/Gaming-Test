@@ -8,9 +8,11 @@ L1 logistic. Grouped 5-fold CV by EVENT_ID inside the discovery split.
 Interactions ranked by mean |SHAP interaction value| (TreeExplainer).
 Top pairwise interactions are then tested with transparent conditional
 logistic models (main effects + product) on the discovery data and
-registered; only those are carried to the validation phase.
+registered as exploratory results. The current selector does not promote
+interactions or splines; validating them needs a separately frozen design.
 Nonlinearity: conditional logit with natural-cubic-spline basis (GAM-like).
-Bayes factors: BIC approximation, BF10 = exp((BIC0 - BIC1)/2).
+BIC comparisons are descriptive likelihood heuristics; shared clusters do
+not support calibrated Bayes factors or likelihood-ratio chi-square tests.
 Outputs: results/ml_*.csv
 """
 from __future__ import annotations
@@ -27,6 +29,7 @@ import cc
 import stats as S
 from discovery_tests import derive
 from common import RESULTS, MASTER_SEED
+from cohorts import discovery_mask
 
 TEMPORAL_FEATS = [
     "kp", "kp_max_prior24h", "kp_max_prior72h", "kp_change_prior24h", "dst", "dst_min_prior24h", "dst_change_prior6h",
@@ -49,21 +52,27 @@ SPATIAL_FEATS = ["dist_large_airport_km", "dist_medium_airport_km", "dist_small_
 
 
 def fit_models(df, feats, label, tag, seed=MASTER_SEED + 31):
-    X = df[feats].astype(float)
+    X = df[feats].astype(float).replace([np.inf, -np.inf], np.nan)
     y = df["is_case"].to_numpy()
     groups = df["EVENT_ID"].to_numpy()
-    gkf = GroupKFold(n_splits=5)
+    n_splits = min(5, len(pd.unique(groups)))
+    if n_splits < 2:
+        raise ValueError("Grouped exploratory CV requires at least two matched sets")
+    gkf = GroupKFold(n_splits=n_splits)
     oof = {k: np.full(len(df), np.nan) for k in ("lgb", "rf", "l1")}
     params = dict(objective="binary", learning_rate=0.05, num_leaves=31, min_data_in_leaf=200, feature_fraction=0.8,
-                  bagging_fraction=0.8, bagging_freq=1, lambda_l2=1.0, verbose=-1, seed=seed)
+                  bagging_fraction=0.8, bagging_freq=1, lambda_l2=1.0, verbose=-1, seed=seed, num_threads=4)
     for tr, te in gkf.split(X, y, groups):
         m = lgb.train(params, lgb.Dataset(X.iloc[tr], y[tr]), num_boost_round=300)
         oof["lgb"][te] = m.predict(X.iloc[te])
-        Xf = X.fillna(X.median())
+        # Held-out feature values must not determine imputation or scaling.
+        # A wholly unobserved training column receives the fixed value zero.
+        Xf = X.fillna(X.iloc[tr].median().fillna(0.0))
         rf = RandomForestClassifier(n_estimators=200, min_samples_leaf=100, n_jobs=4, random_state=seed)
         rf.fit(Xf.iloc[tr], y[tr])
         oof["rf"][te] = rf.predict_proba(Xf.iloc[te])[:, 1]
-        Z = (Xf - Xf.iloc[tr].mean()) / (Xf.iloc[tr].std() + 1e-9)
+        spread = Xf.iloc[tr].std().replace(0, np.nan).fillna(1.0)
+        Z = (Xf - Xf.iloc[tr].mean()) / spread
         l1 = LogisticRegression(penalty="l1", C=0.05, solver="liblinear")
         l1.fit(Z.iloc[tr], y[tr])
         oof["l1"][te] = l1.predict_proba(Z.iloc[te])[:, 1]
@@ -75,7 +84,7 @@ def fit_models(df, feats, label, tag, seed=MASTER_SEED + 31):
         ctl = d[d.y == 0].join(cs.rename("cs"), on="g")
         cond_auc = ((ctl.cs > ctl.s).mean() + 0.5 * (ctl.cs == ctl.s).mean())
         res[k] = dict(model=k, tag=tag, label=label, auc=roc_auc_score(y, s), conditional_auc=cond_auc, n=len(df),
-                      n_cases=int(y.sum()))
+                      n_cases=int(y.sum()), evidence_role="exploratory_discovery_cv")
     full = lgb.train(params, lgb.Dataset(X, y), num_boost_round=300)
     imp = pd.DataFrame({"feature": feats, "gain": full.feature_importance("gain")}).sort_values("gain", ascending=False)
     return res, full, imp
@@ -86,7 +95,7 @@ def shap_interactions(model, X, feats, n=6000, seed=MASTER_SEED + 32):
     rng = np.random.default_rng(seed)
     idx = rng.choice(len(X), size=min(n, len(X)), replace=False)
     ex = shap.TreeExplainer(model)
-    iv = ex.shap_interaction_values(X.iloc[idx].astype(float))
+    iv = ex.shap_interaction_values(X.iloc[idx].astype(float).replace([np.inf, -np.inf], np.nan))
     if isinstance(iv, list):
         iv = iv[1]
     m = np.abs(iv).mean(0)
@@ -97,27 +106,71 @@ def shap_interactions(model, X, feats, n=6000, seed=MASTER_SEED + 32):
     return pd.DataFrame(rows).sort_values("mean_abs_interaction", ascending=False)
 
 
+def _eligible_rows(d, x):
+    """Use identical finite rows and valid matched sets in nested models."""
+    x = np.asarray(x, dtype=float)
+    if x.ndim == 1:
+        x = x[:, None]
+    good = (np.isfinite(x).all(axis=1) & d.EVENT_ID.notna().to_numpy()
+            & d.is_case.isin([0, 1]).to_numpy())
+    d, x = d.loc[good], x[good]
+    counts = d.groupby("EVENT_ID").is_case.agg(["sum", "size"])
+    ids = counts.index[(counts["sum"] == 1) & (counts["size"] >= 2)]
+    good = d.EVENT_ID.isin(ids).to_numpy()
+    return d.loc[good], x[good]
+
+
+def _clusters(d):
+    # cc.points() supplies integer aliases for the case's night and cell.
+    for pair in (("clu_night_i", "clu_i"), ("night_cluster", "cell_cluster")):
+        columns = [column for column in pair if column in d]
+        if columns:
+            return d[columns].to_numpy()
+    return None
+
+
+def _valid_fit(r):
+    return (r is not None and r.get("status") == "OK"
+            and np.isfinite(r.get("ll", np.nan))
+            and r.get("beta") is not None and r.get("se") is not None
+            and np.isfinite(r["beta"]).all() and np.isfinite(r["se"]).all()
+            and (np.asarray(r["se"]) > 0).all())
+
+
 def test_interaction(pts, ids, a, b, strategy, subset, phase="discovery", split="discovery", register=True):
     d = cc.matched(pts, ids, strategy)
-    xa = d[a].astype(float).to_numpy()
-    xb = d[b].astype(float).to_numpy()
-    za = (xa - np.nanmean(xa)) / (np.nanstd(xa) + 1e-9)
-    zb = (xb - np.nanmean(xb)) / (np.nanstd(xb) + 1e-9)
-    X = np.c_[za, zb, za * zb]
-    r = S.clogit(X, d.EVENT_ID.to_numpy(), d.is_case.to_numpy())
-    if r is None:
+    d, raw = _eligible_rows(d, d[[a, b]].to_numpy(float))
+    if not len(d) or (raw.std(axis=0) == 0).any():
         return None
-    r0 = S.clogit(X[:, :2], d.EVENT_ID.to_numpy(), d.is_case.to_numpy())
+    za, zb = ((raw - raw.mean(axis=0)) / raw.std(axis=0)).T
+    X = np.c_[za, zb, za * zb]
+    clusters = _clusters(d)
+    r = S.clogit(X, d.EVENT_ID.to_numpy(), d.is_case.to_numpy(), clusters=clusters)
+    if not _valid_fit(r):
+        return None
+    r0 = S.clogit(X[:, :2], d.EVENT_ID.to_numpy(), d.is_case.to_numpy(), clusters=clusters)
+    if not _valid_fit(r0):
+        return None
     b3, se3 = r["beta"][2], r["se"][2]
     from scipy import stats as sps
-    p = 2 * sps.norm.sf(abs(b3 / se3))
-    bf = np.exp(((-2 * r0["ll"] + 2 * np.log(r0["n_strata"])) - (-2 * r["ll"] + 3 * np.log(r["n_strata"]))) / 2) if r0 else np.nan
+    if clusters is not None:
+        df = r.get("n_clusters", np.nan) - 1
+        if not np.isfinite(df) or df < 1:
+            return None
+        p = 2 * sps.t.sf(abs(b3 / se3), df)
+        critical = sps.t.ppf(0.975, df)
+    else:
+        p, critical = 2 * sps.norm.sf(abs(b3 / se3)), sps.norm.ppf(0.975)
+    log_bf_heuristic = r["ll"] - r0["ll"] - 0.5 * np.log(r["n_strata"])
     row = dict(family="ML_interaction", phase=phase, hypothesis=f"{a} x {b} interaction (per-SD product term)",
                variable_a=a, variable_b=b, model="conditional_logit_interaction", subset=subset, split=split,
                control_strategy=strategy, n_cases=r["n_case"], n_controls=r["n_ctrl"], n_strata=r["n_strata"],
-               effect_measure="OR_per_SD_product", effect=np.exp(b3), ci_low=np.exp(b3 - 1.96 * se3),
-               ci_high=np.exp(b3 + 1.96 * se3), p_value=p, direction="+" if b3 > 0 else "-",
-               notes=f"main OR/SD a={np.exp(r['beta'][0]):.3f} b={np.exp(r['beta'][1]):.3f}; BF10(BIC)={bf:.3g}")
+               effect_measure="OR_per_SD_product", effect=np.exp(b3), ci_low=np.exp(b3 - critical * se3),
+               ci_high=np.exp(b3 + critical * se3), p_value=p, direction="+" if b3 > 0 else "-", status="OK",
+               inference_method="wald_cluster_robust_t" if clusters is not None else "wald_model",
+               notes=f"exploratory discovery interaction; main OR/SD a={np.exp(r['beta'][0]):.3f}"
+                     f" b={np.exp(r['beta'][1]):.3f}; log_BF10(BIC heuristic)={log_bf_heuristic:.3g};"
+                     " BIC heuristic is not calibrated for shared clusters")
     if register:
         S.register(**row)
     return row
@@ -125,37 +178,44 @@ def test_interaction(pts, ids, a, b, strategy, subset, phase="discovery", split=
 
 def spline_clogit(pts, ids, var, strategy, knots=4):
     """Nonlinear (GAM-like) dose-response: natural cubic spline basis in clogit."""
-    from patsy import dmatrix
+    from patsy import build_design_matrices, dmatrix
     d = cc.matched(pts, ids, strategy)
-    x = d[var].astype(float)
-    ok = x.notna().to_numpy()
-    d, x = d[ok], x[ok]
+    d, x = _eligible_rows(d, d[var].to_numpy(float))
+    x = x[:, 0]
+    if not len(x):
+        return None
     qs = np.quantile(x, np.linspace(0.05, 0.95, knots))
     qs = np.unique(qs)
     if len(qs) < 3:
         return None
-    B = np.asarray(dmatrix(f"cr(x, knots={list(qs[1:-1])}, lower_bound={x.min()}, upper_bound={x.max()}) - 1",
-                           {"x": x.to_numpy()}))
-    r = S.clogit(B, d.EVENT_ID.to_numpy(), d.is_case.to_numpy())
-    r_lin = S.clogit(x.to_numpy(), d.EVENT_ID.to_numpy(), d.is_case.to_numpy())
-    if r is None or r_lin is None:
+    design = dmatrix(f"cr(x, knots={qs[1:-1].tolist()}, lower_bound={x.min()}, upper_bound={x.max()}) - 1",
+                     {"x": x})
+    # Natural-cubic cardinal columns sum to a constant. Conditional logit
+    # removes that constant, so one reference column must be omitted.
+    B = np.asarray(design)[:, 1:]
+    clusters = _clusters(d)
+    r = S.clogit(B, d.EVENT_ID.to_numpy(), d.is_case.to_numpy(), clusters=clusters)
+    r_lin = S.clogit(x, d.EVENT_ID.to_numpy(), d.is_case.to_numpy(), clusters=clusters)
+    if not _valid_fit(r) or not _valid_fit(r_lin):
         return None
-    lr = 2 * (r["ll"] - r_lin["ll"])
+    lr = max(0.0, 2 * (r["ll"] - r_lin["ll"]))
     from scipy import stats as sps
-    p_nonlin = sps.chi2.sf(lr, B.shape[1] - 1)
+    p_nonlin = sps.chi2.sf(lr, B.shape[1] - 1) if clusters is None else np.nan
     grid = np.quantile(x, [0.01, 0.1, 0.25, 0.5, 0.75, 0.9, 0.99])
-    Bg = np.asarray(dmatrix(f"cr(x, knots={list(qs[1:-1])}, lower_bound={x.min()}, upper_bound={x.max()}) - 1",
-                            {"x": grid}))
+    Bg = np.asarray(build_design_matrices([design.design_info], {"x": grid})[0])[:, 1:]
     eta = Bg @ r["beta"]
     eta -= eta[3]
-    return dict(var=var, strategy=strategy, p_nonlinear=p_nonlin, grid=list(np.round(grid, 3)),
-                or_vs_median=list(np.round(np.exp(eta), 3)))
+    return dict(var=var, strategy=strategy, p_nonlinear=p_nonlin, likelihood_ratio_descriptive=lr,
+                n_strata=r["n_strata"], grid=list(np.round(grid, 3)),
+                or_vs_median=list(np.round(np.exp(eta), 3)),
+                inference_method="descriptive_clustered_fit" if clusters is not None else "model_likelihood_ratio",
+                notes="exploratory discovery fit; shared clusters invalidate ordinary chi-square LR calibration")
 
 
 def main():
     pts = derive(cc.points())
     ev = cc.events()
-    disc = ev[(ev.SOURCE == "NUFORC") & (ev.SPLIT == "discovery") & ev.utc_ts.notna() & (ev.TIME_UNCERTAINTY_MIN < 720)]
+    disc = ev[discovery_mask(ev) & ev.utc_ts.notna() & (ev.TIME_UNCERTAINTY_MIN < 720)]
     perf, imps, inter_rows, tests, splines = [], [], [], [], []
     tfe = [f for f in TEMPORAL_FEATS if f in pts]
     novel = [f for f in tfe if f not in KNOWN_STIMULI]
