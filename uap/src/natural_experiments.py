@@ -29,7 +29,7 @@ def unit_population(lat, lon, r):
     return float(G.population.to_numpy()[d <= r].sum())
 
 
-def did(panel, label, n_boot=999, seed=MASTER_SEED + 51):
+def did(panel, label, n_boot=199, seed=MASTER_SEED + 51):
     panel = panel[panel.pop_ > 0].copy()
     X = pd.get_dummies(panel[["unit", "year"]].astype(str), drop_first=True).astype(float)
     X["treat_post"] = panel["treat_post"].astype(float)

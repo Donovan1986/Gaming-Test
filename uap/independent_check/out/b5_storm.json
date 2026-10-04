@@ -1,0 +1,42 @@
+{
+ "cz_timezone_values_2005": {
+  "CST": 26082,
+  "EST": 18526,
+  "MST": 5895,
+  "PST": 2015,
+  "AST": 834,
+  "HST": 569,
+  "SST": 55
+ },
+ "interim_year_min": 1995,
+ "interim_year_max": 2023,
+ "n_after_2024": 0,
+ "cz_timezone_values_all_files": {
+  "CST": 277202,
+  "EST": 207908,
+  "MST": 52626,
+  "CDT": 421,
+  "EDT": 371,
+  "PST": 18297,
+  "PDT": 36,
+  "AST": 6530,
+  "ESt": 2,
+  "CSt": 2,
+  "MDT": 1,
+  "SCT": 1,
+  "HST": 4161,
+  "SST": 508,
+  "CST-6": 511752,
+  "EST-5": 382178,
+  "MST-7": 128973,
+  "PST-8": 47953,
+  "HST-10": 10934,
+  "AKST-9": 4824,
+  "AST-4": 3568,
+  "SST-11": 267,
+  "GST10": 236,
+  "PDT-7": 242,
+  "CDT-5": 14,
+  "EDT-4": 26
+ }
+}

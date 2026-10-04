@@ -36,7 +36,7 @@ def subsets(ev):
 
 def derive(p: pd.DataFrame) -> pd.DataFrame:
     p = p.copy()
-    b = lambda cond, base: cond.astype(float).where(base.notna())
+    b = lambda cond, base: cond.astype("float32").where(base.notna())
     p["kp_storm5_prior24h"] = b(p.kp_max_prior24h >= 5, p.kp_max_prior24h)
     p["kp_storm7_prior24h"] = b(p.kp_max_prior24h >= 7, p.kp_max_prior24h)
     p["dst_storm50_prior24h"] = b(p.dst_min_prior24h <= -50, p.dst_min_prior24h)
@@ -65,10 +65,10 @@ def derive(p: pd.DataFrame) -> pd.DataFrame:
     for c in [c for c in p.columns if c.startswith("n_eq_") or c.startswith("n_eq4_") or c.startswith("n_storm_")]:
         p[c.replace("n_", "any_", 1)] = b(p[c] > 0, p[c])
     for c in [c for c in p.columns if c.startswith("dist_") and c.endswith("_km")]:
-        p["log_" + c] = np.log10(p[c].clip(lower=0.5))
+        p["log_" + c] = np.log10(p[c].clip(lower=0.5)).astype("float32")
         for r in (1, 5, 10, 25, 50, 100, 250, 500):
             p[f"within{r}_{c[5:-3]}"] = b(p[c] <= r, p[c])
-    return p
+    return p.copy()
 
 
 FAM_A = [  # (variable, scale, label)

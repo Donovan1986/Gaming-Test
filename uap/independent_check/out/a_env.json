@@ -1,0 +1,139 @@
+{
+ "python": "3.11.15 (main, Mar  3 2026, 09:26:23) [GCC 13.3.0]",
+ "executable": "/usr/bin/python3",
+ "packages": [
+  {
+   "package": "geopandas",
+   "required": "1.2.0",
+   "installed": "1.2.0",
+   "match": true
+  },
+  {
+   "package": "lightgbm",
+   "required": "4.7.0",
+   "installed": "4.7.0",
+   "match": true
+  },
+  {
+   "package": "matplotlib",
+   "required": "3.11.2",
+   "installed": "3.11.2",
+   "match": true
+  },
+  {
+   "package": "numba",
+   "required": "0.68.0",
+   "installed": "0.68.0",
+   "match": true
+  },
+  {
+   "package": "numpy",
+   "required": "2.4.6",
+   "installed": "2.4.6",
+   "match": true
+  },
+  {
+   "package": "openpyxl",
+   "required": "3.1.5",
+   "installed": "3.1.5",
+   "match": true
+  },
+  {
+   "package": "pandas",
+   "required": "3.0.6",
+   "installed": "3.0.6",
+   "match": true
+  },
+  {
+   "package": "patsy",
+   "required": "1.0.3",
+   "installed": "1.0.3",
+   "match": true
+  },
+  {
+   "package": "pyarrow",
+   "required": "25.0.1",
+   "installed": "25.0.1",
+   "match": true
+  },
+  {
+   "package": "pyogrio",
+   "required": "0.13.0",
+   "installed": "0.13.0",
+   "match": true
+  },
+  {
+   "package": "RapidFuzz",
+   "required": "3.14.6",
+   "installed": "3.14.6",
+   "match": true
+  },
+  {
+   "package": "requests",
+   "required": "2.34.2",
+   "installed": "2.34.2",
+   "match": true
+  },
+  {
+   "package": "scikit-learn",
+   "required": "1.9.1",
+   "installed": "1.9.1",
+   "match": true
+  },
+  {
+   "package": "scipy",
+   "required": "1.17.1",
+   "installed": "1.17.1",
+   "match": true
+  },
+  {
+   "package": "sgp4",
+   "required": "2.27",
+   "installed": "2.27",
+   "match": true
+  },
+  {
+   "package": "shap",
+   "required": "0.51.0",
+   "installed": "0.51.0",
+   "match": true
+  },
+  {
+   "package": "shapely",
+   "required": "2.1.2",
+   "installed": "2.1.2",
+   "match": true
+  },
+  {
+   "package": "skyfield",
+   "required": "1.55",
+   "installed": "1.55",
+   "match": true
+  },
+  {
+   "package": "statsmodels",
+   "required": "0.15.0",
+   "installed": "0.15.0",
+   "match": true
+  },
+  {
+   "package": "timezonefinder",
+   "required": "9.0.0",
+   "installed": "9.0.0",
+   "match": true
+  },
+  {
+   "package": "__python__",
+   "required": "3.11.15",
+   "installed": "3.11.15",
+   "match": true
+  }
+ ],
+ "other": {
+  "tzdata": null,
+  "pytz": "2026.5",
+  "jplephem": "2.24",
+  "python-dateutil": "2.9.0.post0",
+  "scipy": "1.17.1"
+ }
+}

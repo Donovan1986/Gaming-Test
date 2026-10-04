@@ -40,35 +40,58 @@ def load_cases() -> pd.DataFrame:
     return ev.reset_index(drop=True)
 
 
+def _localize_referent(naive: pd.Timestamp, tz: str):
+    """Explicit DST policy for a referent wall-clock time:
+    nonexistent (spring-forward gap) -> referent DROPPED (no equivalent clock time);
+    ambiguous (fall-back repeated hour) -> the first (daylight-time) instance."""
+    try:
+        return naive.tz_localize(tz, ambiguous=True, nonexistent="NaT").tz_convert("UTC")
+    except Exception:
+        return pd.NaT
+
+
 def cs1_referents(ev: pd.DataFrame) -> pd.DataFrame:
+    """Same local wall-clock time and weekday, other weeks of the same calendar month.
+    Calendar offsets are applied to the NAIVE local time (fixes DST drift; audit item 1)."""
     rows = []
     for e in ev.itertuples():
-        lt = e.utc_ts.tz_convert(e.TIMEZONE)
+        naive = e.utc_ts.tz_convert(e.TIMEZONE).tz_localize(None)
         for k in (-4, -3, -2, -1, 1, 2, 3, 4):
-            c = lt + pd.Timedelta(days=7 * k)
-            if c.month != lt.month:
+            c = naive + pd.Timedelta(days=7 * k)
+            if c.month != naive.month:
                 continue
-            naive = c.tz_localize(None)
-            try:
-                cu = naive.tz_localize(e.TIMEZONE, ambiguous=True, nonexistent="shift_forward").tz_convert("UTC")
-            except Exception:
+            cu = _localize_referent(c, e.TIMEZONE)
+            if pd.isna(cu):
                 continue
             rows.append((e.EVENT_ID, "CS1", k, cu, e.LATITUDE, e.LONGITUDE))
     return pd.DataFrame(rows, columns=["EVENT_ID", "strategy", "offset", "utc_ts", "lat", "lon"])
 
 
 def cs2_referents(ev: pd.DataFrame) -> pd.DataFrame:
+    """Same local wall-clock time, +-364 / +-728 calendar days (same weekday)."""
     rows = []
     for e in ev.itertuples():
-        lt = e.utc_ts.tz_convert(e.TIMEZONE)
+        naive = e.utc_ts.tz_convert(e.TIMEZONE).tz_localize(None)
         for k in (-728, -364, 364, 728):
-            c = (lt + pd.Timedelta(days=k)).tz_localize(None)
-            try:
-                cu = c.tz_localize(e.TIMEZONE, ambiguous=True, nonexistent="shift_forward").tz_convert("UTC")
-            except Exception:
+            cu = _localize_referent(naive + pd.Timedelta(days=k), e.TIMEZONE)
+            if pd.isna(cu):
                 continue
             rows.append((e.EVENT_ID, "CS2", k, cu, e.LATITUDE, e.LONGITUDE))
     return pd.DataFrame(rows, columns=["EVENT_ID", "strategy", "offset", "utc_ts", "lat", "lon"])
+
+
+def check_referents(ev: pd.DataFrame, ref: pd.DataFrame) -> dict:
+    """Verify every referent has the case's local wall-clock time and weekday."""
+    tz = ev.set_index("EVENT_ID").TIMEZONE
+    case_t = ev.set_index("EVENT_ID").utc_ts
+    bad_clock = bad_dow = 0
+    for r in ref.itertuples():
+        z = tz[r.EVENT_ID]
+        a = case_t[r.EVENT_ID].tz_convert(z)
+        b = r.utc_ts.tz_convert(z)
+        bad_clock += (a.hour, a.minute) != (b.hour, b.minute)
+        bad_dow += a.dayofweek != b.dayofweek
+    return dict(n=len(ref), clock_mismatch=int(bad_clock), weekday_mismatch=int(bad_dow))
 
 
 def cs4_spatial(ev: pd.DataFrame, k=4) -> pd.DataFrame:

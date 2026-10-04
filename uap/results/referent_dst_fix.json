@@ -1,0 +1,19 @@
+{
+ "referents_old": 805079,
+ "referents_new": 805029,
+ "unchanged": 780607,
+ "changed_recomputed": 24373,
+ "added": 49,
+ "removed": 99,
+ "changed_by_strategy": {
+  "CS1": 16284,
+  "CS2": 8089
+ },
+ "verification": {
+  "n": 805029,
+  "clock_mismatch": 0,
+  "weekday_mismatch": 0
+ },
+ "points_rows": 1297977,
+ "policy": "calendar offsets on naive local time; nonexistent wall time -> referent dropped; ambiguous wall time -> first (daylight-time) instance"
+}

@@ -5,11 +5,16 @@ before any validation / holdout data are read.
 Rules (written before the discovery results were inspected):
  R1  BH q (across ALL discovery tests) < 0.05.
  R2  practical effect: OR >= 1.15 or OR <= 1/1.15.
- R3  >= 30 exposed cases (from the registry note) for binary exposures.
- R4  same direction with p < 0.05 under >= 2 control strategies where the
-     family has more than one strategy (temporal: CS1, CS2; local: + CS4);
-     spatial exposures (CS4 only) instead need the same direction with
-     p < 0.05 in >= 2 subsets.
+ R3  >= 30 exposed cases for binary exposures (explicit integer count from the
+     rows retained by the model; v3 audit fix - originally inferred from a note).
+ R4  same direction with p < 0.05 under the strategies required by the family
+     design (A: CS1 AND CS2; B: >= 2 of CS1/CS2/CS4; G grid: CS1 AND CS4).
+     Untestable strategies count as NOT supporting (v3 audit fix). CS4-only
+     spatial families must replicate in both non-overlapping discovery periods
+     1995-2005 and 2006-2015 (v3 audit fix; the original 'two subsets' rule used
+     overlapping subsets). Changes made 2026-10-04 in response to an external
+     audit; at that time only the family-A discovery output had been viewed.
+ Only results with status OK / OK_EXACT (converged, non-separated or exact) are eligible.
  R5  one representative per (variable family x subset) is promoted - the
      smallest p - but ALL its parameters are frozen as found.
  Known-stimulus exposures (fireballs, launches, ISS, Venus, showers,
@@ -38,47 +43,93 @@ def family_key(v):
     return v
 
 
-def exposed_cases(note):
-    m = re.search(r"exposed: cases ([\d.]+)", str(note))
-    return float(m.group(1)) if m else np.nan
+REQUIRED = {  # predeclared design: strategies each family was run with, and how many must support
+    "A_global_temporal": (["CS1", "CS2"], 2),
+    "B_local_catalog": (["CS1", "CS2", "CS4"], 2),
+    "B_weather": (["CS1", "CS2", "CS4"], 2),
+    "B_local_other": (["CS1", "CS2", "CS4"], 2),
+    "G_quake_grid": (["CS1", "CS4"], 2), "G_storm_grid": (["CS1", "CS4"], 2), "G_launch_grid": (["CS1", "CS4"], 2),
+}
+VALID = {"OK", "OK_EXACT"}
+
+
+def supports(rows, direction_sign):
+    ok = rows[rows.status.isin(VALID) & rows.p_value.notna()]
+    return set(ok[(np.sign(np.log(ok.effect)) == direction_sign) & (ok.p_value < 0.05)].control_strategy)
+
+
+def halves_check(variable, subset, strategy, direction_sign):
+    """Spatial (CS4-only) families: the effect must replicate in BOTH non-overlapping
+    discovery periods 1995-2005 and 2006-2015 (replaces the overlapping-subset rule; audit item 7)."""
+    import cc
+    from discovery_tests import derive, subsets
+    pts = _pts_cache.setdefault("p", derive(cc.points()))
+    ev = cc.events()
+    disc = ev[(ev.SOURCE == "NUFORC") & (ev.SPLIT == "discovery")]
+    res = []
+    for a, b in [(1995, 2005), (2006, 2015)]:
+        e = disc[disc.YEAR.between(a, b)]
+        ids = subsets(e)[subset]
+        r = cc.run(pts, ids, variable, strategy, family="C_spatial", hypothesis=f"selection check {a}-{b}", var_a=variable,
+                   subset=subset, split=f"discovery_{a}_{b}", phase="selection_check")
+        res.append(r)
+    ok = all(r["status"] in VALID and np.isfinite(r["p_value"]) and r["p_value"] < 0.05 and
+             np.sign(np.log(r["effect"])) == direction_sign for r in res)
+    return ok, res
+
+
+_pts_cache = {}
 
 
 def main():
     d = pd.read_csv(RESULTS / "discovery_results.csv")
-    d = d[d.p_value.notna()].copy()
-    d["exp_frac_cases"] = d.notes.map(exposed_cases)
-    d["exp_n_cases"] = d.exp_frac_cases * d.n_cases
     d["fam"] = d.variable_a.map(family_key)
     d["logor"] = np.log(d.effect)
-    cands = []
-    for (fam, subset), g in d.groupby(["fam", "subset"]):
-        best = g.sort_values("p_value").iloc[0]
+    cands, audit = [], []
+    for (family, fam, subset), g in d.groupby(["family", "fam", "subset"]):
+        gv = g[g.status.isin(VALID) & g.p_value.notna()]
+        if gv.empty:
+            continue
+        best = gv.sort_values("p_value").iloc[0]
+        reasons = []
         if not (best.q_bh_all < 0.05):
-            continue
+            reasons.append("R1 q>=0.05")
         if not (best.effect >= 1.15 or best.effect <= 1 / 1.15):
-            continue
-        if np.isfinite(best.exp_n_cases) and best.exp_n_cases < 30:
-            continue
+            reasons.append("R2 effect<1.15x")
+        if pd.notna(best.n_exposed_cases) and best.n_exposed_cases < 30:
+            reasons.append("R3 exposed cases<30")
+        sign = np.sign(best.logor)
         same_var = d[(d.variable_a == best.variable_a) & (d.subset == subset)]
-        strat_ok = same_var[(np.sign(same_var.logor) == np.sign(best.logor)) & (same_var.p_value < 0.05)].control_strategy.nunique()
-        n_strat = same_var.control_strategy.nunique()
-        if n_strat > 1:
-            robust = strat_ok >= 2
-        else:
-            other = d[(d.variable_a == best.variable_a) & (d.control_strategy == best.control_strategy)]
-            robust = other[(np.sign(other.logor) == np.sign(best.logor)) & (other.p_value < 0.05)].subset.nunique() >= 2
-        if not robust:
+        sup = supports(same_var, sign)
+        if family in REQUIRED:
+            req, need = REQUIRED[family]
+            n_sup = len(sup & set(req))
+            if n_sup < need:
+                reasons.append(f"R4 strategies supporting {sorted(sup)} < {need} of {req}")
+        elif family == "C_spatial":
+            if not reasons:  # only spend tests on otherwise-qualifying spatial results
+                ok, _ = halves_check(best.variable_a, subset, best.control_strategy, sign)
+                if not ok:
+                    reasons.append("R4 not replicated in both discovery periods 1995-2005 / 2006-2015")
+            n_sup = np.nan
+        audit.append(dict(family=family, fam=fam, subset=subset, variable=best.variable_a, OR=best.effect,
+                          p=best.p_value, q=best.q_bh_all, n_exposed_cases=best.n_exposed_cases,
+                          strategies_supporting=";".join(sorted(sup)), promoted=not reasons, reasons="; ".join(reasons)))
+        if reasons:
             continue
         cands.append(dict(candidate_id=f"C{len(cands) + 1:02d}", family=best.family, variable=best.variable_a,
                           subset=subset, control_strategy=best.control_strategy, window=best.window,
                           radius_km=best.radius_km, direction=best.direction, discovery_or=best.effect,
                           discovery_ci=[best.ci_low, best.ci_high], discovery_p=best.p_value, discovery_q=best.q_bh_all,
-                          discovery_n_cases=int(best.n_cases), strategies_supporting=int(strat_ok),
+                          discovery_n_cases=int(best.n_cases), discovery_n_exposed_cases=best.n_exposed_cases,
+                          strategies_supporting=sorted(sup),
                           label="CONVENTIONAL_STIMULUS" if KNOWN.search(best.variable_a) else "NOVEL_OR_CONFOUNDER",
                           hypothesis=best.hypothesis))
+    pd.DataFrame(audit).to_csv(RESULTS / "candidate_selection_audit.csv", index=False)
     c = pd.DataFrame(cands)
     print(len(c), "candidates")
-    print(c[["candidate_id", "variable", "subset", "control_strategy", "discovery_or", "discovery_p", "label"]].to_string())
+    if len(c):
+        print(c[["candidate_id", "variable", "subset", "control_strategy", "discovery_or", "discovery_p", "label"]].to_string())
     return c
 
 

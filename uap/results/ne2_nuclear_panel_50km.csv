@@ -1,0 +1,1906 @@
+unit,year,n,pop_,treat_post
+Trojan,1985,0,209387.0,0
+Trojan,1986,0,209387.0,0
+Trojan,1987,0,209387.0,0
+Trojan,1988,0,209387.0,0
+Trojan,1989,0,209387.0,0
+Trojan,1990,0,209387.0,0
+Trojan,1991,0,209387.0,0
+Trojan,1992,0,209387.0,0
+Trojan,1993,0,209387.0,1
+Trojan,1994,0,209387.0,1
+Trojan,1995,2,209387.0,1
+Trojan,1996,2,209387.0,1
+Trojan,1997,1,209387.0,1
+Trojan,1998,1,209387.0,1
+Trojan,1999,2,209387.0,1
+Trojan,2000,2,209387.0,1
+Zion,1990,0,1959764.0,0
+Zion,1991,0,1959764.0,0
+Zion,1992,0,1959764.0,0
+Zion,1993,0,1959764.0,0
+Zion,1994,0,1959764.0,0
+Zion,1995,1,1959764.0,0
+Zion,1996,1,1959764.0,0
+Zion,1997,0,1959764.0,0
+Zion,1998,3,1959764.0,0
+Zion,1999,4,1959764.0,1
+Zion,2000,7,1959764.0,1
+Zion,2001,8,1959764.0,1
+Zion,2002,9,1959764.0,1
+Zion,2003,6,1959764.0,1
+Zion,2004,5,1959764.0,1
+Zion,2005,10,1959764.0,1
+Zion,2006,10,1959764.0,1
+Maine Yankee,1988,0,250195.0,0
+Maine Yankee,1989,0,250195.0,0
+Maine Yankee,1990,1,250195.0,0
+Maine Yankee,1991,0,250195.0,0
+Maine Yankee,1992,0,250195.0,0
+Maine Yankee,1993,0,250195.0,0
+Maine Yankee,1994,0,250195.0,0
+Maine Yankee,1995,0,250195.0,0
+Maine Yankee,1996,1,250195.0,0
+Maine Yankee,1997,1,250195.0,1
+Maine Yankee,1998,0,250195.0,1
+Maine Yankee,1999,2,250195.0,1
+Maine Yankee,2000,3,250195.0,1
+Maine Yankee,2001,2,250195.0,1
+Maine Yankee,2002,1,250195.0,1
+Maine Yankee,2003,2,250195.0,1
+Maine Yankee,2004,2,250195.0,1
+Connecticut Yankee,1988,1,1890728.0,0
+Connecticut Yankee,1989,2,1890728.0,0
+Connecticut Yankee,1990,0,1890728.0,0
+Connecticut Yankee,1991,0,1890728.0,0
+Connecticut Yankee,1992,3,1890728.0,0
+Connecticut Yankee,1993,0,1890728.0,0
+Connecticut Yankee,1994,1,1890728.0,0
+Connecticut Yankee,1995,3,1890728.0,0
+Connecticut Yankee,1996,2,1890728.0,0
+Connecticut Yankee,1997,3,1890728.0,1
+Connecticut Yankee,1998,1,1890728.0,1
+Connecticut Yankee,1999,5,1890728.0,1
+Connecticut Yankee,2000,2,1890728.0,1
+Connecticut Yankee,2001,11,1890728.0,1
+Connecticut Yankee,2002,5,1890728.0,1
+Connecticut Yankee,2003,7,1890728.0,1
+Connecticut Yankee,2004,8,1890728.0,1
+Big Rock Point,1989,0,25401.0,0
+Big Rock Point,1990,0,25401.0,0
+Big Rock Point,1991,0,25401.0,0
+Big Rock Point,1992,0,25401.0,0
+Big Rock Point,1993,0,25401.0,0
+Big Rock Point,1994,0,25401.0,0
+Big Rock Point,1995,0,25401.0,0
+Big Rock Point,1996,0,25401.0,0
+Big Rock Point,1997,2,25401.0,0
+Big Rock Point,1998,1,25401.0,1
+Big Rock Point,1999,2,25401.0,1
+Big Rock Point,2000,0,25401.0,1
+Big Rock Point,2001,0,25401.0,1
+Big Rock Point,2002,1,25401.0,1
+Big Rock Point,2003,0,25401.0,1
+Big Rock Point,2004,0,25401.0,1
+Big Rock Point,2005,0,25401.0,1
+San Onofre,2005,16,3303457.0,0
+San Onofre,2006,29,3303457.0,0
+San Onofre,2007,42,3303457.0,0
+San Onofre,2008,27,3303457.0,0
+San Onofre,2009,21,3303457.0,0
+San Onofre,2010,20,3303457.0,0
+San Onofre,2011,26,3303457.0,0
+San Onofre,2012,25,3303457.0,0
+San Onofre,2013,35,3303457.0,0
+San Onofre,2014,43,3303457.0,1
+San Onofre,2015,21,3303457.0,1
+Crystal River,2001,0,279413.0,0
+Crystal River,2002,2,279413.0,0
+Crystal River,2003,0,279413.0,0
+Crystal River,2004,2,279413.0,0
+Crystal River,2005,3,279413.0,0
+Crystal River,2006,3,279413.0,0
+Crystal River,2007,3,279413.0,0
+Crystal River,2008,3,279413.0,0
+Crystal River,2009,5,279413.0,0
+Crystal River,2010,6,279413.0,1
+Crystal River,2011,6,279413.0,1
+Crystal River,2012,3,279413.0,1
+Crystal River,2013,4,279413.0,1
+Crystal River,2014,8,279413.0,1
+Crystal River,2015,7,279413.0,1
+Kewaunee,2005,0,287748.0,0
+Kewaunee,2006,2,287748.0,0
+Kewaunee,2007,1,287748.0,0
+Kewaunee,2008,4,287748.0,0
+Kewaunee,2009,2,287748.0,0
+Kewaunee,2010,2,287748.0,0
+Kewaunee,2011,2,287748.0,0
+Kewaunee,2012,2,287748.0,0
+Kewaunee,2013,5,287748.0,0
+Kewaunee,2014,6,287748.0,1
+Kewaunee,2015,5,287748.0,1
+Millstone 1,1990,0,533331.0,0
+Millstone 1,1991,0,533331.0,0
+Millstone 1,1992,0,533331.0,0
+Millstone 1,1993,1,533331.0,0
+Millstone 1,1994,0,533331.0,0
+Millstone 1,1995,2,533331.0,0
+Millstone 1,1996,0,533331.0,0
+Millstone 1,1997,1,533331.0,0
+Millstone 1,1998,0,533331.0,0
+Millstone 1,1999,2,533331.0,1
+Millstone 1,2000,2,533331.0,1
+Millstone 1,2001,3,533331.0,1
+Millstone 1,2002,1,533331.0,1
+Millstone 1,2003,3,533331.0,1
+Millstone 1,2004,2,533331.0,1
+Millstone 1,2005,2,533331.0,1
+Millstone 1,2006,0,533331.0,1
+Fermi,1985,0,1921832.0,0
+Fermi,1986,0,1921832.0,0
+Fermi,1987,0,1921832.0,0
+Fermi,1988,0,1921832.0,0
+Fermi,1989,0,1921832.0,0
+Fermi,1990,0,1921832.0,0
+Fermi,1991,0,1921832.0,0
+Fermi,1992,0,1921832.0,0
+Fermi,1993,1,1921832.0,0
+Fermi,1994,0,1921832.0,0
+Fermi,1995,1,1921832.0,0
+Fermi,1996,0,1921832.0,0
+Fermi,1997,2,1921832.0,0
+Fermi,1998,5,1921832.0,0
+Fermi,1999,3,1921832.0,0
+Fermi,2000,9,1921832.0,0
+Fermi,2001,4,1921832.0,0
+Fermi,2002,10,1921832.0,0
+Fermi,2003,9,1921832.0,0
+Fermi,2004,8,1921832.0,0
+Fermi,2005,5,1921832.0,0
+Fermi,2006,10,1921832.0,0
+Fermi,2007,12,1921832.0,0
+Fermi,2008,5,1921832.0,0
+Fermi,2009,13,1921832.0,0
+Fermi,2010,10,1921832.0,0
+Fermi,2011,16,1921832.0,0
+Fermi,2012,26,1921832.0,0
+Fermi,2013,19,1921832.0,0
+Fermi,2014,15,1921832.0,0
+Fermi,2015,22,1921832.0,0
+Monticello Nuclear Facility,1985,0,900841.0,0
+Monticello Nuclear Facility,1986,0,900841.0,0
+Monticello Nuclear Facility,1987,0,900841.0,0
+Monticello Nuclear Facility,1988,1,900841.0,0
+Monticello Nuclear Facility,1989,0,900841.0,0
+Monticello Nuclear Facility,1990,0,900841.0,0
+Monticello Nuclear Facility,1991,1,900841.0,0
+Monticello Nuclear Facility,1992,0,900841.0,0
+Monticello Nuclear Facility,1993,0,900841.0,0
+Monticello Nuclear Facility,1994,0,900841.0,0
+Monticello Nuclear Facility,1995,0,900841.0,0
+Monticello Nuclear Facility,1996,1,900841.0,0
+Monticello Nuclear Facility,1997,3,900841.0,0
+Monticello Nuclear Facility,1998,1,900841.0,0
+Monticello Nuclear Facility,1999,2,900841.0,0
+Monticello Nuclear Facility,2000,1,900841.0,0
+Monticello Nuclear Facility,2001,2,900841.0,0
+Monticello Nuclear Facility,2002,1,900841.0,0
+Monticello Nuclear Facility,2003,0,900841.0,0
+Monticello Nuclear Facility,2004,5,900841.0,0
+Monticello Nuclear Facility,2005,4,900841.0,0
+Monticello Nuclear Facility,2006,6,900841.0,0
+Monticello Nuclear Facility,2007,4,900841.0,0
+Monticello Nuclear Facility,2008,5,900841.0,0
+Monticello Nuclear Facility,2009,5,900841.0,0
+Monticello Nuclear Facility,2010,1,900841.0,0
+Monticello Nuclear Facility,2011,4,900841.0,0
+Monticello Nuclear Facility,2012,10,900841.0,0
+Monticello Nuclear Facility,2013,9,900841.0,0
+Monticello Nuclear Facility,2014,8,900841.0,0
+Monticello Nuclear Facility,2015,11,900841.0,0
+Prairie Island,1985,0,645021.0,0
+Prairie Island,1986,0,645021.0,0
+Prairie Island,1987,0,645021.0,0
+Prairie Island,1988,0,645021.0,0
+Prairie Island,1989,0,645021.0,0
+Prairie Island,1990,0,645021.0,0
+Prairie Island,1991,1,645021.0,0
+Prairie Island,1992,1,645021.0,0
+Prairie Island,1993,1,645021.0,0
+Prairie Island,1994,0,645021.0,0
+Prairie Island,1995,1,645021.0,0
+Prairie Island,1996,0,645021.0,0
+Prairie Island,1997,0,645021.0,0
+Prairie Island,1998,1,645021.0,0
+Prairie Island,1999,4,645021.0,0
+Prairie Island,2000,1,645021.0,0
+Prairie Island,2001,0,645021.0,0
+Prairie Island,2002,1,645021.0,0
+Prairie Island,2003,2,645021.0,0
+Prairie Island,2004,5,645021.0,0
+Prairie Island,2005,2,645021.0,0
+Prairie Island,2006,3,645021.0,0
+Prairie Island,2007,2,645021.0,0
+Prairie Island,2008,1,645021.0,0
+Prairie Island,2009,3,645021.0,0
+Prairie Island,2010,2,645021.0,0
+Prairie Island,2011,4,645021.0,0
+Prairie Island,2012,10,645021.0,0
+Prairie Island,2013,12,645021.0,0
+Prairie Island,2014,11,645021.0,0
+Prairie Island,2015,7,645021.0,0
+PSEG Salem Generating Station,1985,0,809299.0,0
+PSEG Salem Generating Station,1986,0,809299.0,0
+PSEG Salem Generating Station,1987,0,809299.0,0
+PSEG Salem Generating Station,1988,0,809299.0,0
+PSEG Salem Generating Station,1989,1,809299.0,0
+PSEG Salem Generating Station,1990,0,809299.0,0
+PSEG Salem Generating Station,1991,1,809299.0,0
+PSEG Salem Generating Station,1992,0,809299.0,0
+PSEG Salem Generating Station,1993,2,809299.0,0
+PSEG Salem Generating Station,1994,0,809299.0,0
+PSEG Salem Generating Station,1995,1,809299.0,0
+PSEG Salem Generating Station,1996,2,809299.0,0
+PSEG Salem Generating Station,1997,0,809299.0,0
+PSEG Salem Generating Station,1998,0,809299.0,0
+PSEG Salem Generating Station,1999,4,809299.0,0
+PSEG Salem Generating Station,2000,3,809299.0,0
+PSEG Salem Generating Station,2001,2,809299.0,0
+PSEG Salem Generating Station,2002,3,809299.0,0
+PSEG Salem Generating Station,2003,5,809299.0,0
+PSEG Salem Generating Station,2004,2,809299.0,0
+PSEG Salem Generating Station,2005,3,809299.0,0
+PSEG Salem Generating Station,2006,5,809299.0,0
+PSEG Salem Generating Station,2007,6,809299.0,0
+PSEG Salem Generating Station,2008,6,809299.0,0
+PSEG Salem Generating Station,2009,5,809299.0,0
+PSEG Salem Generating Station,2010,4,809299.0,0
+PSEG Salem Generating Station,2011,7,809299.0,0
+PSEG Salem Generating Station,2012,11,809299.0,0
+PSEG Salem Generating Station,2013,10,809299.0,0
+PSEG Salem Generating Station,2014,15,809299.0,0
+PSEG Salem Generating Station,2015,8,809299.0,0
+Nine Mile Point Nuclear Station,1985,0,180548.0,0
+Nine Mile Point Nuclear Station,1986,0,180548.0,0
+Nine Mile Point Nuclear Station,1987,0,180548.0,0
+Nine Mile Point Nuclear Station,1988,0,180548.0,0
+Nine Mile Point Nuclear Station,1989,0,180548.0,0
+Nine Mile Point Nuclear Station,1990,0,180548.0,0
+Nine Mile Point Nuclear Station,1991,0,180548.0,0
+Nine Mile Point Nuclear Station,1992,0,180548.0,0
+Nine Mile Point Nuclear Station,1993,1,180548.0,0
+Nine Mile Point Nuclear Station,1994,1,180548.0,0
+Nine Mile Point Nuclear Station,1995,0,180548.0,0
+Nine Mile Point Nuclear Station,1996,0,180548.0,0
+Nine Mile Point Nuclear Station,1997,0,180548.0,0
+Nine Mile Point Nuclear Station,1998,0,180548.0,0
+Nine Mile Point Nuclear Station,1999,0,180548.0,0
+Nine Mile Point Nuclear Station,2000,2,180548.0,0
+Nine Mile Point Nuclear Station,2001,0,180548.0,0
+Nine Mile Point Nuclear Station,2002,0,180548.0,0
+Nine Mile Point Nuclear Station,2003,0,180548.0,0
+Nine Mile Point Nuclear Station,2004,0,180548.0,0
+Nine Mile Point Nuclear Station,2005,1,180548.0,0
+Nine Mile Point Nuclear Station,2006,0,180548.0,0
+Nine Mile Point Nuclear Station,2007,1,180548.0,0
+Nine Mile Point Nuclear Station,2008,0,180548.0,0
+Nine Mile Point Nuclear Station,2009,3,180548.0,0
+Nine Mile Point Nuclear Station,2010,2,180548.0,0
+Nine Mile Point Nuclear Station,2011,1,180548.0,0
+Nine Mile Point Nuclear Station,2012,5,180548.0,0
+Nine Mile Point Nuclear Station,2013,4,180548.0,0
+Nine Mile Point Nuclear Station,2014,9,180548.0,0
+Nine Mile Point Nuclear Station,2015,7,180548.0,0
+Browns Ferry,1985,0,420549.0,0
+Browns Ferry,1986,0,420549.0,0
+Browns Ferry,1987,0,420549.0,0
+Browns Ferry,1988,2,420549.0,0
+Browns Ferry,1989,0,420549.0,0
+Browns Ferry,1990,0,420549.0,0
+Browns Ferry,1991,0,420549.0,0
+Browns Ferry,1992,0,420549.0,0
+Browns Ferry,1993,0,420549.0,0
+Browns Ferry,1994,0,420549.0,0
+Browns Ferry,1995,0,420549.0,0
+Browns Ferry,1996,0,420549.0,0
+Browns Ferry,1997,0,420549.0,0
+Browns Ferry,1998,1,420549.0,0
+Browns Ferry,1999,1,420549.0,0
+Browns Ferry,2000,1,420549.0,0
+Browns Ferry,2001,1,420549.0,0
+Browns Ferry,2002,1,420549.0,0
+Browns Ferry,2003,1,420549.0,0
+Browns Ferry,2004,1,420549.0,0
+Browns Ferry,2005,1,420549.0,0
+Browns Ferry,2006,4,420549.0,0
+Browns Ferry,2007,3,420549.0,0
+Browns Ferry,2008,0,420549.0,0
+Browns Ferry,2009,1,420549.0,0
+Browns Ferry,2010,1,420549.0,0
+Browns Ferry,2011,2,420549.0,0
+Browns Ferry,2012,5,420549.0,0
+Browns Ferry,2013,6,420549.0,0
+Browns Ferry,2014,9,420549.0,0
+Browns Ferry,2015,3,420549.0,0
+Clinton Power Station,1985,0,285252.0,0
+Clinton Power Station,1986,0,285252.0,0
+Clinton Power Station,1987,1,285252.0,0
+Clinton Power Station,1988,0,285252.0,0
+Clinton Power Station,1989,0,285252.0,0
+Clinton Power Station,1990,0,285252.0,0
+Clinton Power Station,1991,0,285252.0,0
+Clinton Power Station,1992,0,285252.0,0
+Clinton Power Station,1993,0,285252.0,0
+Clinton Power Station,1994,0,285252.0,0
+Clinton Power Station,1995,0,285252.0,0
+Clinton Power Station,1996,2,285252.0,0
+Clinton Power Station,1997,0,285252.0,0
+Clinton Power Station,1998,1,285252.0,0
+Clinton Power Station,1999,1,285252.0,0
+Clinton Power Station,2000,0,285252.0,0
+Clinton Power Station,2001,2,285252.0,0
+Clinton Power Station,2002,3,285252.0,0
+Clinton Power Station,2003,1,285252.0,0
+Clinton Power Station,2004,2,285252.0,0
+Clinton Power Station,2005,0,285252.0,0
+Clinton Power Station,2006,3,285252.0,0
+Clinton Power Station,2007,3,285252.0,0
+Clinton Power Station,2008,2,285252.0,0
+Clinton Power Station,2009,2,285252.0,0
+Clinton Power Station,2010,5,285252.0,0
+Clinton Power Station,2011,1,285252.0,0
+Clinton Power Station,2012,4,285252.0,0
+Clinton Power Station,2013,1,285252.0,0
+Clinton Power Station,2014,4,285252.0,0
+Clinton Power Station,2015,3,285252.0,0
+Wolf Creek Generating Station,1985,0,41190.0,0
+Wolf Creek Generating Station,1986,0,41190.0,0
+Wolf Creek Generating Station,1987,1,41190.0,0
+Wolf Creek Generating Station,1988,0,41190.0,0
+Wolf Creek Generating Station,1989,0,41190.0,0
+Wolf Creek Generating Station,1990,0,41190.0,0
+Wolf Creek Generating Station,1991,0,41190.0,0
+Wolf Creek Generating Station,1992,0,41190.0,0
+Wolf Creek Generating Station,1993,0,41190.0,0
+Wolf Creek Generating Station,1994,0,41190.0,0
+Wolf Creek Generating Station,1995,0,41190.0,0
+Wolf Creek Generating Station,1996,0,41190.0,0
+Wolf Creek Generating Station,1997,0,41190.0,0
+Wolf Creek Generating Station,1998,0,41190.0,0
+Wolf Creek Generating Station,1999,0,41190.0,0
+Wolf Creek Generating Station,2000,0,41190.0,0
+Wolf Creek Generating Station,2001,2,41190.0,0
+Wolf Creek Generating Station,2002,0,41190.0,0
+Wolf Creek Generating Station,2003,0,41190.0,0
+Wolf Creek Generating Station,2004,1,41190.0,0
+Wolf Creek Generating Station,2005,1,41190.0,0
+Wolf Creek Generating Station,2006,0,41190.0,0
+Wolf Creek Generating Station,2007,0,41190.0,0
+Wolf Creek Generating Station,2008,0,41190.0,0
+Wolf Creek Generating Station,2009,1,41190.0,0
+Wolf Creek Generating Station,2010,0,41190.0,0
+Wolf Creek Generating Station,2011,1,41190.0,0
+Wolf Creek Generating Station,2012,0,41190.0,0
+Wolf Creek Generating Station,2013,0,41190.0,0
+Wolf Creek Generating Station,2014,2,41190.0,0
+Wolf Creek Generating Station,2015,0,41190.0,0
+Columbia Generating Station,1985,0,511242.0,0
+Columbia Generating Station,1986,0,511242.0,0
+Columbia Generating Station,1987,0,511242.0,0
+Columbia Generating Station,1988,0,511242.0,0
+Columbia Generating Station,1989,0,511242.0,0
+Columbia Generating Station,1990,0,511242.0,0
+Columbia Generating Station,1991,0,511242.0,0
+Columbia Generating Station,1992,0,511242.0,0
+Columbia Generating Station,1993,0,511242.0,0
+Columbia Generating Station,1994,0,511242.0,0
+Columbia Generating Station,1995,2,511242.0,0
+Columbia Generating Station,1996,1,511242.0,0
+Columbia Generating Station,1997,0,511242.0,0
+Columbia Generating Station,1998,1,511242.0,0
+Columbia Generating Station,1999,6,511242.0,0
+Columbia Generating Station,2000,5,511242.0,0
+Columbia Generating Station,2001,0,511242.0,0
+Columbia Generating Station,2002,0,511242.0,0
+Columbia Generating Station,2003,4,511242.0,0
+Columbia Generating Station,2004,2,511242.0,0
+Columbia Generating Station,2005,2,511242.0,0
+Columbia Generating Station,2006,2,511242.0,0
+Columbia Generating Station,2007,5,511242.0,0
+Columbia Generating Station,2008,3,511242.0,0
+Columbia Generating Station,2009,0,511242.0,0
+Columbia Generating Station,2010,4,511242.0,0
+Columbia Generating Station,2011,4,511242.0,0
+Columbia Generating Station,2012,7,511242.0,0
+Columbia Generating Station,2013,6,511242.0,0
+Columbia Generating Station,2014,9,511242.0,0
+Columbia Generating Station,2015,2,511242.0,0
+Millstone,1985,0,511209.0,0
+Millstone,1986,0,511209.0,0
+Millstone,1987,0,511209.0,0
+Millstone,1988,0,511209.0,0
+Millstone,1989,0,511209.0,0
+Millstone,1990,0,511209.0,0
+Millstone,1991,0,511209.0,0
+Millstone,1992,0,511209.0,0
+Millstone,1993,1,511209.0,0
+Millstone,1994,0,511209.0,0
+Millstone,1995,2,511209.0,0
+Millstone,1996,0,511209.0,0
+Millstone,1997,1,511209.0,0
+Millstone,1998,0,511209.0,0
+Millstone,1999,2,511209.0,0
+Millstone,2000,2,511209.0,0
+Millstone,2001,3,511209.0,0
+Millstone,2002,1,511209.0,0
+Millstone,2003,4,511209.0,0
+Millstone,2004,2,511209.0,0
+Millstone,2005,2,511209.0,0
+Millstone,2006,0,511209.0,0
+Millstone,2007,3,511209.0,0
+Millstone,2008,8,511209.0,0
+Millstone,2009,5,511209.0,0
+Millstone,2010,9,511209.0,0
+Millstone,2011,7,511209.0,0
+Millstone,2012,16,511209.0,0
+Millstone,2013,6,511209.0,0
+Millstone,2014,11,511209.0,0
+Millstone,2015,5,511209.0,0
+Turkey Point,1985,0,2301098.0,0
+Turkey Point,1986,0,2301098.0,0
+Turkey Point,1987,1,2301098.0,0
+Turkey Point,1988,1,2301098.0,0
+Turkey Point,1989,0,2301098.0,0
+Turkey Point,1990,0,2301098.0,0
+Turkey Point,1991,0,2301098.0,0
+Turkey Point,1992,0,2301098.0,0
+Turkey Point,1993,0,2301098.0,0
+Turkey Point,1994,0,2301098.0,0
+Turkey Point,1995,2,2301098.0,0
+Turkey Point,1996,3,2301098.0,0
+Turkey Point,1997,2,2301098.0,0
+Turkey Point,1998,3,2301098.0,0
+Turkey Point,1999,8,2301098.0,0
+Turkey Point,2000,2,2301098.0,0
+Turkey Point,2001,5,2301098.0,0
+Turkey Point,2002,3,2301098.0,0
+Turkey Point,2003,8,2301098.0,0
+Turkey Point,2004,4,2301098.0,0
+Turkey Point,2005,8,2301098.0,0
+Turkey Point,2006,9,2301098.0,0
+Turkey Point,2007,3,2301098.0,0
+Turkey Point,2008,13,2301098.0,0
+Turkey Point,2009,11,2301098.0,0
+Turkey Point,2010,11,2301098.0,0
+Turkey Point,2011,17,2301098.0,0
+Turkey Point,2012,15,2301098.0,0
+Turkey Point,2013,12,2301098.0,0
+Turkey Point,2014,21,2301098.0,0
+Turkey Point,2015,18,2301098.0,0
+Vogtle,1985,0,152353.0,0
+Vogtle,1986,0,152353.0,0
+Vogtle,1987,0,152353.0,0
+Vogtle,1988,0,152353.0,0
+Vogtle,1989,0,152353.0,0
+Vogtle,1990,0,152353.0,0
+Vogtle,1991,1,152353.0,0
+Vogtle,1992,0,152353.0,0
+Vogtle,1993,0,152353.0,0
+Vogtle,1994,0,152353.0,0
+Vogtle,1995,0,152353.0,0
+Vogtle,1996,0,152353.0,0
+Vogtle,1997,0,152353.0,0
+Vogtle,1998,0,152353.0,0
+Vogtle,1999,0,152353.0,0
+Vogtle,2000,0,152353.0,0
+Vogtle,2001,0,152353.0,0
+Vogtle,2002,2,152353.0,0
+Vogtle,2003,2,152353.0,0
+Vogtle,2004,1,152353.0,0
+Vogtle,2005,2,152353.0,0
+Vogtle,2006,0,152353.0,0
+Vogtle,2007,1,152353.0,0
+Vogtle,2008,2,152353.0,0
+Vogtle,2009,2,152353.0,0
+Vogtle,2010,3,152353.0,0
+Vogtle,2011,3,152353.0,0
+Vogtle,2012,3,152353.0,0
+Vogtle,2013,6,152353.0,0
+Vogtle,2014,8,152353.0,0
+Vogtle,2015,4,152353.0,0
+Peach Bottom,1985,0,1055879.0,0
+Peach Bottom,1986,0,1055879.0,0
+Peach Bottom,1987,0,1055879.0,0
+Peach Bottom,1988,2,1055879.0,0
+Peach Bottom,1989,1,1055879.0,0
+Peach Bottom,1990,1,1055879.0,0
+Peach Bottom,1991,0,1055879.0,0
+Peach Bottom,1992,0,1055879.0,0
+Peach Bottom,1993,2,1055879.0,0
+Peach Bottom,1994,0,1055879.0,0
+Peach Bottom,1995,0,1055879.0,0
+Peach Bottom,1996,0,1055879.0,0
+Peach Bottom,1997,0,1055879.0,0
+Peach Bottom,1998,0,1055879.0,0
+Peach Bottom,1999,5,1055879.0,0
+Peach Bottom,2000,2,1055879.0,0
+Peach Bottom,2001,5,1055879.0,0
+Peach Bottom,2002,5,1055879.0,0
+Peach Bottom,2003,8,1055879.0,0
+Peach Bottom,2004,8,1055879.0,0
+Peach Bottom,2005,5,1055879.0,0
+Peach Bottom,2006,6,1055879.0,0
+Peach Bottom,2007,5,1055879.0,0
+Peach Bottom,2008,10,1055879.0,0
+Peach Bottom,2009,9,1055879.0,0
+Peach Bottom,2010,5,1055879.0,0
+Peach Bottom,2011,7,1055879.0,0
+Peach Bottom,2012,18,1055879.0,0
+Peach Bottom,2013,22,1055879.0,0
+Peach Bottom,2014,22,1055879.0,0
+Peach Bottom,2015,19,1055879.0,0
+H B Robinson,1985,1,91889.0,0
+H B Robinson,1986,0,91889.0,0
+H B Robinson,1987,0,91889.0,0
+H B Robinson,1988,0,91889.0,0
+H B Robinson,1989,0,91889.0,0
+H B Robinson,1990,0,91889.0,0
+H B Robinson,1991,0,91889.0,0
+H B Robinson,1992,0,91889.0,0
+H B Robinson,1993,0,91889.0,0
+H B Robinson,1994,0,91889.0,0
+H B Robinson,1995,0,91889.0,0
+H B Robinson,1996,0,91889.0,0
+H B Robinson,1997,0,91889.0,0
+H B Robinson,1998,0,91889.0,0
+H B Robinson,1999,0,91889.0,0
+H B Robinson,2000,0,91889.0,0
+H B Robinson,2001,1,91889.0,0
+H B Robinson,2002,0,91889.0,0
+H B Robinson,2003,2,91889.0,0
+H B Robinson,2004,0,91889.0,0
+H B Robinson,2005,0,91889.0,0
+H B Robinson,2006,0,91889.0,0
+H B Robinson,2007,0,91889.0,0
+H B Robinson,2008,3,91889.0,0
+H B Robinson,2009,1,91889.0,0
+H B Robinson,2010,1,91889.0,0
+H B Robinson,2011,1,91889.0,0
+H B Robinson,2012,1,91889.0,0
+H B Robinson,2013,3,91889.0,0
+H B Robinson,2014,2,91889.0,0
+H B Robinson,2015,0,91889.0,0
+Oconee,1985,0,293919.0,0
+Oconee,1986,0,293919.0,0
+Oconee,1987,0,293919.0,0
+Oconee,1988,0,293919.0,0
+Oconee,1989,1,293919.0,0
+Oconee,1990,0,293919.0,0
+Oconee,1991,1,293919.0,0
+Oconee,1992,0,293919.0,0
+Oconee,1993,1,293919.0,0
+Oconee,1994,0,293919.0,0
+Oconee,1995,1,293919.0,0
+Oconee,1996,0,293919.0,0
+Oconee,1997,0,293919.0,0
+Oconee,1998,0,293919.0,0
+Oconee,1999,0,293919.0,0
+Oconee,2000,2,293919.0,0
+Oconee,2001,2,293919.0,0
+Oconee,2002,2,293919.0,0
+Oconee,2003,2,293919.0,0
+Oconee,2004,3,293919.0,0
+Oconee,2005,2,293919.0,0
+Oconee,2006,0,293919.0,0
+Oconee,2007,4,293919.0,0
+Oconee,2008,6,293919.0,0
+Oconee,2009,2,293919.0,0
+Oconee,2010,5,293919.0,0
+Oconee,2011,4,293919.0,0
+Oconee,2012,3,293919.0,0
+Oconee,2013,6,293919.0,0
+Oconee,2014,12,293919.0,0
+Oconee,2015,10,293919.0,0
+Surry,1985,0,722218.0,0
+Surry,1986,0,722218.0,0
+Surry,1987,0,722218.0,0
+Surry,1988,0,722218.0,0
+Surry,1989,0,722218.0,0
+Surry,1990,0,722218.0,0
+Surry,1991,0,722218.0,0
+Surry,1992,0,722218.0,0
+Surry,1993,1,722218.0,0
+Surry,1994,0,722218.0,0
+Surry,1995,2,722218.0,0
+Surry,1996,1,722218.0,0
+Surry,1997,0,722218.0,0
+Surry,1998,0,722218.0,0
+Surry,1999,1,722218.0,0
+Surry,2000,0,722218.0,0
+Surry,2001,1,722218.0,0
+Surry,2002,4,722218.0,0
+Surry,2003,1,722218.0,0
+Surry,2004,3,722218.0,0
+Surry,2005,0,722218.0,0
+Surry,2006,3,722218.0,0
+Surry,2007,1,722218.0,0
+Surry,2008,6,722218.0,0
+Surry,2009,3,722218.0,0
+Surry,2010,1,722218.0,0
+Surry,2011,3,722218.0,0
+Surry,2012,1,722218.0,0
+Surry,2013,8,722218.0,0
+Surry,2014,7,722218.0,0
+Surry,2015,2,722218.0,0
+Dresden Generating Station,1985,1,1506580.0,0
+Dresden Generating Station,1986,0,1506580.0,0
+Dresden Generating Station,1987,1,1506580.0,0
+Dresden Generating Station,1988,0,1506580.0,0
+Dresden Generating Station,1989,3,1506580.0,0
+Dresden Generating Station,1990,0,1506580.0,0
+Dresden Generating Station,1991,0,1506580.0,0
+Dresden Generating Station,1992,0,1506580.0,0
+Dresden Generating Station,1993,1,1506580.0,0
+Dresden Generating Station,1994,0,1506580.0,0
+Dresden Generating Station,1995,2,1506580.0,0
+Dresden Generating Station,1996,1,1506580.0,0
+Dresden Generating Station,1997,2,1506580.0,0
+Dresden Generating Station,1998,0,1506580.0,0
+Dresden Generating Station,1999,3,1506580.0,0
+Dresden Generating Station,2000,2,1506580.0,0
+Dresden Generating Station,2001,6,1506580.0,0
+Dresden Generating Station,2002,4,1506580.0,0
+Dresden Generating Station,2003,5,1506580.0,0
+Dresden Generating Station,2004,6,1506580.0,0
+Dresden Generating Station,2005,15,1506580.0,0
+Dresden Generating Station,2006,16,1506580.0,0
+Dresden Generating Station,2007,13,1506580.0,0
+Dresden Generating Station,2008,10,1506580.0,0
+Dresden Generating Station,2009,13,1506580.0,0
+Dresden Generating Station,2010,14,1506580.0,0
+Dresden Generating Station,2011,23,1506580.0,0
+Dresden Generating Station,2012,15,1506580.0,0
+Dresden Generating Station,2013,16,1506580.0,0
+Dresden Generating Station,2014,12,1506580.0,0
+Dresden Generating Station,2015,8,1506580.0,0
+Quad Cities Generating Station,1985,0,357768.0,0
+Quad Cities Generating Station,1986,0,357768.0,0
+Quad Cities Generating Station,1987,0,357768.0,0
+Quad Cities Generating Station,1988,0,357768.0,0
+Quad Cities Generating Station,1989,0,357768.0,0
+Quad Cities Generating Station,1990,0,357768.0,0
+Quad Cities Generating Station,1991,0,357768.0,0
+Quad Cities Generating Station,1992,0,357768.0,0
+Quad Cities Generating Station,1993,0,357768.0,0
+Quad Cities Generating Station,1994,0,357768.0,0
+Quad Cities Generating Station,1995,1,357768.0,0
+Quad Cities Generating Station,1996,0,357768.0,0
+Quad Cities Generating Station,1997,0,357768.0,0
+Quad Cities Generating Station,1998,2,357768.0,0
+Quad Cities Generating Station,1999,0,357768.0,0
+Quad Cities Generating Station,2000,0,357768.0,0
+Quad Cities Generating Station,2001,2,357768.0,0
+Quad Cities Generating Station,2002,1,357768.0,0
+Quad Cities Generating Station,2003,4,357768.0,0
+Quad Cities Generating Station,2004,0,357768.0,0
+Quad Cities Generating Station,2005,4,357768.0,0
+Quad Cities Generating Station,2006,4,357768.0,0
+Quad Cities Generating Station,2007,3,357768.0,0
+Quad Cities Generating Station,2008,2,357768.0,0
+Quad Cities Generating Station,2009,3,357768.0,0
+Quad Cities Generating Station,2010,2,357768.0,0
+Quad Cities Generating Station,2011,5,357768.0,0
+Quad Cities Generating Station,2012,7,357768.0,0
+Quad Cities Generating Station,2013,7,357768.0,0
+Quad Cities Generating Station,2014,2,357768.0,0
+Quad Cities Generating Station,2015,1,357768.0,0
+Duane Arnold Energy Center,1985,0,271139.0,0
+Duane Arnold Energy Center,1986,0,271139.0,0
+Duane Arnold Energy Center,1987,0,271139.0,0
+Duane Arnold Energy Center,1988,0,271139.0,0
+Duane Arnold Energy Center,1989,0,271139.0,0
+Duane Arnold Energy Center,1990,0,271139.0,0
+Duane Arnold Energy Center,1991,0,271139.0,0
+Duane Arnold Energy Center,1992,1,271139.0,0
+Duane Arnold Energy Center,1993,0,271139.0,0
+Duane Arnold Energy Center,1994,0,271139.0,0
+Duane Arnold Energy Center,1995,0,271139.0,0
+Duane Arnold Energy Center,1996,0,271139.0,0
+Duane Arnold Energy Center,1997,0,271139.0,0
+Duane Arnold Energy Center,1998,1,271139.0,0
+Duane Arnold Energy Center,1999,2,271139.0,0
+Duane Arnold Energy Center,2000,0,271139.0,0
+Duane Arnold Energy Center,2001,1,271139.0,0
+Duane Arnold Energy Center,2002,5,271139.0,0
+Duane Arnold Energy Center,2003,2,271139.0,0
+Duane Arnold Energy Center,2004,2,271139.0,0
+Duane Arnold Energy Center,2005,2,271139.0,0
+Duane Arnold Energy Center,2006,1,271139.0,0
+Duane Arnold Energy Center,2007,1,271139.0,0
+Duane Arnold Energy Center,2008,2,271139.0,0
+Duane Arnold Energy Center,2009,2,271139.0,0
+Duane Arnold Energy Center,2010,4,271139.0,0
+Duane Arnold Energy Center,2011,1,271139.0,0
+Duane Arnold Energy Center,2012,9,271139.0,0
+Duane Arnold Energy Center,2013,4,271139.0,0
+Duane Arnold Energy Center,2014,3,271139.0,0
+Duane Arnold Energy Center,2015,4,271139.0,0
+Palisades,1985,0,74538.0,0
+Palisades,1986,0,74538.0,0
+Palisades,1987,0,74538.0,0
+Palisades,1988,0,74538.0,0
+Palisades,1989,0,74538.0,0
+Palisades,1990,0,74538.0,0
+Palisades,1991,0,74538.0,0
+Palisades,1992,0,74538.0,0
+Palisades,1993,0,74538.0,0
+Palisades,1994,0,74538.0,0
+Palisades,1995,0,74538.0,0
+Palisades,1996,0,74538.0,0
+Palisades,1997,0,74538.0,0
+Palisades,1998,0,74538.0,0
+Palisades,1999,0,74538.0,0
+Palisades,2000,0,74538.0,0
+Palisades,2001,1,74538.0,0
+Palisades,2002,1,74538.0,0
+Palisades,2003,0,74538.0,0
+Palisades,2004,0,74538.0,0
+Palisades,2005,0,74538.0,0
+Palisades,2006,1,74538.0,0
+Palisades,2007,2,74538.0,0
+Palisades,2008,0,74538.0,0
+Palisades,2009,0,74538.0,0
+Palisades,2010,0,74538.0,0
+Palisades,2011,1,74538.0,0
+Palisades,2012,2,74538.0,0
+Palisades,2013,4,74538.0,0
+Palisades,2014,0,74538.0,0
+Palisades,2015,3,74538.0,0
+Point Beach Nuclear Plant,1985,0,244110.0,0
+Point Beach Nuclear Plant,1986,0,244110.0,0
+Point Beach Nuclear Plant,1987,0,244110.0,0
+Point Beach Nuclear Plant,1988,0,244110.0,0
+Point Beach Nuclear Plant,1989,1,244110.0,0
+Point Beach Nuclear Plant,1990,0,244110.0,0
+Point Beach Nuclear Plant,1991,0,244110.0,0
+Point Beach Nuclear Plant,1992,1,244110.0,0
+Point Beach Nuclear Plant,1993,0,244110.0,0
+Point Beach Nuclear Plant,1994,0,244110.0,0
+Point Beach Nuclear Plant,1995,1,244110.0,0
+Point Beach Nuclear Plant,1996,0,244110.0,0
+Point Beach Nuclear Plant,1997,0,244110.0,0
+Point Beach Nuclear Plant,1998,1,244110.0,0
+Point Beach Nuclear Plant,1999,3,244110.0,0
+Point Beach Nuclear Plant,2000,2,244110.0,0
+Point Beach Nuclear Plant,2001,2,244110.0,0
+Point Beach Nuclear Plant,2002,1,244110.0,0
+Point Beach Nuclear Plant,2003,3,244110.0,0
+Point Beach Nuclear Plant,2004,1,244110.0,0
+Point Beach Nuclear Plant,2005,0,244110.0,0
+Point Beach Nuclear Plant,2006,1,244110.0,0
+Point Beach Nuclear Plant,2007,1,244110.0,0
+Point Beach Nuclear Plant,2008,4,244110.0,0
+Point Beach Nuclear Plant,2009,2,244110.0,0
+Point Beach Nuclear Plant,2010,1,244110.0,0
+Point Beach Nuclear Plant,2011,2,244110.0,0
+Point Beach Nuclear Plant,2012,2,244110.0,0
+Point Beach Nuclear Plant,2013,4,244110.0,0
+Point Beach Nuclear Plant,2014,6,244110.0,0
+Point Beach Nuclear Plant,2015,6,244110.0,0
+Waterford 3,1985,0,1182382.0,0
+Waterford 3,1986,1,1182382.0,0
+Waterford 3,1987,0,1182382.0,0
+Waterford 3,1988,1,1182382.0,0
+Waterford 3,1989,1,1182382.0,0
+Waterford 3,1990,0,1182382.0,0
+Waterford 3,1991,0,1182382.0,0
+Waterford 3,1992,0,1182382.0,0
+Waterford 3,1993,0,1182382.0,0
+Waterford 3,1994,1,1182382.0,0
+Waterford 3,1995,1,1182382.0,0
+Waterford 3,1996,1,1182382.0,0
+Waterford 3,1997,0,1182382.0,0
+Waterford 3,1998,1,1182382.0,0
+Waterford 3,1999,4,1182382.0,0
+Waterford 3,2000,0,1182382.0,0
+Waterford 3,2001,1,1182382.0,0
+Waterford 3,2002,3,1182382.0,0
+Waterford 3,2003,1,1182382.0,0
+Waterford 3,2004,7,1182382.0,0
+Waterford 3,2005,4,1182382.0,0
+Waterford 3,2006,1,1182382.0,0
+Waterford 3,2007,2,1182382.0,0
+Waterford 3,2008,4,1182382.0,0
+Waterford 3,2009,5,1182382.0,0
+Waterford 3,2010,1,1182382.0,0
+Waterford 3,2011,2,1182382.0,0
+Waterford 3,2012,3,1182382.0,0
+Waterford 3,2013,6,1182382.0,0
+Waterford 3,2014,9,1182382.0,0
+Waterford 3,2015,10,1182382.0,0
+Donald C Cook,1985,0,329466.0,0
+Donald C Cook,1986,0,329466.0,0
+Donald C Cook,1987,0,329466.0,0
+Donald C Cook,1988,0,329466.0,0
+Donald C Cook,1989,0,329466.0,0
+Donald C Cook,1990,0,329466.0,0
+Donald C Cook,1991,0,329466.0,0
+Donald C Cook,1992,0,329466.0,0
+Donald C Cook,1993,1,329466.0,0
+Donald C Cook,1994,0,329466.0,0
+Donald C Cook,1995,0,329466.0,0
+Donald C Cook,1996,0,329466.0,0
+Donald C Cook,1997,1,329466.0,0
+Donald C Cook,1998,0,329466.0,0
+Donald C Cook,1999,2,329466.0,0
+Donald C Cook,2000,2,329466.0,0
+Donald C Cook,2001,0,329466.0,0
+Donald C Cook,2002,3,329466.0,0
+Donald C Cook,2003,2,329466.0,0
+Donald C Cook,2004,3,329466.0,0
+Donald C Cook,2005,2,329466.0,0
+Donald C Cook,2006,5,329466.0,0
+Donald C Cook,2007,2,329466.0,0
+Donald C Cook,2008,2,329466.0,0
+Donald C Cook,2009,2,329466.0,0
+Donald C Cook,2010,3,329466.0,0
+Donald C Cook,2011,8,329466.0,0
+Donald C Cook,2012,6,329466.0,0
+Donald C Cook,2013,5,329466.0,0
+Donald C Cook,2014,10,329466.0,0
+Donald C Cook,2015,4,329466.0,0
+Joseph M Farley,1985,0,112404.0,0
+Joseph M Farley,1986,0,112404.0,0
+Joseph M Farley,1987,0,112404.0,0
+Joseph M Farley,1988,0,112404.0,0
+Joseph M Farley,1989,0,112404.0,0
+Joseph M Farley,1990,0,112404.0,0
+Joseph M Farley,1991,0,112404.0,0
+Joseph M Farley,1992,0,112404.0,0
+Joseph M Farley,1993,0,112404.0,0
+Joseph M Farley,1994,0,112404.0,0
+Joseph M Farley,1995,0,112404.0,0
+Joseph M Farley,1996,0,112404.0,0
+Joseph M Farley,1997,0,112404.0,0
+Joseph M Farley,1998,0,112404.0,0
+Joseph M Farley,1999,0,112404.0,0
+Joseph M Farley,2000,0,112404.0,0
+Joseph M Farley,2001,0,112404.0,0
+Joseph M Farley,2002,0,112404.0,0
+Joseph M Farley,2003,1,112404.0,0
+Joseph M Farley,2004,2,112404.0,0
+Joseph M Farley,2005,0,112404.0,0
+Joseph M Farley,2006,0,112404.0,0
+Joseph M Farley,2007,1,112404.0,0
+Joseph M Farley,2008,0,112404.0,0
+Joseph M Farley,2009,4,112404.0,0
+Joseph M Farley,2010,1,112404.0,0
+Joseph M Farley,2011,0,112404.0,0
+Joseph M Farley,2012,0,112404.0,0
+Joseph M Farley,2013,1,112404.0,0
+Joseph M Farley,2014,3,112404.0,0
+Joseph M Farley,2015,2,112404.0,0
+Palo Verde,1985,0,220124.0,0
+Palo Verde,1986,0,220124.0,0
+Palo Verde,1987,0,220124.0,0
+Palo Verde,1988,1,220124.0,0
+Palo Verde,1989,0,220124.0,0
+Palo Verde,1990,0,220124.0,0
+Palo Verde,1991,0,220124.0,0
+Palo Verde,1992,0,220124.0,0
+Palo Verde,1993,0,220124.0,0
+Palo Verde,1994,0,220124.0,0
+Palo Verde,1995,1,220124.0,0
+Palo Verde,1996,0,220124.0,0
+Palo Verde,1997,1,220124.0,0
+Palo Verde,1998,1,220124.0,0
+Palo Verde,1999,0,220124.0,0
+Palo Verde,2000,0,220124.0,0
+Palo Verde,2001,2,220124.0,0
+Palo Verde,2002,1,220124.0,0
+Palo Verde,2003,1,220124.0,0
+Palo Verde,2004,4,220124.0,0
+Palo Verde,2005,3,220124.0,0
+Palo Verde,2006,1,220124.0,0
+Palo Verde,2007,2,220124.0,0
+Palo Verde,2008,0,220124.0,0
+Palo Verde,2009,2,220124.0,0
+Palo Verde,2010,0,220124.0,0
+Palo Verde,2011,2,220124.0,0
+Palo Verde,2012,2,220124.0,0
+Palo Verde,2013,6,220124.0,0
+Palo Verde,2014,1,220124.0,0
+Palo Verde,2015,6,220124.0,0
+Calvert Cliffs Nuclear Power Plant,1985,0,316066.0,0
+Calvert Cliffs Nuclear Power Plant,1986,0,316066.0,0
+Calvert Cliffs Nuclear Power Plant,1987,0,316066.0,0
+Calvert Cliffs Nuclear Power Plant,1988,0,316066.0,0
+Calvert Cliffs Nuclear Power Plant,1989,0,316066.0,0
+Calvert Cliffs Nuclear Power Plant,1990,0,316066.0,0
+Calvert Cliffs Nuclear Power Plant,1991,0,316066.0,0
+Calvert Cliffs Nuclear Power Plant,1992,0,316066.0,0
+Calvert Cliffs Nuclear Power Plant,1993,1,316066.0,0
+Calvert Cliffs Nuclear Power Plant,1994,0,316066.0,0
+Calvert Cliffs Nuclear Power Plant,1995,0,316066.0,0
+Calvert Cliffs Nuclear Power Plant,1996,0,316066.0,0
+Calvert Cliffs Nuclear Power Plant,1997,2,316066.0,0
+Calvert Cliffs Nuclear Power Plant,1998,2,316066.0,0
+Calvert Cliffs Nuclear Power Plant,1999,0,316066.0,0
+Calvert Cliffs Nuclear Power Plant,2000,1,316066.0,0
+Calvert Cliffs Nuclear Power Plant,2001,0,316066.0,0
+Calvert Cliffs Nuclear Power Plant,2002,2,316066.0,0
+Calvert Cliffs Nuclear Power Plant,2003,0,316066.0,0
+Calvert Cliffs Nuclear Power Plant,2004,0,316066.0,0
+Calvert Cliffs Nuclear Power Plant,2005,1,316066.0,0
+Calvert Cliffs Nuclear Power Plant,2006,0,316066.0,0
+Calvert Cliffs Nuclear Power Plant,2007,2,316066.0,0
+Calvert Cliffs Nuclear Power Plant,2008,1,316066.0,0
+Calvert Cliffs Nuclear Power Plant,2009,2,316066.0,0
+Calvert Cliffs Nuclear Power Plant,2010,1,316066.0,0
+Calvert Cliffs Nuclear Power Plant,2011,2,316066.0,0
+Calvert Cliffs Nuclear Power Plant,2012,1,316066.0,0
+Calvert Cliffs Nuclear Power Plant,2013,3,316066.0,0
+Calvert Cliffs Nuclear Power Plant,2014,5,316066.0,0
+Calvert Cliffs Nuclear Power Plant,2015,3,316066.0,0
+Brunswick Nuclear,1985,0,262858.0,0
+Brunswick Nuclear,1986,0,262858.0,0
+Brunswick Nuclear,1987,1,262858.0,0
+Brunswick Nuclear,1988,0,262858.0,0
+Brunswick Nuclear,1989,0,262858.0,0
+Brunswick Nuclear,1990,0,262858.0,0
+Brunswick Nuclear,1991,0,262858.0,0
+Brunswick Nuclear,1992,1,262858.0,0
+Brunswick Nuclear,1993,0,262858.0,0
+Brunswick Nuclear,1994,0,262858.0,0
+Brunswick Nuclear,1995,0,262858.0,0
+Brunswick Nuclear,1996,1,262858.0,0
+Brunswick Nuclear,1997,0,262858.0,0
+Brunswick Nuclear,1998,2,262858.0,0
+Brunswick Nuclear,1999,1,262858.0,0
+Brunswick Nuclear,2000,1,262858.0,0
+Brunswick Nuclear,2001,1,262858.0,0
+Brunswick Nuclear,2002,4,262858.0,0
+Brunswick Nuclear,2003,2,262858.0,0
+Brunswick Nuclear,2004,1,262858.0,0
+Brunswick Nuclear,2005,2,262858.0,0
+Brunswick Nuclear,2006,4,262858.0,0
+Brunswick Nuclear,2007,2,262858.0,0
+Brunswick Nuclear,2008,0,262858.0,0
+Brunswick Nuclear,2009,6,262858.0,0
+Brunswick Nuclear,2010,8,262858.0,0
+Brunswick Nuclear,2011,8,262858.0,0
+Brunswick Nuclear,2012,12,262858.0,0
+Brunswick Nuclear,2013,11,262858.0,0
+Brunswick Nuclear,2014,14,262858.0,0
+Brunswick Nuclear,2015,5,262858.0,0
+Harris,1985,0,1603884.0,0
+Harris,1986,0,1603884.0,0
+Harris,1987,1,1603884.0,0
+Harris,1988,0,1603884.0,0
+Harris,1989,0,1603884.0,0
+Harris,1990,0,1603884.0,0
+Harris,1991,1,1603884.0,0
+Harris,1992,0,1603884.0,0
+Harris,1993,0,1603884.0,0
+Harris,1994,1,1603884.0,0
+Harris,1995,1,1603884.0,0
+Harris,1996,1,1603884.0,0
+Harris,1997,0,1603884.0,0
+Harris,1998,1,1603884.0,0
+Harris,1999,0,1603884.0,0
+Harris,2000,2,1603884.0,0
+Harris,2001,4,1603884.0,0
+Harris,2002,1,1603884.0,0
+Harris,2003,1,1603884.0,0
+Harris,2004,4,1603884.0,0
+Harris,2005,4,1603884.0,0
+Harris,2006,4,1603884.0,0
+Harris,2007,10,1603884.0,0
+Harris,2008,10,1603884.0,0
+Harris,2009,6,1603884.0,0
+Harris,2010,11,1603884.0,0
+Harris,2011,14,1603884.0,0
+Harris,2012,12,1603884.0,0
+Harris,2013,10,1603884.0,0
+Harris,2014,19,1603884.0,0
+Harris,2015,15,1603884.0,0
+Perry,1985,1,549241.0,0
+Perry,1986,0,549241.0,0
+Perry,1987,0,549241.0,0
+Perry,1988,0,549241.0,0
+Perry,1989,0,549241.0,0
+Perry,1990,0,549241.0,0
+Perry,1991,0,549241.0,0
+Perry,1992,0,549241.0,0
+Perry,1993,0,549241.0,0
+Perry,1994,0,549241.0,0
+Perry,1995,3,549241.0,0
+Perry,1996,0,549241.0,0
+Perry,1997,0,549241.0,0
+Perry,1998,3,549241.0,0
+Perry,1999,1,549241.0,0
+Perry,2000,1,549241.0,0
+Perry,2001,4,549241.0,0
+Perry,2002,1,549241.0,0
+Perry,2003,4,549241.0,0
+Perry,2004,2,549241.0,0
+Perry,2005,3,549241.0,0
+Perry,2006,0,549241.0,0
+Perry,2007,0,549241.0,0
+Perry,2008,4,549241.0,0
+Perry,2009,2,549241.0,0
+Perry,2010,1,549241.0,0
+Perry,2011,0,549241.0,0
+Perry,2012,3,549241.0,0
+Perry,2013,2,549241.0,0
+Perry,2014,4,549241.0,0
+Perry,2015,9,549241.0,0
+Braidwood Generation Station,1985,1,658920.0,0
+Braidwood Generation Station,1986,0,658920.0,0
+Braidwood Generation Station,1987,0,658920.0,0
+Braidwood Generation Station,1988,0,658920.0,0
+Braidwood Generation Station,1989,2,658920.0,0
+Braidwood Generation Station,1990,0,658920.0,0
+Braidwood Generation Station,1991,0,658920.0,0
+Braidwood Generation Station,1992,0,658920.0,0
+Braidwood Generation Station,1993,0,658920.0,0
+Braidwood Generation Station,1994,0,658920.0,0
+Braidwood Generation Station,1995,1,658920.0,0
+Braidwood Generation Station,1996,1,658920.0,0
+Braidwood Generation Station,1997,0,658920.0,0
+Braidwood Generation Station,1998,0,658920.0,0
+Braidwood Generation Station,1999,3,658920.0,0
+Braidwood Generation Station,2000,0,658920.0,0
+Braidwood Generation Station,2001,1,658920.0,0
+Braidwood Generation Station,2002,1,658920.0,0
+Braidwood Generation Station,2003,3,658920.0,0
+Braidwood Generation Station,2004,1,658920.0,0
+Braidwood Generation Station,2005,5,658920.0,0
+Braidwood Generation Station,2006,7,658920.0,0
+Braidwood Generation Station,2007,6,658920.0,0
+Braidwood Generation Station,2008,4,658920.0,0
+Braidwood Generation Station,2009,10,658920.0,0
+Braidwood Generation Station,2010,7,658920.0,0
+Braidwood Generation Station,2011,11,658920.0,0
+Braidwood Generation Station,2012,13,658920.0,0
+Braidwood Generation Station,2013,9,658920.0,0
+Braidwood Generation Station,2014,5,658920.0,0
+Braidwood Generation Station,2015,4,658920.0,0
+Byron Generating Station,1985,0,403348.0,0
+Byron Generating Station,1986,0,403348.0,0
+Byron Generating Station,1987,1,403348.0,0
+Byron Generating Station,1988,0,403348.0,0
+Byron Generating Station,1989,0,403348.0,0
+Byron Generating Station,1990,1,403348.0,0
+Byron Generating Station,1991,0,403348.0,0
+Byron Generating Station,1992,0,403348.0,0
+Byron Generating Station,1993,0,403348.0,0
+Byron Generating Station,1994,0,403348.0,0
+Byron Generating Station,1995,1,403348.0,0
+Byron Generating Station,1996,1,403348.0,0
+Byron Generating Station,1997,1,403348.0,0
+Byron Generating Station,1998,1,403348.0,0
+Byron Generating Station,1999,4,403348.0,0
+Byron Generating Station,2000,4,403348.0,0
+Byron Generating Station,2001,7,403348.0,0
+Byron Generating Station,2002,3,403348.0,0
+Byron Generating Station,2003,2,403348.0,0
+Byron Generating Station,2004,2,403348.0,0
+Byron Generating Station,2005,3,403348.0,0
+Byron Generating Station,2006,2,403348.0,0
+Byron Generating Station,2007,2,403348.0,0
+Byron Generating Station,2008,4,403348.0,0
+Byron Generating Station,2009,1,403348.0,0
+Byron Generating Station,2010,9,403348.0,0
+Byron Generating Station,2011,10,403348.0,0
+Byron Generating Station,2012,9,403348.0,0
+Byron Generating Station,2013,2,403348.0,0
+Byron Generating Station,2014,2,403348.0,0
+Byron Generating Station,2015,5,403348.0,0
+LaSalle Generating Station,1985,0,223699.0,0
+LaSalle Generating Station,1986,0,223699.0,0
+LaSalle Generating Station,1987,0,223699.0,0
+LaSalle Generating Station,1988,0,223699.0,0
+LaSalle Generating Station,1989,0,223699.0,0
+LaSalle Generating Station,1990,0,223699.0,0
+LaSalle Generating Station,1991,0,223699.0,0
+LaSalle Generating Station,1992,0,223699.0,0
+LaSalle Generating Station,1993,0,223699.0,0
+LaSalle Generating Station,1994,0,223699.0,0
+LaSalle Generating Station,1995,0,223699.0,0
+LaSalle Generating Station,1996,0,223699.0,0
+LaSalle Generating Station,1997,0,223699.0,0
+LaSalle Generating Station,1998,0,223699.0,0
+LaSalle Generating Station,1999,1,223699.0,0
+LaSalle Generating Station,2000,0,223699.0,0
+LaSalle Generating Station,2001,0,223699.0,0
+LaSalle Generating Station,2002,1,223699.0,0
+LaSalle Generating Station,2003,2,223699.0,0
+LaSalle Generating Station,2004,0,223699.0,0
+LaSalle Generating Station,2005,0,223699.0,0
+LaSalle Generating Station,2006,3,223699.0,0
+LaSalle Generating Station,2007,1,223699.0,0
+LaSalle Generating Station,2008,2,223699.0,0
+LaSalle Generating Station,2009,0,223699.0,0
+LaSalle Generating Station,2010,5,223699.0,0
+LaSalle Generating Station,2011,2,223699.0,0
+LaSalle Generating Station,2012,4,223699.0,0
+LaSalle Generating Station,2013,3,223699.0,0
+LaSalle Generating Station,2014,2,223699.0,0
+LaSalle Generating Station,2015,2,223699.0,0
+Catawba,1985,1,1497255.0,0
+Catawba,1986,0,1497255.0,0
+Catawba,1987,0,1497255.0,0
+Catawba,1988,0,1497255.0,0
+Catawba,1989,0,1497255.0,0
+Catawba,1990,0,1497255.0,0
+Catawba,1991,0,1497255.0,0
+Catawba,1992,1,1497255.0,0
+Catawba,1993,1,1497255.0,0
+Catawba,1994,1,1497255.0,0
+Catawba,1995,0,1497255.0,0
+Catawba,1996,0,1497255.0,0
+Catawba,1997,3,1497255.0,0
+Catawba,1998,1,1497255.0,0
+Catawba,1999,8,1497255.0,0
+Catawba,2000,1,1497255.0,0
+Catawba,2001,8,1497255.0,0
+Catawba,2002,5,1497255.0,0
+Catawba,2003,6,1497255.0,0
+Catawba,2004,9,1497255.0,0
+Catawba,2005,10,1497255.0,0
+Catawba,2006,4,1497255.0,0
+Catawba,2007,15,1497255.0,0
+Catawba,2008,12,1497255.0,0
+Catawba,2009,5,1497255.0,0
+Catawba,2010,11,1497255.0,0
+Catawba,2011,11,1497255.0,0
+Catawba,2012,12,1497255.0,0
+Catawba,2013,19,1497255.0,0
+Catawba,2014,23,1497255.0,0
+Catawba,2015,15,1497255.0,0
+McGuire,1985,0,1671661.0,0
+McGuire,1986,0,1671661.0,0
+McGuire,1987,0,1671661.0,0
+McGuire,1988,0,1671661.0,0
+McGuire,1989,0,1671661.0,0
+McGuire,1990,0,1671661.0,0
+McGuire,1991,0,1671661.0,0
+McGuire,1992,1,1671661.0,0
+McGuire,1993,1,1671661.0,0
+McGuire,1994,2,1671661.0,0
+McGuire,1995,2,1671661.0,0
+McGuire,1996,0,1671661.0,0
+McGuire,1997,3,1671661.0,0
+McGuire,1998,0,1671661.0,0
+McGuire,1999,9,1671661.0,0
+McGuire,2000,1,1671661.0,0
+McGuire,2001,9,1671661.0,0
+McGuire,2002,7,1671661.0,0
+McGuire,2003,8,1671661.0,0
+McGuire,2004,9,1671661.0,0
+McGuire,2005,7,1671661.0,0
+McGuire,2006,5,1671661.0,0
+McGuire,2007,16,1671661.0,0
+McGuire,2008,15,1671661.0,0
+McGuire,2009,5,1671661.0,0
+McGuire,2010,13,1671661.0,0
+McGuire,2011,12,1671661.0,0
+McGuire,2012,19,1671661.0,0
+McGuire,2013,18,1671661.0,0
+McGuire,2014,26,1671661.0,0
+McGuire,2015,19,1671661.0,0
+Beaver Valley,1985,1,1013084.0,0
+Beaver Valley,1986,1,1013084.0,0
+Beaver Valley,1987,0,1013084.0,0
+Beaver Valley,1988,1,1013084.0,0
+Beaver Valley,1989,0,1013084.0,0
+Beaver Valley,1990,0,1013084.0,0
+Beaver Valley,1991,0,1013084.0,0
+Beaver Valley,1992,0,1013084.0,0
+Beaver Valley,1993,1,1013084.0,0
+Beaver Valley,1994,3,1013084.0,0
+Beaver Valley,1995,0,1013084.0,0
+Beaver Valley,1996,1,1013084.0,0
+Beaver Valley,1997,2,1013084.0,0
+Beaver Valley,1998,2,1013084.0,0
+Beaver Valley,1999,6,1013084.0,0
+Beaver Valley,2000,4,1013084.0,0
+Beaver Valley,2001,2,1013084.0,0
+Beaver Valley,2002,6,1013084.0,0
+Beaver Valley,2003,5,1013084.0,0
+Beaver Valley,2004,5,1013084.0,0
+Beaver Valley,2005,3,1013084.0,0
+Beaver Valley,2006,2,1013084.0,0
+Beaver Valley,2007,4,1013084.0,0
+Beaver Valley,2008,7,1013084.0,0
+Beaver Valley,2009,6,1013084.0,0
+Beaver Valley,2010,10,1013084.0,0
+Beaver Valley,2011,5,1013084.0,0
+Beaver Valley,2012,21,1013084.0,0
+Beaver Valley,2013,19,1013084.0,0
+Beaver Valley,2014,18,1013084.0,0
+Beaver Valley,2015,14,1013084.0,0
+St Lucie,1985,0,491789.0,0
+St Lucie,1986,0,491789.0,0
+St Lucie,1987,0,491789.0,0
+St Lucie,1988,0,491789.0,0
+St Lucie,1989,0,491789.0,0
+St Lucie,1990,0,491789.0,0
+St Lucie,1991,1,491789.0,0
+St Lucie,1992,0,491789.0,0
+St Lucie,1993,0,491789.0,0
+St Lucie,1994,1,491789.0,0
+St Lucie,1995,1,491789.0,0
+St Lucie,1996,2,491789.0,0
+St Lucie,1997,1,491789.0,0
+St Lucie,1998,1,491789.0,0
+St Lucie,1999,1,491789.0,0
+St Lucie,2000,1,491789.0,0
+St Lucie,2001,2,491789.0,0
+St Lucie,2002,0,491789.0,0
+St Lucie,2003,0,491789.0,0
+St Lucie,2004,5,491789.0,0
+St Lucie,2005,4,491789.0,0
+St Lucie,2006,2,491789.0,0
+St Lucie,2007,4,491789.0,0
+St Lucie,2008,5,491789.0,0
+St Lucie,2009,8,491789.0,0
+St Lucie,2010,2,491789.0,0
+St Lucie,2011,7,491789.0,0
+St Lucie,2012,10,491789.0,0
+St Lucie,2013,14,491789.0,0
+St Lucie,2014,23,491789.0,0
+St Lucie,2015,12,491789.0,0
+Edwin I Hatch,1985,0,44122.0,0
+Edwin I Hatch,1986,0,44122.0,0
+Edwin I Hatch,1987,0,44122.0,0
+Edwin I Hatch,1988,0,44122.0,0
+Edwin I Hatch,1989,0,44122.0,0
+Edwin I Hatch,1990,0,44122.0,0
+Edwin I Hatch,1991,0,44122.0,0
+Edwin I Hatch,1992,0,44122.0,0
+Edwin I Hatch,1993,0,44122.0,0
+Edwin I Hatch,1994,0,44122.0,0
+Edwin I Hatch,1995,0,44122.0,0
+Edwin I Hatch,1996,0,44122.0,0
+Edwin I Hatch,1997,0,44122.0,0
+Edwin I Hatch,1998,0,44122.0,0
+Edwin I Hatch,1999,0,44122.0,0
+Edwin I Hatch,2000,1,44122.0,0
+Edwin I Hatch,2001,0,44122.0,0
+Edwin I Hatch,2002,0,44122.0,0
+Edwin I Hatch,2003,0,44122.0,0
+Edwin I Hatch,2004,0,44122.0,0
+Edwin I Hatch,2005,0,44122.0,0
+Edwin I Hatch,2006,0,44122.0,0
+Edwin I Hatch,2007,0,44122.0,0
+Edwin I Hatch,2008,1,44122.0,0
+Edwin I Hatch,2009,0,44122.0,0
+Edwin I Hatch,2010,1,44122.0,0
+Edwin I Hatch,2011,0,44122.0,0
+Edwin I Hatch,2012,1,44122.0,0
+Edwin I Hatch,2013,0,44122.0,0
+Edwin I Hatch,2014,0,44122.0,0
+Edwin I Hatch,2015,0,44122.0,0
+Grand Gulf,1985,0,38815.0,0
+Grand Gulf,1986,0,38815.0,0
+Grand Gulf,1987,0,38815.0,0
+Grand Gulf,1988,0,38815.0,0
+Grand Gulf,1989,0,38815.0,0
+Grand Gulf,1990,0,38815.0,0
+Grand Gulf,1991,0,38815.0,0
+Grand Gulf,1992,0,38815.0,0
+Grand Gulf,1993,0,38815.0,0
+Grand Gulf,1994,0,38815.0,0
+Grand Gulf,1995,0,38815.0,0
+Grand Gulf,1996,0,38815.0,0
+Grand Gulf,1997,0,38815.0,0
+Grand Gulf,1998,0,38815.0,0
+Grand Gulf,1999,0,38815.0,0
+Grand Gulf,2000,0,38815.0,0
+Grand Gulf,2001,0,38815.0,0
+Grand Gulf,2002,0,38815.0,0
+Grand Gulf,2003,0,38815.0,0
+Grand Gulf,2004,0,38815.0,0
+Grand Gulf,2005,0,38815.0,0
+Grand Gulf,2006,0,38815.0,0
+Grand Gulf,2007,0,38815.0,0
+Grand Gulf,2008,1,38815.0,0
+Grand Gulf,2009,0,38815.0,0
+Grand Gulf,2010,0,38815.0,0
+Grand Gulf,2011,2,38815.0,0
+Grand Gulf,2012,0,38815.0,0
+Grand Gulf,2013,0,38815.0,0
+Grand Gulf,2014,0,38815.0,0
+Grand Gulf,2015,0,38815.0,0
+Diablo Canyon,1985,0,325957.0,0
+Diablo Canyon,1986,0,325957.0,0
+Diablo Canyon,1987,0,325957.0,0
+Diablo Canyon,1988,0,325957.0,0
+Diablo Canyon,1989,0,325957.0,0
+Diablo Canyon,1990,0,325957.0,0
+Diablo Canyon,1991,0,325957.0,0
+Diablo Canyon,1992,0,325957.0,0
+Diablo Canyon,1993,0,325957.0,0
+Diablo Canyon,1994,0,325957.0,0
+Diablo Canyon,1995,1,325957.0,0
+Diablo Canyon,1996,0,325957.0,0
+Diablo Canyon,1997,0,325957.0,0
+Diablo Canyon,1998,3,325957.0,0
+Diablo Canyon,1999,1,325957.0,0
+Diablo Canyon,2000,5,325957.0,0
+Diablo Canyon,2001,4,325957.0,0
+Diablo Canyon,2002,2,325957.0,0
+Diablo Canyon,2003,4,325957.0,0
+Diablo Canyon,2004,3,325957.0,0
+Diablo Canyon,2005,2,325957.0,0
+Diablo Canyon,2006,4,325957.0,0
+Diablo Canyon,2007,6,325957.0,0
+Diablo Canyon,2008,6,325957.0,0
+Diablo Canyon,2009,1,325957.0,0
+Diablo Canyon,2010,4,325957.0,0
+Diablo Canyon,2011,0,325957.0,0
+Diablo Canyon,2012,4,325957.0,0
+Diablo Canyon,2013,1,325957.0,0
+Diablo Canyon,2014,6,325957.0,0
+Diablo Canyon,2015,4,325957.0,0
+TalenEnergy Susquehanna,1985,0,406134.0,0
+TalenEnergy Susquehanna,1986,0,406134.0,0
+TalenEnergy Susquehanna,1987,0,406134.0,0
+TalenEnergy Susquehanna,1988,0,406134.0,0
+TalenEnergy Susquehanna,1989,0,406134.0,0
+TalenEnergy Susquehanna,1990,0,406134.0,0
+TalenEnergy Susquehanna,1991,0,406134.0,0
+TalenEnergy Susquehanna,1992,0,406134.0,0
+TalenEnergy Susquehanna,1993,0,406134.0,0
+TalenEnergy Susquehanna,1994,1,406134.0,0
+TalenEnergy Susquehanna,1995,0,406134.0,0
+TalenEnergy Susquehanna,1996,1,406134.0,0
+TalenEnergy Susquehanna,1997,0,406134.0,0
+TalenEnergy Susquehanna,1998,0,406134.0,0
+TalenEnergy Susquehanna,1999,1,406134.0,0
+TalenEnergy Susquehanna,2000,3,406134.0,0
+TalenEnergy Susquehanna,2001,1,406134.0,0
+TalenEnergy Susquehanna,2002,6,406134.0,0
+TalenEnergy Susquehanna,2003,3,406134.0,0
+TalenEnergy Susquehanna,2004,0,406134.0,0
+TalenEnergy Susquehanna,2005,0,406134.0,0
+TalenEnergy Susquehanna,2006,1,406134.0,0
+TalenEnergy Susquehanna,2007,5,406134.0,0
+TalenEnergy Susquehanna,2008,8,406134.0,0
+TalenEnergy Susquehanna,2009,4,406134.0,0
+TalenEnergy Susquehanna,2010,7,406134.0,0
+TalenEnergy Susquehanna,2011,7,406134.0,0
+TalenEnergy Susquehanna,2012,7,406134.0,0
+TalenEnergy Susquehanna,2013,5,406134.0,0
+TalenEnergy Susquehanna,2014,6,406134.0,0
+TalenEnergy Susquehanna,2015,3,406134.0,0
+Limerick,1985,1,4510301.0,0
+Limerick,1986,0,4510301.0,0
+Limerick,1987,0,4510301.0,0
+Limerick,1988,1,4510301.0,0
+Limerick,1989,2,4510301.0,0
+Limerick,1990,1,4510301.0,0
+Limerick,1991,1,4510301.0,0
+Limerick,1992,2,4510301.0,0
+Limerick,1993,0,4510301.0,0
+Limerick,1994,1,4510301.0,0
+Limerick,1995,4,4510301.0,0
+Limerick,1996,4,4510301.0,0
+Limerick,1997,2,4510301.0,0
+Limerick,1998,4,4510301.0,0
+Limerick,1999,6,4510301.0,0
+Limerick,2000,7,4510301.0,0
+Limerick,2001,13,4510301.0,0
+Limerick,2002,14,4510301.0,0
+Limerick,2003,14,4510301.0,0
+Limerick,2004,18,4510301.0,0
+Limerick,2005,8,4510301.0,0
+Limerick,2006,18,4510301.0,0
+Limerick,2007,10,4510301.0,0
+Limerick,2008,26,4510301.0,0
+Limerick,2009,17,4510301.0,0
+Limerick,2010,17,4510301.0,0
+Limerick,2011,18,4510301.0,0
+Limerick,2012,35,4510301.0,0
+Limerick,2013,32,4510301.0,0
+Limerick,2014,51,4510301.0,0
+Limerick,2015,19,4510301.0,0
+James A Fitzpatrick,1985,0,180548.0,0
+James A Fitzpatrick,1986,0,180548.0,0
+James A Fitzpatrick,1987,0,180548.0,0
+James A Fitzpatrick,1988,0,180548.0,0
+James A Fitzpatrick,1989,0,180548.0,0
+James A Fitzpatrick,1990,0,180548.0,0
+James A Fitzpatrick,1991,0,180548.0,0
+James A Fitzpatrick,1992,0,180548.0,0
+James A Fitzpatrick,1993,1,180548.0,0
+James A Fitzpatrick,1994,1,180548.0,0
+James A Fitzpatrick,1995,0,180548.0,0
+James A Fitzpatrick,1996,0,180548.0,0
+James A Fitzpatrick,1997,0,180548.0,0
+James A Fitzpatrick,1998,0,180548.0,0
+James A Fitzpatrick,1999,0,180548.0,0
+James A Fitzpatrick,2000,2,180548.0,0
+James A Fitzpatrick,2001,0,180548.0,0
+James A Fitzpatrick,2002,0,180548.0,0
+James A Fitzpatrick,2003,0,180548.0,0
+James A Fitzpatrick,2004,0,180548.0,0
+James A Fitzpatrick,2005,1,180548.0,0
+James A Fitzpatrick,2006,0,180548.0,0
+James A Fitzpatrick,2007,1,180548.0,0
+James A Fitzpatrick,2008,0,180548.0,0
+James A Fitzpatrick,2009,3,180548.0,0
+James A Fitzpatrick,2010,2,180548.0,0
+James A Fitzpatrick,2011,1,180548.0,0
+James A Fitzpatrick,2012,5,180548.0,0
+James A Fitzpatrick,2013,4,180548.0,0
+James A Fitzpatrick,2014,9,180548.0,0
+James A Fitzpatrick,2015,7,180548.0,0
+Seabrook,1985,2,1440810.0,0
+Seabrook,1986,0,1440810.0,0
+Seabrook,1987,1,1440810.0,0
+Seabrook,1988,2,1440810.0,0
+Seabrook,1989,1,1440810.0,0
+Seabrook,1990,1,1440810.0,0
+Seabrook,1991,2,1440810.0,0
+Seabrook,1992,1,1440810.0,0
+Seabrook,1993,1,1440810.0,0
+Seabrook,1994,0,1440810.0,0
+Seabrook,1995,2,1440810.0,0
+Seabrook,1996,0,1440810.0,0
+Seabrook,1997,0,1440810.0,0
+Seabrook,1998,3,1440810.0,0
+Seabrook,1999,7,1440810.0,0
+Seabrook,2000,6,1440810.0,0
+Seabrook,2001,3,1440810.0,0
+Seabrook,2002,3,1440810.0,0
+Seabrook,2003,9,1440810.0,0
+Seabrook,2004,7,1440810.0,0
+Seabrook,2005,5,1440810.0,0
+Seabrook,2006,4,1440810.0,0
+Seabrook,2007,6,1440810.0,0
+Seabrook,2008,7,1440810.0,0
+Seabrook,2009,7,1440810.0,0
+Seabrook,2010,12,1440810.0,0
+Seabrook,2011,14,1440810.0,0
+Seabrook,2012,30,1440810.0,0
+Seabrook,2013,28,1440810.0,0
+Seabrook,2014,33,1440810.0,0
+Seabrook,2015,20,1440810.0,0
+PSEG Hope Creek Generating Station,1985,0,809299.0,0
+PSEG Hope Creek Generating Station,1986,0,809299.0,0
+PSEG Hope Creek Generating Station,1987,0,809299.0,0
+PSEG Hope Creek Generating Station,1988,0,809299.0,0
+PSEG Hope Creek Generating Station,1989,1,809299.0,0
+PSEG Hope Creek Generating Station,1990,0,809299.0,0
+PSEG Hope Creek Generating Station,1991,1,809299.0,0
+PSEG Hope Creek Generating Station,1992,0,809299.0,0
+PSEG Hope Creek Generating Station,1993,2,809299.0,0
+PSEG Hope Creek Generating Station,1994,0,809299.0,0
+PSEG Hope Creek Generating Station,1995,1,809299.0,0
+PSEG Hope Creek Generating Station,1996,2,809299.0,0
+PSEG Hope Creek Generating Station,1997,0,809299.0,0
+PSEG Hope Creek Generating Station,1998,0,809299.0,0
+PSEG Hope Creek Generating Station,1999,4,809299.0,0
+PSEG Hope Creek Generating Station,2000,3,809299.0,0
+PSEG Hope Creek Generating Station,2001,2,809299.0,0
+PSEG Hope Creek Generating Station,2002,3,809299.0,0
+PSEG Hope Creek Generating Station,2003,5,809299.0,0
+PSEG Hope Creek Generating Station,2004,2,809299.0,0
+PSEG Hope Creek Generating Station,2005,3,809299.0,0
+PSEG Hope Creek Generating Station,2006,5,809299.0,0
+PSEG Hope Creek Generating Station,2007,6,809299.0,0
+PSEG Hope Creek Generating Station,2008,6,809299.0,0
+PSEG Hope Creek Generating Station,2009,5,809299.0,0
+PSEG Hope Creek Generating Station,2010,4,809299.0,0
+PSEG Hope Creek Generating Station,2011,7,809299.0,0
+PSEG Hope Creek Generating Station,2012,11,809299.0,0
+PSEG Hope Creek Generating Station,2013,10,809299.0,0
+PSEG Hope Creek Generating Station,2014,15,809299.0,0
+PSEG Hope Creek Generating Station,2015,8,809299.0,0
+R E Ginna Nuclear Power Plant,1985,0,486341.0,0
+R E Ginna Nuclear Power Plant,1986,0,486341.0,0
+R E Ginna Nuclear Power Plant,1987,0,486341.0,0
+R E Ginna Nuclear Power Plant,1988,0,486341.0,0
+R E Ginna Nuclear Power Plant,1989,0,486341.0,0
+R E Ginna Nuclear Power Plant,1990,0,486341.0,0
+R E Ginna Nuclear Power Plant,1991,2,486341.0,0
+R E Ginna Nuclear Power Plant,1992,0,486341.0,0
+R E Ginna Nuclear Power Plant,1993,3,486341.0,0
+R E Ginna Nuclear Power Plant,1994,0,486341.0,0
+R E Ginna Nuclear Power Plant,1995,2,486341.0,0
+R E Ginna Nuclear Power Plant,1996,2,486341.0,0
+R E Ginna Nuclear Power Plant,1997,3,486341.0,0
+R E Ginna Nuclear Power Plant,1998,1,486341.0,0
+R E Ginna Nuclear Power Plant,1999,3,486341.0,0
+R E Ginna Nuclear Power Plant,2000,2,486341.0,0
+R E Ginna Nuclear Power Plant,2001,2,486341.0,0
+R E Ginna Nuclear Power Plant,2002,5,486341.0,0
+R E Ginna Nuclear Power Plant,2003,1,486341.0,0
+R E Ginna Nuclear Power Plant,2004,4,486341.0,0
+R E Ginna Nuclear Power Plant,2005,3,486341.0,0
+R E Ginna Nuclear Power Plant,2006,1,486341.0,0
+R E Ginna Nuclear Power Plant,2007,5,486341.0,0
+R E Ginna Nuclear Power Plant,2008,2,486341.0,0
+R E Ginna Nuclear Power Plant,2009,6,486341.0,0
+R E Ginna Nuclear Power Plant,2010,4,486341.0,0
+R E Ginna Nuclear Power Plant,2011,8,486341.0,0
+R E Ginna Nuclear Power Plant,2012,8,486341.0,0
+R E Ginna Nuclear Power Plant,2013,8,486341.0,0
+R E Ginna Nuclear Power Plant,2014,11,486341.0,0
+R E Ginna Nuclear Power Plant,2015,8,486341.0,0
+V C Summer,1985,0,353733.0,0
+V C Summer,1986,0,353733.0,0
+V C Summer,1987,0,353733.0,0
+V C Summer,1988,1,353733.0,0
+V C Summer,1989,0,353733.0,0
+V C Summer,1990,0,353733.0,0
+V C Summer,1991,0,353733.0,0
+V C Summer,1992,1,353733.0,0
+V C Summer,1993,1,353733.0,0
+V C Summer,1994,0,353733.0,0
+V C Summer,1995,0,353733.0,0
+V C Summer,1996,0,353733.0,0
+V C Summer,1997,0,353733.0,0
+V C Summer,1998,3,353733.0,0
+V C Summer,1999,0,353733.0,0
+V C Summer,2000,0,353733.0,0
+V C Summer,2001,3,353733.0,0
+V C Summer,2002,2,353733.0,0
+V C Summer,2003,2,353733.0,0
+V C Summer,2004,2,353733.0,0
+V C Summer,2005,2,353733.0,0
+V C Summer,2006,1,353733.0,0
+V C Summer,2007,0,353733.0,0
+V C Summer,2008,1,353733.0,0
+V C Summer,2009,3,353733.0,0
+V C Summer,2010,4,353733.0,0
+V C Summer,2011,3,353733.0,0
+V C Summer,2012,7,353733.0,0
+V C Summer,2013,9,353733.0,0
+V C Summer,2014,3,353733.0,0
+V C Summer,2015,4,353733.0,0
+Comanche Peak,1985,0,95458.0,0
+Comanche Peak,1986,0,95458.0,0
+Comanche Peak,1987,0,95458.0,0
+Comanche Peak,1988,0,95458.0,0
+Comanche Peak,1989,0,95458.0,0
+Comanche Peak,1990,0,95458.0,0
+Comanche Peak,1991,0,95458.0,0
+Comanche Peak,1992,0,95458.0,0
+Comanche Peak,1993,0,95458.0,0
+Comanche Peak,1994,0,95458.0,0
+Comanche Peak,1995,1,95458.0,0
+Comanche Peak,1996,0,95458.0,0
+Comanche Peak,1997,0,95458.0,0
+Comanche Peak,1998,1,95458.0,0
+Comanche Peak,1999,0,95458.0,0
+Comanche Peak,2000,0,95458.0,0
+Comanche Peak,2001,0,95458.0,0
+Comanche Peak,2002,3,95458.0,0
+Comanche Peak,2003,1,95458.0,0
+Comanche Peak,2004,1,95458.0,0
+Comanche Peak,2005,0,95458.0,0
+Comanche Peak,2006,0,95458.0,0
+Comanche Peak,2007,3,95458.0,0
+Comanche Peak,2008,3,95458.0,0
+Comanche Peak,2009,0,95458.0,0
+Comanche Peak,2010,1,95458.0,0
+Comanche Peak,2011,1,95458.0,0
+Comanche Peak,2012,1,95458.0,0
+Comanche Peak,2013,1,95458.0,0
+Comanche Peak,2014,1,95458.0,0
+Comanche Peak,2015,0,95458.0,0
+Davis Besse,1985,0,492132.0,0
+Davis Besse,1986,0,492132.0,0
+Davis Besse,1987,0,492132.0,0
+Davis Besse,1988,0,492132.0,0
+Davis Besse,1989,0,492132.0,0
+Davis Besse,1990,0,492132.0,0
+Davis Besse,1991,0,492132.0,0
+Davis Besse,1992,0,492132.0,0
+Davis Besse,1993,1,492132.0,0
+Davis Besse,1994,0,492132.0,0
+Davis Besse,1995,1,492132.0,0
+Davis Besse,1996,0,492132.0,0
+Davis Besse,1997,0,492132.0,0
+Davis Besse,1998,2,492132.0,0
+Davis Besse,1999,2,492132.0,0
+Davis Besse,2000,4,492132.0,0
+Davis Besse,2001,1,492132.0,0
+Davis Besse,2002,1,492132.0,0
+Davis Besse,2003,4,492132.0,0
+Davis Besse,2004,4,492132.0,0
+Davis Besse,2005,1,492132.0,0
+Davis Besse,2006,0,492132.0,0
+Davis Besse,2007,7,492132.0,0
+Davis Besse,2008,3,492132.0,0
+Davis Besse,2009,5,492132.0,0
+Davis Besse,2010,2,492132.0,0
+Davis Besse,2011,6,492132.0,0
+Davis Besse,2012,12,492132.0,0
+Davis Besse,2013,8,492132.0,0
+Davis Besse,2014,5,492132.0,0
+Davis Besse,2015,7,492132.0,0
+Sequoyah,1985,0,574523.0,0
+Sequoyah,1986,0,574523.0,0
+Sequoyah,1987,0,574523.0,0
+Sequoyah,1988,0,574523.0,0
+Sequoyah,1989,0,574523.0,0
+Sequoyah,1990,0,574523.0,0
+Sequoyah,1991,0,574523.0,0
+Sequoyah,1992,0,574523.0,0
+Sequoyah,1993,1,574523.0,0
+Sequoyah,1994,0,574523.0,0
+Sequoyah,1995,1,574523.0,0
+Sequoyah,1996,0,574523.0,0
+Sequoyah,1997,2,574523.0,0
+Sequoyah,1998,0,574523.0,0
+Sequoyah,1999,1,574523.0,0
+Sequoyah,2000,2,574523.0,0
+Sequoyah,2001,0,574523.0,0
+Sequoyah,2002,1,574523.0,0
+Sequoyah,2003,0,574523.0,0
+Sequoyah,2004,2,574523.0,0
+Sequoyah,2005,1,574523.0,0
+Sequoyah,2006,1,574523.0,0
+Sequoyah,2007,4,574523.0,0
+Sequoyah,2008,4,574523.0,0
+Sequoyah,2009,4,574523.0,0
+Sequoyah,2010,3,574523.0,0
+Sequoyah,2011,4,574523.0,0
+Sequoyah,2012,3,574523.0,0
+Sequoyah,2013,3,574523.0,0
+Sequoyah,2014,7,574523.0,0
+Sequoyah,2015,4,574523.0,0
+Callaway,1985,0,85029.0,0
+Callaway,1986,0,85029.0,0
+Callaway,1987,0,85029.0,0
+Callaway,1988,0,85029.0,0
+Callaway,1989,0,85029.0,0
+Callaway,1990,0,85029.0,0
+Callaway,1991,0,85029.0,0
+Callaway,1992,0,85029.0,0
+Callaway,1993,0,85029.0,0
+Callaway,1994,0,85029.0,0
+Callaway,1995,0,85029.0,0
+Callaway,1996,1,85029.0,0
+Callaway,1997,1,85029.0,0
+Callaway,1998,1,85029.0,0
+Callaway,1999,1,85029.0,0
+Callaway,2000,1,85029.0,0
+Callaway,2001,2,85029.0,0
+Callaway,2002,0,85029.0,0
+Callaway,2003,0,85029.0,0
+Callaway,2004,0,85029.0,0
+Callaway,2005,0,85029.0,0
+Callaway,2006,0,85029.0,0
+Callaway,2007,1,85029.0,0
+Callaway,2008,4,85029.0,0
+Callaway,2009,1,85029.0,0
+Callaway,2010,0,85029.0,0
+Callaway,2011,4,85029.0,0
+Callaway,2012,3,85029.0,0
+Callaway,2013,2,85029.0,0
+Callaway,2014,2,85029.0,0
+Callaway,2015,0,85029.0,0
+North Anna,1985,0,117992.0,0
+North Anna,1986,0,117992.0,0
+North Anna,1987,0,117992.0,0
+North Anna,1988,0,117992.0,0
+North Anna,1989,0,117992.0,0
+North Anna,1990,0,117992.0,0
+North Anna,1991,0,117992.0,0
+North Anna,1992,0,117992.0,0
+North Anna,1993,0,117992.0,0
+North Anna,1994,0,117992.0,0
+North Anna,1995,1,117992.0,0
+North Anna,1996,0,117992.0,0
+North Anna,1997,0,117992.0,0
+North Anna,1998,0,117992.0,0
+North Anna,1999,0,117992.0,0
+North Anna,2000,0,117992.0,0
+North Anna,2001,0,117992.0,0
+North Anna,2002,0,117992.0,0
+North Anna,2003,1,117992.0,0
+North Anna,2004,0,117992.0,0
+North Anna,2005,2,117992.0,0
+North Anna,2006,0,117992.0,0
+North Anna,2007,1,117992.0,0
+North Anna,2008,1,117992.0,0
+North Anna,2009,1,117992.0,0
+North Anna,2010,0,117992.0,0
+North Anna,2011,6,117992.0,0
+North Anna,2012,4,117992.0,0
+North Anna,2013,5,117992.0,0
+North Anna,2014,1,117992.0,0
+North Anna,2015,4,117992.0,0
+South Texas Project,1985,0,40533.0,0
+South Texas Project,1986,0,40533.0,0
+South Texas Project,1987,0,40533.0,0
+South Texas Project,1988,0,40533.0,0
+South Texas Project,1989,0,40533.0,0
+South Texas Project,1990,0,40533.0,0
+South Texas Project,1991,0,40533.0,0
+South Texas Project,1992,0,40533.0,0
+South Texas Project,1993,0,40533.0,0
+South Texas Project,1994,0,40533.0,0
+South Texas Project,1995,0,40533.0,0
+South Texas Project,1996,0,40533.0,0
+South Texas Project,1997,0,40533.0,0
+South Texas Project,1998,1,40533.0,0
+South Texas Project,1999,0,40533.0,0
+South Texas Project,2000,0,40533.0,0
+South Texas Project,2001,0,40533.0,0
+South Texas Project,2002,0,40533.0,0
+South Texas Project,2003,0,40533.0,0
+South Texas Project,2004,0,40533.0,0
+South Texas Project,2005,0,40533.0,0
+South Texas Project,2006,0,40533.0,0
+South Texas Project,2007,2,40533.0,0
+South Texas Project,2008,0,40533.0,0
+South Texas Project,2009,2,40533.0,0
+South Texas Project,2010,0,40533.0,0
+South Texas Project,2011,0,40533.0,0
+South Texas Project,2012,0,40533.0,0
+South Texas Project,2013,2,40533.0,0
+South Texas Project,2014,0,40533.0,0
+South Texas Project,2015,0,40533.0,0
+River Bend,1985,0,375892.0,0
+River Bend,1986,0,375892.0,0
+River Bend,1987,0,375892.0,0
+River Bend,1988,0,375892.0,0
+River Bend,1989,0,375892.0,0
+River Bend,1990,0,375892.0,0
+River Bend,1991,0,375892.0,0
+River Bend,1992,0,375892.0,0
+River Bend,1993,1,375892.0,0
+River Bend,1994,0,375892.0,0
+River Bend,1995,0,375892.0,0
+River Bend,1996,0,375892.0,0
+River Bend,1997,0,375892.0,0
+River Bend,1998,2,375892.0,0
+River Bend,1999,3,375892.0,0
+River Bend,2000,1,375892.0,0
+River Bend,2001,0,375892.0,0
+River Bend,2002,0,375892.0,0
+River Bend,2003,0,375892.0,0
+River Bend,2004,3,375892.0,0
+River Bend,2005,1,375892.0,0
+River Bend,2006,0,375892.0,0
+River Bend,2007,1,375892.0,0
+River Bend,2008,2,375892.0,0
+River Bend,2009,3,375892.0,0
+River Bend,2010,1,375892.0,0
+River Bend,2011,2,375892.0,0
+River Bend,2012,2,375892.0,0
+River Bend,2013,1,375892.0,0
+River Bend,2014,6,375892.0,0
+River Bend,2015,2,375892.0,0
+Cooper Nuclear Station,1985,0,22392.0,0
+Cooper Nuclear Station,1986,0,22392.0,0
+Cooper Nuclear Station,1987,0,22392.0,0
+Cooper Nuclear Station,1988,0,22392.0,0
+Cooper Nuclear Station,1989,0,22392.0,0
+Cooper Nuclear Station,1990,0,22392.0,0
+Cooper Nuclear Station,1991,0,22392.0,0
+Cooper Nuclear Station,1992,0,22392.0,0
+Cooper Nuclear Station,1993,0,22392.0,0
+Cooper Nuclear Station,1994,0,22392.0,0
+Cooper Nuclear Station,1995,0,22392.0,0
+Cooper Nuclear Station,1996,0,22392.0,0
+Cooper Nuclear Station,1997,0,22392.0,0
+Cooper Nuclear Station,1998,0,22392.0,0
+Cooper Nuclear Station,1999,0,22392.0,0
+Cooper Nuclear Station,2000,0,22392.0,0
+Cooper Nuclear Station,2001,0,22392.0,0
+Cooper Nuclear Station,2002,0,22392.0,0
+Cooper Nuclear Station,2003,0,22392.0,0
+Cooper Nuclear Station,2004,1,22392.0,0
+Cooper Nuclear Station,2005,0,22392.0,0
+Cooper Nuclear Station,2006,0,22392.0,0
+Cooper Nuclear Station,2007,0,22392.0,0
+Cooper Nuclear Station,2008,1,22392.0,0
+Cooper Nuclear Station,2009,0,22392.0,0
+Cooper Nuclear Station,2010,0,22392.0,0
+Cooper Nuclear Station,2011,0,22392.0,0
+Cooper Nuclear Station,2012,0,22392.0,0
+Cooper Nuclear Station,2013,0,22392.0,0
+Cooper Nuclear Station,2014,1,22392.0,0
+Cooper Nuclear Station,2015,2,22392.0,0
+Arkansas Nuclear One,1985,0,68309.0,0
+Arkansas Nuclear One,1986,0,68309.0,0
+Arkansas Nuclear One,1987,0,68309.0,0
+Arkansas Nuclear One,1988,0,68309.0,0
+Arkansas Nuclear One,1989,0,68309.0,0
+Arkansas Nuclear One,1990,0,68309.0,0
+Arkansas Nuclear One,1991,0,68309.0,0
+Arkansas Nuclear One,1992,0,68309.0,0
+Arkansas Nuclear One,1993,0,68309.0,0
+Arkansas Nuclear One,1994,0,68309.0,0
+Arkansas Nuclear One,1995,0,68309.0,0
+Arkansas Nuclear One,1996,0,68309.0,0
+Arkansas Nuclear One,1997,1,68309.0,0
+Arkansas Nuclear One,1998,0,68309.0,0
+Arkansas Nuclear One,1999,1,68309.0,0
+Arkansas Nuclear One,2000,1,68309.0,0
+Arkansas Nuclear One,2001,3,68309.0,0
+Arkansas Nuclear One,2002,0,68309.0,0
+Arkansas Nuclear One,2003,2,68309.0,0
+Arkansas Nuclear One,2004,4,68309.0,0
+Arkansas Nuclear One,2005,1,68309.0,0
+Arkansas Nuclear One,2006,1,68309.0,0
+Arkansas Nuclear One,2007,0,68309.0,0
+Arkansas Nuclear One,2008,0,68309.0,0
+Arkansas Nuclear One,2009,2,68309.0,0
+Arkansas Nuclear One,2010,3,68309.0,0
+Arkansas Nuclear One,2011,1,68309.0,0
+Arkansas Nuclear One,2012,3,68309.0,0
+Arkansas Nuclear One,2013,1,68309.0,0
+Arkansas Nuclear One,2014,1,68309.0,0
+Arkansas Nuclear One,2015,0,68309.0,0
+Indian Point 3,1985,6,5729558.0,0
+Indian Point 3,1986,0,5729558.0,0
+Indian Point 3,1987,0,5729558.0,0
+Indian Point 3,1988,2,5729558.0,0
+Indian Point 3,1989,7,5729558.0,0
+Indian Point 3,1990,1,5729558.0,0
+Indian Point 3,1991,5,5729558.0,0
+Indian Point 3,1992,3,5729558.0,0
+Indian Point 3,1993,2,5729558.0,0
+Indian Point 3,1994,0,5729558.0,0
+Indian Point 3,1995,0,5729558.0,0
+Indian Point 3,1996,2,5729558.0,0
+Indian Point 3,1997,3,5729558.0,0
+Indian Point 3,1998,6,5729558.0,0
+Indian Point 3,1999,10,5729558.0,0
+Indian Point 3,2000,10,5729558.0,0
+Indian Point 3,2001,10,5729558.0,0
+Indian Point 3,2002,6,5729558.0,0
+Indian Point 3,2003,8,5729558.0,0
+Indian Point 3,2004,14,5729558.0,0
+Indian Point 3,2005,14,5729558.0,0
+Indian Point 3,2006,10,5729558.0,0
+Indian Point 3,2007,14,5729558.0,0
+Indian Point 3,2008,17,5729558.0,0
+Indian Point 3,2009,14,5729558.0,0
+Indian Point 3,2010,18,5729558.0,0
+Indian Point 3,2011,13,5729558.0,0
+Indian Point 3,2012,24,5729558.0,0
+Indian Point 3,2013,18,5729558.0,0
+Indian Point 3,2014,27,5729558.0,0
+Indian Point 3,2015,26,5729558.0,0
+Watts Bar Nuclear Plant,1985,0,149126.0,0
+Watts Bar Nuclear Plant,1986,0,149126.0,0
+Watts Bar Nuclear Plant,1987,0,149126.0,0
+Watts Bar Nuclear Plant,1988,0,149126.0,0
+Watts Bar Nuclear Plant,1989,0,149126.0,0
+Watts Bar Nuclear Plant,1990,0,149126.0,0
+Watts Bar Nuclear Plant,1991,0,149126.0,0
+Watts Bar Nuclear Plant,1992,0,149126.0,0
+Watts Bar Nuclear Plant,1993,0,149126.0,0
+Watts Bar Nuclear Plant,1994,0,149126.0,0
+Watts Bar Nuclear Plant,1995,0,149126.0,0
+Watts Bar Nuclear Plant,1996,0,149126.0,0
+Watts Bar Nuclear Plant,1997,0,149126.0,0
+Watts Bar Nuclear Plant,1998,0,149126.0,0
+Watts Bar Nuclear Plant,1999,0,149126.0,0
+Watts Bar Nuclear Plant,2000,1,149126.0,0
+Watts Bar Nuclear Plant,2001,0,149126.0,0
+Watts Bar Nuclear Plant,2002,0,149126.0,0
+Watts Bar Nuclear Plant,2003,0,149126.0,0
+Watts Bar Nuclear Plant,2004,1,149126.0,0
+Watts Bar Nuclear Plant,2005,0,149126.0,0
+Watts Bar Nuclear Plant,2006,0,149126.0,0
+Watts Bar Nuclear Plant,2007,1,149126.0,0
+Watts Bar Nuclear Plant,2008,1,149126.0,0
+Watts Bar Nuclear Plant,2009,1,149126.0,0
+Watts Bar Nuclear Plant,2010,2,149126.0,0
+Watts Bar Nuclear Plant,2011,1,149126.0,0
+Watts Bar Nuclear Plant,2012,1,149126.0,0
+Watts Bar Nuclear Plant,2013,2,149126.0,0
+Watts Bar Nuclear Plant,2014,5,149126.0,0
+Watts Bar Nuclear Plant,2015,3,149126.0,0

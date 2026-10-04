@@ -1,0 +1,23 @@
+{
+ "catalog": {
+  "n_mine": 58171,
+  "n_pipeline": 58171,
+  "only_mine": 0,
+  "only_pipeline": 0,
+  "time_mismatch": 0,
+  "coord_mismatch": 0,
+  "dup_site_codes": 0,
+  "only_pipeline_examples": [],
+  "only_mine_examples": []
+ },
+ "window": {
+  "n_points": 501744,
+  "exact_agree_1500": 1.0,
+  "exact_agree_500": 1.0,
+  "binary_agree_1500": 1.0,
+  "n_pipe_pos": 4744,
+  "n_mine_pos": 4744,
+  "n_disagree": 0,
+  "flipped_window_binary_agree": 0.989385025032686
+ }
+}

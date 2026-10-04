@@ -1,0 +1,10 @@
+expected,expected_utc,gcat_tag,gcat_date,LV,mission,site,site_name,lat,lon,dt_min
+Iridium-4 Falcon 9 VAFB (twilight 'LA UFO'),2017-12-23 01:27,2017-082 ,2017 Dec 23 0126:22,H-IIA 202,GCOM-C/SLATGS,TNSC,"Tanegashima Space Center, Tanegashima, Nippon",30.4,130.97,-0.6333333333333333
+Iridium-4 Falcon 9 VAFB (twilight 'LA UFO'),2017-12-23 01:27,2017-083 ,2017 Dec 23 0127:34,Falcon 9,Iridium Next SV31-40,VS,"South Vandenberg AFB, California",34.63,-120.61,0.5666666666666667
+"Minotaur V LADEE, Wallops",2013-09-07 03:27,2013-047 ,2013 Sep  7 0327:00,Minotaur V,LADEE,MARS,"Mid-Atlantic Regional Spaceport, Wallops Island, Virginia",37.83,-75.48,0.0
+"Minotaur I ORS-3, Wallops",2013-11-20 01:15,2013-064 ,2013 Nov 20 0115,Minotaur I,ORS-3,MARS,"Mid-Atlantic Regional Spaceport, Wallops Island, Virginia",37.83,-75.48,0.0
+STS-51L Challenger,1986-01-28 16:38,1986-F01  ,1986 Jan 28 1638:00,Space Shuttle,OV-099 IUS deploy,KSC,"NASA John F. Kennedy Space Center, Florida",28.6083,-80.6041,0.0
+STS-51L Challenger,1986-01-28 16:38,1986-W21  ,1986 Jan 28 1640:00,Rocketsonde,-,PM,"Naval Missile and Astronautics Center, Point Mugu, California",34.12,-119.12,2.0
+Apollo 11,1969-07-16 13:32,1969-059 ,1969 Jul 16 1332:00,Saturn V,Apollo CM-107,KSC,"NASA John F. Kennedy Space Center, Florida",28.6083,-80.6041,0.0
+Falcon Heavy demo,2018-02-06 20:45,2018-017 ,2018 Feb  6 2045,Falcon Heavy,Tesla Roadster,KSC,"NASA John F. Kennedy Space Center, Florida",28.6083,-80.6041,0.0
+Antares Orb-3 (failure),2014-10-28 22:22,2014-F02  ,2014 Oct 28 2222:30,Antares 130,Cygnus Orb-3,MARS,"Mid-Atlantic Regional Spaceport, Wallops Island, Virginia",37.83,-75.48,0.5
