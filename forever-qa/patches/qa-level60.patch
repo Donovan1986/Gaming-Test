@@ -1,0 +1,11 @@
+--- a/src/server/game/Miscellaneous/SharedDefines.h
++++ b/src/server/game/Miscellaneous/SharedDefines.h
+@@ -111,7 +111,7 @@ constexpr uint32 GetMaxLevelForExpansion(uint32 expansion)
+     switch (expansion)
+     {
+         case EXPANSION_CLASSIC:
+-            return 30;
++            return 60; // ForeverQA local lab: allow level 60 (revert: git apply -R)
+         case EXPANSION_THE_BURNING_CRUSADE:
+             return 30;
+         case EXPANSION_WRATH_OF_THE_LICH_KING:
